@@ -10,10 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_28_105932) do
+ActiveRecord::Schema.define(version: 2022_02_28_114952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.string "photo_url"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "recap_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recap_id"], name: "index_favorites_on_recap_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.text "comment"
+    t.integer "star"
+    t.bigint "user_id", null: false
+    t.bigint "recap_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recap_id"], name: "index_ratings_on_recap_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
+  create_table "recaps", force: :cascade do |t|
+    t.text "summary"
+    t.bigint "user_id", null: false
+    t.bigint "book_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_recaps_on_book_id"
+    t.index ["user_id"], name: "index_recaps_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +62,17 @@ ActiveRecord::Schema.define(version: 2022_02_28_105932) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorites", "recaps"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "ratings", "recaps"
+  add_foreign_key "ratings", "users"
+  add_foreign_key "recaps", "books"
+  add_foreign_key "recaps", "users"
 end
