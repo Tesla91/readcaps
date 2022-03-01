@@ -1,0 +1,41 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  border-radius: 20px;
+  margin-left: 80px;
+  margin-right: 80px;
+  height: 50vh;
+  position: relative;
+}
+
+.banner-container {
+  position: absolute;
+  bottom: 60px;
+  left: 50px
+}
+
+.banner h1 {
+  margin: 0;
+  color: $yellow;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+  font-weight: bold;
+  font-family: $headers-font;
+}
+
+.banner h5 {
+  margin: 0;
+  color: $black;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+
+.banner p {
+  font-size: 15px;
+  color: $black;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
