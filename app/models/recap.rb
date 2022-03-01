@@ -4,5 +4,5 @@ class Recap < ApplicationRecord
   has_many :ratings
 
   validates :summary, presence: true, length: { minimum: 50 }
-  validates :user, uniqueness: { scope: :book }
+  # validates :user, uniqueness: { scope: :book }
 end

@@ -13,12 +13,12 @@ class RecapsController < ApplicationController
   end
 
   def create
-    @recap = Recap.new(recap_params)
     @book = Book.find(params[:book_id])
+    @recap = Recap.new(recap_params)
     @recap.book = @book
     @recap.user = current_user
     if @recap.save
-      redirect_to book_path(@book[:book_id]), notice: 'recap was successfully created'
+      redirect_to book_recaps_path(@book), notice: 'recap was successfully created'
     else
       render :new
     end

@@ -1,6 +1,6 @@
 <h1>All of your book recaps:</h1>
 
 <% @recaps.each do |recap| %>
-  <h2><%= recap.user_id %></h2>
+  <h2><%= recap.user.username %></h2>
   <p><%= recap.summary %></p>
 <% end %>
