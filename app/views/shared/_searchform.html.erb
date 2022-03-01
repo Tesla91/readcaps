@@ -1,0 +1,8 @@
+<%= simple_form_for :search, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search by title, author"
+        %>
+        <%= submit_tag "Search", class: "btn-action" %>
+      <% end %>
