@@ -1,4 +1,6 @@
 class RecapsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show new]
+
   def index
     @recaps = Recap.all
   end
