@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $bg-color;
+  padding: 15px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +10,29 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.logo {
+  font-family: 'Playfair Display';
+  color: #10BCC2;
+  font-size: 33px;
+  font-weight: bolder;
+}
+
+.nav-link {
+  margin-right: 25px;
+  font-size: 21px;
+}
+
+form {
+  width: 600px;
+  display: flex;
+}
+
+input[type=text] {
+  width: 450px;
+  margin-right: 5px;
+  background-color: $light-grey;
+  border-radius: 6px;
+  border-color: transparent;
 }
