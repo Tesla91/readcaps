@@ -1,3 +1,11 @@
+require "open-uri"
+require "json"
+
+url = "https://www.googleapis.com/books/v1/users/102817767719508217692/bookshelves/0/volumes?key=AIzaSyB2JkrpLAnGFV2hqVXiJAYSdMwv6hqSFKA"
+user_serialized = URI.open(url).read
+user = JSON.parse(user_serialized)
+books = user["items"]
+
 puts "Deleting old records"
 Favorite.destroy_all
 Rating.destroy_all
@@ -15,13 +23,19 @@ user3 = User.create!(email: "lisa@lisa.com", password: "lisa123", first_name: "L
 user4 = User.create!(email: "nick@nick.com", password: "nick123", first_name: "Nick", last_name: "Sun", username: "nickita")
 user5 = User.create!(email: "kurt@kurt.com", password: "kurt123", first_name: "Kurt", last_name: "Cloud", username: "kurtbert")
 
-# Book seed (from API -> TB combined)
+# Book seeds
 puts "Creating books"
-book1 = Book.create!(title: "Harry Potter and the Philosopher's Stone", author:"J. K. Rowling", photo_url: "google.com", description: "This is the first part of Harry Potter")
-book2 = Book.create!(title: "Harry Potter and the Chamber of Secrets", author:"J. K. Rowling", photo_url: "google.com", description: "This is the second part of Harry Potter")
-book3 = Book.create!(title: "Harry Potter and the Prisoner of Azkaban", author:"J. K. Rowling", photo_url: "google.com", description: "This is the third part of Harry Potter")
-book4 = Book.create!(title: "Harry Potter and the Goblet of Fire", author:"J. K. Rowling", photo_url: "google.com", description: "This is the fourth part of Harry Potter")
-book5 = Book.create!(title: "Harry Potter and the Order of the Phoenix ", author:"J. K. Rowling", photo_url: "google.com", description: "This is the fifth part of Harry Potter")
+books.each do |book|
+ Book.create!(title: book["volumeInfo"]["title"], author: book["volumeInfo"]["authors"],
+             description: book["volumeInfo"]["description"],
+             photo_url: book["volumeInfo"]["imageLinks"]["thumbnail"])
+end
+
+book1 = Book.find(1) 
+book2 = Book.find(2) 
+book3 = Book.find(3) 
+book4 = Book.find(4) 
+book5 = Book.find(5) 
 
 # Recap seeds
 puts "Creating recaps"
@@ -46,6 +60,5 @@ favorite2 = Favorite.create!(user_id: user1.id, recap_id: recap2.id)
 favorite3 = Favorite.create!(user_id: user4.id, recap_id: recap3.id)
 favorite4 = Favorite.create!(user_id: user3.id, recap_id: recap4.id)
 favorite5 = Favorite.create!(user_id: user2.id, recap_id: recap5.id)
-
 
 puts 'All done seeding'
