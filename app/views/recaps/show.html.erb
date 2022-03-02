@@ -1,3 +1,19 @@
 <h1>This is your chosen recap:</h1>
 
-<h1><%= @recap.summary %></h1>
+<div class="recap-cards">
+
+      <!-- Show 5 random book recaps-->
+      <% @recaps = Recap.where(book_id: @recap.book.id) %>
+      <% @recaps.each do |recap| %>
+        <%= link_to recap, style:"text-decoration: none; color: black" do %>
+        <div class="card-all">
+          <img src="<%= recap.book.photo_url %>">
+          <div class= "card-all-infos">
+
+            <h2><%= recap.title %></h2>
+            <p><%= recap.user.username %></p>
+          </div>
+        </div>
+        <%end%>
+      <%end%>
+  </div>
