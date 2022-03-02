@@ -2,20 +2,48 @@
   <div class="banner-container-recaps">
   <h6><strong>Author:</strong> J.K. Rowling</h6>
     <h1><strong>Your chosen book recap.</strong></h1>
-    <p>Ratings will go here link will need to be implemented.</p>
+      <div class="mt-3">
+        <% @recap.ratings.average("star").round.times do %>
+          <i class="fas fa-star" style="color: #F6AE2D;"></i>
+        <% end %>
+        <strong><%= @recap.ratings.average("star").round(1) %></strong>
+      </div>
+      <a href="#rating-cards" class="rating-link"><p><%= @recap.ratings.count %> Ratings</p></a>
   </div>
 </div>
 
 <h1><%= @recap.summary %></h1>
 
-<div class="container">
+<div class="container" id="rating-cards">
+  <h2>Reviews</h2>
+  <button type="button" class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">Add review</button>
 
-  <p>Average rating: </p>
-  <%= @recap.ratings.average("star").round(1) %>
-
-  <%= simple_form_for [ @recap, @rating ] do |f| %>
-    <%= f.input :comment, label: "Leave your review here"  %>
-    <%= f.input :star, collection: 0..5 %>
-    <%= f.submit "Submit review", class: "btn-action" %>
+  <% @recap.ratings.each do |r| %>
+    <ul class="mt-2">
+      <li class="list-group-item"><%= r.star %> - <%= r.comment %></li>
+    </ul>
   <% end %>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [ @recap, @rating ] do |f| %>
+          <%= f.input :comment, label: "Leave your review here"  %>
+          <%= f.input :star, label: "Rating", collection: 0..5 %>
+          <%= f.submit "Submit review", class: "btn-action" %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-action">Submit review</button>
+      </div>
+    </div>
+  </div>
 </div>
