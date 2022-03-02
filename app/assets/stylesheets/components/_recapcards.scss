@@ -13,14 +13,14 @@
   border-radius: 10px;
   padding: 10px;
   align-items: center;
-  background-color: $light-beige;
-  opacity: 0.6;
 }
 
 .card-all img {
   height: 200px;
   object-fit: contain;
   border: 1px solid rgba(156, 153, 153, 0.479);
+  background-color: $light-beige;
+  opacity: 0.6;
 }
 
 .card-all h2 {
@@ -39,6 +39,6 @@
   padding: 16px;
 }
 
-.card-all:hover {
+.card-all img:hover {
   opacity: 1;
 }
