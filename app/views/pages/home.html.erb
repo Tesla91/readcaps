@@ -9,6 +9,7 @@
   </div>
 </div>
 
+
 <div class= "container p-6">
   <h1>Popular Now:</h1>
 
@@ -17,15 +18,20 @@
       <% @recaps = Recap.all.sample(5) %>
       <% @recaps.each do |recap| %>
         <%= link_to recap, style:"text-decoration: none; color: black" do %>
-        <div class="card-all">
-          <img src="<%= recap.book.photo_url %>">
-          <div class= "card-all-infos">
-
-            <h2><%= recap.title %></h2>
-            <p><%= recap.user.username %></p>
+          <div class="card-all">
+            <img src="<%= recap.book.photo_url %>">
+            <div class= "card-all-infos">
+              <h2><%= recap.title %></h2>
+              <p><%= recap.user.username %></p>
+            </div>
           </div>
-        </div>
         <%end%>
       <%end%>
   </div>
+</div>
+
+<div class="container mt-4">
+  <%= link_to books_path do %>
+    <button class="button-action" type="submit">See all books that have recaps</button>
+  <% end %>
 </div>
