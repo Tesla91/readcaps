@@ -1,3 +1,16 @@
 <h1>This is your chosen recap:</h1>
 
 <h1><%= @recap.summary %></h1>
+
+
+<div class="container">
+
+<p>Average rating: </p>
+<%= @recap.ratings.average("star").round(1) %>
+
+  <%= simple_form_for [ @recap, @rating ] do |f| %>
+    <%= f.input :comment, label: "Leave your review here"  %>
+    <%= f.input :star, collection: 0..5 %>
+    <%= f.submit "Submit review", class: "btn-action" %>
+  <% end %>
+</div>
