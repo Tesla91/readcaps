@@ -1,12 +1,10 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
-
 }
 
 .card-book {
-  background: $light-grey;
+  background: $bg-color;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
@@ -14,28 +12,44 @@
   border-radius: 10px;
 }
 
-.card-book > img {
-  height: 200px;
+.card-image {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: $light-grey;
+  padding: 30px;
+}
+.card-image:hover {
+  transition: all 0.2s ease-out;
+  background-color: $yellow-op;
+}
+
+.card-image > img {
+  height: 260px;
   width: 100%;
   object-fit: contain;
-  padding-top: 15px;
+}
+.card-info {
+  padding: 10px;
+  height: 80px;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  flex-direction: column;
 }
 
-.card-book h2 {
+.card-info h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 250px;
 }
 
-.card-book h3 {
+.card-info p {
   font-size: 15px;
   margin: 0;
-}
-
-.card-book p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
+  color: $grey;
 }
 
 // Smallest device
@@ -54,7 +68,7 @@
     overflow-x: hidden !important;
   }
   .cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -84,6 +98,6 @@
     overflow-x: hidden !important;
   }
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
