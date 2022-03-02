@@ -26,7 +26,9 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to new_user_session_path do %>
+              <button class="btn-action" type="submit">Log in</button>
+            <% end %>
           </li>
         <% end %>
       </ul>
