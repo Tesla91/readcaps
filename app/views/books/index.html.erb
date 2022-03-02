@@ -4,9 +4,13 @@
   <div class="cards">
     <% @books.each do |book| %>
       <div class="card-book">
-        <%= image_tag book.photo_url, crop: :fit %>
-        <h2><%= book.title %></h2>
-        <h3><%= book.author %></h3>
+        <div class="card-image">
+          <%= image_tag book.photo_url, crop: :fit %>
+        </div>
+        <div class="card-info">
+          <h2><%= book.title %></h2>
+          <p><%= book.author %></p>
+        </div>
       </div>
     <% end %>
   </div>
