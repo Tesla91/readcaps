@@ -26,16 +26,16 @@ user5 = User.create!(email: "kurt@kurt.com", password: "kurt123", first_name: "K
 # Book seeds
 puts "Creating books"
 books.each do |book|
- Book.create!(title: book["volumeInfo"]["title"], author: book["volumeInfo"]["authors"],
+  Book.create!(title: book["volumeInfo"]["title"], author: book["volumeInfo"]["authors"],
              description: book["volumeInfo"]["description"],
              photo_url: book["volumeInfo"]["imageLinks"]["thumbnail"])
 end
 
-book1 = Book.find(1) 
-book2 = Book.find(2) 
-book3 = Book.find(3) 
-book4 = Book.find(4) 
-book5 = Book.find(5) 
+book1 = Book.find_by(title: "Fahrenheit 451")
+book2 = Book.find_by(title: "Hi-Fi")
+book3 = Book.find_by(title: "21 Lessons for the 21st Century")
+book4 = Book.find_by(title: "Sapiens")
+book5 = Book.find_by(title: "Harry Potter and the Goblet of Fire")
 
 # Recap seeds
 puts "Creating recaps"
