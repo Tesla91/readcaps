@@ -1,5 +1,6 @@
+// Login
 .form-login {
-  background: white;
+  background: $light-beige;
   padding: 10px 20px;
   margin-top: 50px;
   border-radius: 3px;
@@ -10,8 +11,16 @@
     margin-bottom: 30px;
     text-align: center;
   }
-  .btn {
-    width: 100%;
-    margin-bottom: 20px
-  }
 }
+
+.form-inputs {
+  align-items: flex-end;
+}
+.form-actions .btn-action {
+  justify-content: end;
+  width: 100%;
+  margin-bottom: 20px;
+  color: $bg-color;
+}
+
+// Adding recap form
