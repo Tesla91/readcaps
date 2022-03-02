@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mb-5">
   <% if params[:query].present? %>
     <h1 class="text-center title-card">Your results for your search:</h1>
   <% else %>
@@ -6,7 +6,8 @@
   <% end %>
   <br>
   <div class="cards">
-    <% @books.each do |book| %>
+    <% books_sorted = @books.order('title ASC')%>
+    <% books_sorted.each do |book| %>
       <% @recaps = Recap.where(book_id: book.id) %>
         <%= link_to book_recaps_path(:book_id => book.id), class: "a", style: "color: $black;" do %>
         <div class="card-book">

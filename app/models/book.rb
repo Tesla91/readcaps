@@ -1,9 +1,9 @@
 class Book < ApplicationRecord
+  before_create :set_default_description
   has_many :recaps, dependent: :destroy
 
   validates :title, presence: true
   validates :author, presence: true
-  validates :description, presence: true
 
   include PgSearch::Model
 
@@ -14,4 +14,10 @@ class Book < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+
+  private
+
+  def set_default_description
+    self.description = "No description given" if description.nil?
+  end
 end
