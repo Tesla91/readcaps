@@ -1,1 +1,13 @@
-<h1>Your results for your search:</h1>
+<div class="container">
+  <h1>Your results for your search:</h1>
+
+  <div class="cards">
+    <% @books.each do |book| %>
+      <div class="card-book">
+        <%= image_tag book.photo_url, crop: :fit %>
+        <h2><%= book.title %></h2>
+        <h3><%= book.author %></h3>
+      </div>
+    <% end %>
+  </div>
+</div>
