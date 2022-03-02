@@ -1,7 +1,7 @@
 require "open-uri"
 require "json"
 
-url = "https://www.googleapis.com/books/v1/users/102817767719508217692/bookshelves/0/volumes?key=AIzaSyB2JkrpLAnGFV2hqVXiJAYSdMwv6hqSFKA"
+url = "https://www.googleapis.com/books/v1/users/102817767719508217692/bookshelves/0/volumes?maxResults=40&key=AIzaSyB2JkrpLAnGFV2hqVXiJAYSdMwv6hqSFKA"
 user_serialized = URI.open(url).read
 user = JSON.parse(user_serialized)
 books = user["items"]
