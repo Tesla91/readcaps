@@ -11,7 +11,7 @@ class RatingsController < ApplicationController
     @rating.recap = @recap
 
     if @rating.save
-      redirect_to recap_path(@recap)
+      redirect_to recap_path(@recap, anchor: "rating-#{@rating.id}")
     else
       render 'recaps/show'
     end
