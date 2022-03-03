@@ -1,8 +1,20 @@
-<h1>All of your book recaps:</h1>
+<div class="container">
+  <h1>All of your book recaps:</h1>
 
-<% @recaps.each do |recap| %>
-  <%= link_to recap, class: "a", style: "color: $black;" do %>
-    <h2><%= recap.user.username %></h2>
-    <p><%= recap.summary %></p>
-  <% end %>
-<% end %>
+  <div class="recap-cards">
+
+    <% @recaps = Recap.where(book_id: params[:book_id]) %>
+    <% @recaps.each do |recap| %>
+      <%= link_to recap, style:"text-decoration: none; color: black" do %>
+      <div class="card-all">
+        <img src="<%= recap.book.photo_url %>">
+        <div class= "card-all-infos">
+
+          <h2><%= recap.title %></h2>
+          <p><%= recap.user.username %></p>
+        </div>
+      </div>
+      <%end%>
+    <%end%>
+  </div>
+</div>

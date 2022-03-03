@@ -13,32 +13,34 @@
   border-radius: 10px;
   padding: 10px;
   align-items: center;
-  background-color: $light-beige;
-  opacity: 0.6;
 }
 
 .card-all img {
   height: 200px;
   object-fit: contain;
   border: 1px solid rgba(156, 153, 153, 0.479);
+  background-color: $light-beige;
+  opacity: 0.6;
 }
 
 .card-all h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  font-family: $headers-font;
 }
 
 .card-all p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  font-family: $body-font;
 }
 
 .card-all .card-all-infos {
   padding: 16px;
 }
 
-.card-all:hover {
+.card-all img:hover {
   opacity: 1;
 }
