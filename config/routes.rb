@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :books, only: :index do
     resources :recaps, only: [:index, :new, :create]
   end
-  resources :recaps, only: :show do
+  resources :recaps do
     resources :ratings, only: [:create]
   end
 end

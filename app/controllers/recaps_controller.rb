@@ -27,6 +27,13 @@ class RecapsController < ApplicationController
     end
   end
 
+  def destroy
+    @recap = Recap.find(params[:id])
+    @recap.destroy
+
+    redirect_to root_path
+  end
+
   private
 
   def recap_params

@@ -92,3 +92,9 @@
     </div>
   </div>
 </div>
+
+<% if @recap.user == current_user %>
+  <%= link_to "Delete", recap_path(@recap), class: "btn btn-action", method: :delete, data: { confirm: "Are you sure you want to delete this recap?"} %>
+<% else %>
+  <p class="btn btn-action">Add recap to my library</p>
+<% end %>
