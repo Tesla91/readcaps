@@ -33,7 +33,26 @@
   <div class="recap-cards">
       <!-- Show 5 random book recaps-->
       <% @recaps = Recap.all.sample(5) %>
+
+      <% @recaps.each do |recap| %>
+        <%= link_to recap, style:"text-decoration: none; color: black" do %>
+          <div class="card-all">
+            <img src="<%= recap.book.photo_url %>" class="recap-img">
+              <h2><%= recap.title %></h2>
+             <div style="display: flex; margin-top: 5px;">
+              <p style="margin-right: 5px;"><%= recap.user.username %></p>
+                <% if recap.user.avatar.attached? %>
+                    <%= image_tag recap.user.avatar, class: "recap-avatar" %>
+                  <% else %>
+                    <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
+                <% end %>
+              </div>
+          </div>
+        <%end%>
+      <%end%>
+
       <%= render "shared/recapcards" %>
+
   </div>
 </div>
 

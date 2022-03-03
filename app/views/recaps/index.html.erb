@@ -2,8 +2,7 @@
   <h1>All of your book recaps:</h1>
 
   <div class="recap-cards">
-
     <% @recaps = Recap.where(book_id: params[:book_id]) %>
-      <%= render "shared/recapcards" %>
+    <%= render "shared/recapcards" %>
   </div>
 </div>
