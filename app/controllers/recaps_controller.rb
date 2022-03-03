@@ -28,7 +28,12 @@ class RecapsController < ApplicationController
   end
 
   def all_recaps
-    @recaps = Recap.all
+    if params[:top] == "yes"
+      recaps_all = Recap.all
+      @recaps = recaps_all.map { |recap| recap if recap.ratings.average("star") > 3 }.compact.order('title ASC')
+    else
+      @recaps = Recap.all.order('title ASC')
+    end
   end
 
   private
