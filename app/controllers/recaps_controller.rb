@@ -27,6 +27,16 @@ class RecapsController < ApplicationController
     end
   end
 
+  def edit
+    @recap = Recap.find(params[:id])
+  end
+
+  def update
+    @recap = Recap.find(params[:id])
+    @recap.update(recap_params)
+    redirect_to recap_path(@recap)
+  end
+
   def destroy
     @recap = Recap.find(params[:id])
     @recap.destroy
@@ -37,6 +47,6 @@ class RecapsController < ApplicationController
   private
 
   def recap_params
-    params.require(:recap).permit(:summary, :user_id, :book_id)
+    params.require(:recap).permit(:summary, :title, :user_id, :book_id)
   end
 end
