@@ -15,7 +15,7 @@
   align-items: center;
 }
 
-.card-all img {
+.recap-img {
   height: 200px;
   object-fit: contain;
   border: 1px solid rgba(156, 153, 153, 0.479);
@@ -31,7 +31,7 @@
 }
 
 .card-all p {
-  font-size: 12px;
+  font-size: 15px;
   opacity: .7;
   margin: 0;
   font-family: $body-font;
@@ -41,6 +41,11 @@
   padding: 16px;
 }
 
-.card-all img:hover {
+.recap-img:hover {
   opacity: 1;
+}
+
+.recap-avatar {
+  width: 25px;
+  border-radius: 50%;
 }
