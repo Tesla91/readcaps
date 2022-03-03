@@ -76,8 +76,19 @@
       <% @recap.ratings.each do |r| %>
         <div class="review-card">
           <p id="rating-<%= r.id %>"></p>
-          <h4><%= r.user.username %></h4>
-          <p> <i class="fas fa-star" style="color: #F6AE2D;"></i> <%= r.star.to_f %></p>
+            <div style="display: flex;">
+              <div style="margin-right: 10px;">
+                <% if r.user.avatar.attached? %>
+                  <%= image_tag r.user.avatar, class: "avatar" %>
+                <% else %>
+                  <%= image_tag "default-avatar.png", class: "avatar" %>
+                <% end %>
+              </div>
+            <div>
+              <h4><%= r.user.username %></h4>
+              <p> <i class="fas fa-star" style="color: #F6AE2D;"></i> <%= r.star.to_f %></p>
+            </div>
+          </div>
           <p><%= r.comment %></p>
         </div>
       <% end %>
