@@ -1,3 +1,4 @@
+<!-- Banner with title, author, rating -->
 <div class="banner" style="background-image: url(<%= image_url "banner.png" %>);">
   <div class="container">
     <h6><strong>Author:</strong> J.K. Rowling</h6>
@@ -43,6 +44,7 @@
   </div>
 </div>
 
+<!-- Recap cards -->
 <div class="recap-cards">
   <% @recaps = Recap.where(book_id: @recap.book.id) %>
   <% @recaps.each do |recap| %>
@@ -59,18 +61,28 @@
   <%end%>
 </div>
 
+<!-- Recap summary -->
 <h1><%= @recap.summary %></h1>
 
-<div class="container" id="rating-cards">
-  <h2>Reviews</h2>
-  <button type="button" class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">Add review</button>
-  <% @recap.ratings.each do |r| %>
-    <ul class="mt-2">
-      <li class="list-group-item">
-        <p id="rating-<%= r.id %>"><%= r.star %> - <%= r.comment %></p>
-      </li>
-    </ul>
-  <% end %>
+<!-- Review cards -->
+<div class="review-container" id="rating-cards">
+ <div class="row">
+  <div class="col-6">
+    <div class="review-header">
+      <h3>Reviews on <%= @recap.user.username %>'s recap</h3>
+      <button type="button" class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">Add review</button>
+    </div>
+
+      <% @recap.ratings.each do |r| %>
+        <div class="review-card">
+          <p id="rating-<%= r.id %>"></p>
+          <h4><%= r.user.username %></h4>
+          <p> <i class="fas fa-star" style="color: #F6AE2D;"></i> <%= r.star.to_f %></p>
+          <p><%= r.comment %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <!-- Modal with review form -->
