@@ -19,6 +19,17 @@ class RatingsController < ApplicationController
     redirect_to recap_path(@rating.recap, anchor: "anchor-review")
   end
 
+  def update
+    @rating = Rating.find(params[:id])
+    @rating.update(params[:rating_params])
+
+    if @rating.update(params[:rating_params])
+      redirect_to recap_path(@recap, anchor: "rating-#{@rating.id}")
+    else
+      render 'recaps/show'
+    end
+  end
+
   private
 
   def rating_params
