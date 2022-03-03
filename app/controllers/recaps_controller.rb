@@ -3,6 +3,7 @@ class RecapsController < ApplicationController
 
   def index
     @recaps = Recap.all
+    @book = Book.find(params[:book_id])
   end
 
   def show
@@ -40,7 +41,7 @@ class RecapsController < ApplicationController
   def destroy
     @recap = Recap.find(params[:id])
     @recap.destroy
-  
+
     redirect_to root_path
   end
 
