@@ -35,28 +35,27 @@
 
   <% @recap.ratings.each do |r| %>
     <ul class="mt-2">
-      <li class="list-group-item"><%= r.star %> - <%= r.comment %></li>
+      <li class="list-group-item">
+        <p id="rating-<%= r.id %>"><%= r.star %> - <%= r.comment %></p>
+      </li>
     </ul>
   <% end %>
 </div>
 
-<!-- Modal -->
+<!-- Modal with review form -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tell us what you think</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [ @recap, @rating ] do |f| %>
-          <%= f.input :comment, label: "Leave your review here"  %>
+        <%= simple_form_for([ @recap, @rating ], remote: true) do |f| %>
+          <%= f.input :comment, label: "Comment"  %>
           <%= f.input :star, label: "Rating", collection: 0..5 %>
           <%= f.submit "Submit review", class: "btn-action" %>
         <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-action">Submit review</button>
       </div>
     </div>
   </div>
