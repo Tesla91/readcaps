@@ -1,5 +1,6 @@
 require "open-uri"
 require "json"
+require 'faker'
 
 url = "https://www.googleapis.com/books/v1/users/102817767719508217692/bookshelves/0/volumes?maxResults=40&key=#{ENV['GOOGLE_API_KEY']}"
 user_serialized = URI.open(url).read
@@ -18,10 +19,24 @@ puts "All done deleting old records"
 puts "Creating users"
 
 user1 = User.create!(email: "bob@bob.com", password: "bob123", first_name: "Bob", last_name: "Doe", username: "boblicious")
+user1.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upload/v1645790349/development/male_d9m7gk.jpg'),
+filename: 'avatar1.jpg', content_type: 'image/png')
 user2 = User.create!(email: "tod@tod.com", password: "tod123", first_name: "Tod", last_name: "Sue", username: "toddy123")
+user2.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upload/v1645790517/development/NY9hnAbp_fc5umz.jpg'),
+filename: 'avatar2.jpg', content_type: 'image/png')
 user3 = User.create!(email: "lisa@lisa.com", password: "lisa123", first_name: "Lisa", last_name: "Moon", username: "lovelisa")
+user3.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upload/v1645790349/development/female2_esrwlh.jpg'),
+filename: 'avatar3.jpg', content_type: 'image/png')
 user4 = User.create!(email: "nick@nick.com", password: "nick123", first_name: "Nick", last_name: "Sun", username: "nickita")
+user4.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upload/v1645790517/development/86_cyfljg.jpg'),
+filename: 'avatar4.jpg', content_type: 'image/png')
 user5 = User.create!(email: "kurt@kurt.com", password: "kurt123", first_name: "Kurt", last_name: "Cloud", username: "kurtbert")
+user5.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upload/v1645790517/development/AW-rdWlG_ag3u6f.jpg'),
+filename: 'avatar5.jpg', content_type: 'image/png')
+
+20.times do
+  user = User.create!(email: Faker::Internet.email, password: Faker::Internet.password, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Internet.username(specifier: 6..10))
+end
 
 # Book seeds
 puts "Creating books"
