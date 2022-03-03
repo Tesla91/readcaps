@@ -3,13 +3,11 @@
   <div class="container">
     <h6><strong>Author:</strong> J.K. Rowling</h6>
     <h1><strong>Your chosen book recap.</strong></h1>
-    <div class="mt-3">
-      <% @recap.ratings.average("star").round.times do %>
-        <i class="fas fa-star" style="color: #F6AE2D;"></i>
-      <% end %>
-      <strong><%= @recap.ratings.average("star").round(1) %></strong>
-    </div>
-    <a href="#rating-cards" class="rating-link"><p><%= @recap.ratings.count %> Ratings</p></a>
+    <% if @recap.ratings.average("star") == nil %>
+      <a href="#rating-cards" class="rating-link"><p>Be the first to leave a review!</p></a>
+    <% else %>
+      <%= render "shared/rating" %>
+    <% end %>
   </div>
 </div>
 
@@ -50,9 +48,6 @@
   <%= render "shared/recapcards" %>
 </div>
 
-<!-- Recap summary -->
-<h1><%= @recap.summary %></h1>
-
 <!-- Review cards -->
 <div class="review-container" id="rating-cards">
  <div class="row">
@@ -62,25 +57,32 @@
       <button type="button" class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">Add review</button>
     </div>
 
+     <div id="anchor-review">
       <% @recap.ratings.each do |r| %>
-        <div class="review-card">
-          <p id="rating-<%= r.id %>"></p>
-            <div style="display: flex;">
-              <div style="margin-right: 10px;">
-                <% if r.user.avatar.attached? %>
-                  <%= image_tag r.user.avatar, class: "avatar" %>
-                <% else %>
-                  <%= image_tag "default-avatar.png", class: "avatar" %>
-                <% end %>
+          <div class="review-card">
+            <p id="rating-<%= r.id %>"></p>
+              <div style="display: flex;">
+                <div style="margin-right: 10px;">
+                  <% if r.user.avatar.attached? %>
+                    <%= image_tag r.user.avatar, class: "avatar" %>
+                  <% else %>
+                    <%= image_tag "default-avatar.png", class: "avatar" %>
+                  <% end %>
+                </div>
+              <div>
+                <h4><%= r.user.username %></h4>
+                <p> <i class="fas fa-star" style="color: #F6AE2D;"></i> <%= r.star.to_f %></p>
               </div>
-            <div>
-              <h4><%= r.user.username %></h4>
-              <p> <i class="fas fa-star" style="color: #F6AE2D;"></i> <%= r.star.to_f %></p>
             </div>
+            <p><%= r.comment %></p>
+              <% if r.user == current_user %>
+                <%= link_to rating_path(r), method: :delete, remote: true, data: { confirm: "Are you sure you want to delete this review?"} do %>
+                 <i class="far fa-trash-alt"></i>
+                <% end %>
+              <% end %>
           </div>
-          <p><%= r.comment %></p>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
