@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :recaps
   has_many :favorites
   has_many :ratings
+  has_one_attached :avatar
 
   validates :first_name, presence: true, length: { in: 3..20 }
   validates :last_name, presence: true, length: { in: 3..20 }
