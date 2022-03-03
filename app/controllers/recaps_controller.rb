@@ -1,5 +1,5 @@
 class RecapsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show new]
+  skip_before_action :authenticate_user!, only: %i[index show new all_recaps]
 
   def index
     @recaps = Recap.all
@@ -25,6 +25,10 @@ class RecapsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def all_recaps
+    @recaps = Recap.all
   end
 
   private
