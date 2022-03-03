@@ -27,12 +27,14 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  font-family: $headers-font;
 }
 
 .card-all p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  font-family: $body-font;
 }
 
 .card-all .card-all-infos {
