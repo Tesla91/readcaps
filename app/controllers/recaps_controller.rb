@@ -1,5 +1,5 @@
 class RecapsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show new]
+  skip_before_action :authenticate_user!, only: %i[index show new all_recaps]
 
   def index
     @recaps = Recap.all
@@ -40,8 +40,17 @@ class RecapsController < ApplicationController
   def destroy
     @recap = Recap.find(params[:id])
     @recap.destroy
-
+  
     redirect_to root_path
+  end
+
+  def all_recaps
+    if params[:top] == "yes"
+      recaps_all = Recap.all
+      @recaps = recaps_all.map { |recap| recap if recap.ratings.average("star") > 3 }.compact.order('title ASC')
+    else
+      @recaps = Recap.all.order('title ASC')
+    end
   end
 
   private

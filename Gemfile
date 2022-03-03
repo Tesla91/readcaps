@@ -67,3 +67,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pg_search', '~> 2.3.0'
 
 gem "turbolinks_render"
+
+gem 'cloudinary', '~> 1.16.0'
+
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
