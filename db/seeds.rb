@@ -58,28 +58,28 @@ recap1 = Recap.create!(summary: "Dumbledore is dead and both Hogwarts and the Mi
                        control. Harry, Ron, and Hermione set out on a quest to find the remaining Horcruxes, destroying
                        which could defeat Voldemort once and for all. However, the Horcruxes soon become a test of
                        endurance for the three friends. And when Harry learns of the legendary Deathly Hallows, he
-                       begins to doubt which path is right for him.", user_id: user5.id, book_id: book1.id, title: "Holistic sum")
+                       begins to doubt which path is right for him.", user_id: user5.id, book_id: book1.id, title: "Holistic sum", keypoint: "Character analysis on point")
 recap2 = Recap.create!(summary: "Strange things are happening at Hogwarts in Harry's second year. Gradually, students
                        are found petrified in the corridors and everything points to a mysterious chamber that Hagrid
                        is said to have something to do with. New Defense Against the Dark Arts teacher Gilderoy Lockhart
                         seems far from qualified, and when Dumbledore is eventually suspended, Harry, Ron and Hermione
-                        set out to solve the mystery themselves.", user_id: user1.id, book_id: book2.id, title: "Potter in short")
+                        set out to solve the mystery themselves.", user_id: user1.id, book_id: book2.id, title: "Potter in short", keypoint: "Voldermort is eveil")
 recap3 = Recap.create!(summary: "Harry can't wait for the end of the vacation, especially when Vernon's sister announces
                        her visit. Trouble is inevitable and eventually Harry runs away - much to the concern of the
                        wizarding community as felon Sirius Black has broken out of prison and is believed to be out
                        looking for him. Back at Hogwarts, Harry discovers that Black is responsible for his parents'
-                       deaths. And then Ron's rat behaves more than strange.", user_id: user3.id, book_id: book3.id, title: "Harry's story")
+                       deaths. And then Ron's rat behaves more than strange.", user_id: user3.id, book_id: book3.id, title: "Harry's story", keypoint: "Ron falls in love")
 recap4 = Recap.create!(summary: "Harry Potter and his friends witness a historic event: This year, the Triwizard
                        Tournament is taking place at Hogwarts. For inexplicable reasons, Harry becomes a participant
                        and has to face dangerous dragons, water demons and difficult puzzles - and find a companion to
                        the prom along the way. Harry soon realizes he has landed in a game of life and death and
-                       Voldemort is closer than he expected.", user_id: user4.id, book_id: book4.id, title: "Good recap")
+                       Voldemort is closer than he expected.", user_id: user4.id, book_id: book4.id, title: "Good recap", keypoint: "Hermonie is as smart as she looks.")
 recap5 = Recap.create!(summary: "Harry Potter is spending a lonely summer with the Dursleys when he and his cousin
                        Dudley are suddenly attacked by dementors. Harry has a hard time driving them away, but he faces
                        expulsion from school for performing magic in front of a Muggle. But that's just the beginning
                        of the trouble, because back at Hogwarts, hardly anyone wants to believe that Voldemort is back.
                        And then there's the new teacher who seems to be trying to prevent the students from learning
-                       magic.", user_id: user2.id, book_id: book5.id, title: "Summary")
+                       magic.", user_id: user2.id, book_id: book5.id, title: "Summary", keypoint: "Harry Potter is courageous")
 
 # Rating seeds
 puts "Creating ratings"
