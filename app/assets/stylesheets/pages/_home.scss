@@ -8,3 +8,11 @@
   text-decoration: none;
   font-weight: bold;
 }
+
+.home-links a {
+  color: $grey
+}
+
+.home-links a:hover {
+  color: $yellow
+}

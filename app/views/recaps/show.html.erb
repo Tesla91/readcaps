@@ -47,24 +47,7 @@
 <!-- Recap cards -->
 <div class="recap-cards">
   <% @recaps = Recap.where(book_id: @recap.book.id) %>
-  <% @recaps.each do |recap| %>
-    <%= link_to recap, style:"text-decoration: none; color: black" do %>
-    <div class="card-all">
-      <img src="<%= recap.book.photo_url %>">
-      <div class= "card-all-infos">
-        <h2><%= recap.title %></h2>
-    <div style="display: flex; margin-top: 5px;">
-      <p style="margin-right: 5px;"><%= recap.user.username %></p>
-        <% if recap.user.avatar.attached? %>
-            <%= image_tag recap.user.avatar, class: "recap-avatar" %>
-          <% else %>
-            <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
-        <% end %>
-    </div>
-      </div>
-    </div>
-    <%end%>
-  <%end%>
+  <%= render "shared/recapcards" %>
 </div>
 
 <!-- Recap summary -->

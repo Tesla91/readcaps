@@ -1,26 +1,27 @@
 // Login
-.form-login {
+.form {
   background: $light-beige;
   padding: 10px 20px;
   margin-top: 50px;
   border-radius: 3px;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);;
   h2 {
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 30px;
     text-align: center;
+    font-family: $headers-font;
+  }
+  label {
+    font-family: $body-font;
+  }
+  .btn-action:hover {
+    transition: opacity 0.5s;
+    opacity: 0.8;
+    color: $bg-color;
   }
 }
 
 .form-inputs {
   align-items: flex-end;
 }
-.form-actions .btn-action {
-  justify-content: end;
-  width: 100%;
-  margin-bottom: 20px;
-  color: $bg-color;
-}
-
-// Adding recap form
