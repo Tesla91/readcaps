@@ -13,6 +13,13 @@
             <% end %>
           </div>
       </div>
+          <div class="my-1">
+            <% if recap.ratings.average("star") == nil %>
+              0 Ratings
+            <% else %>
+              <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i><%= recap.ratings.average("star").round(1) %>
+            <% end %>
+          </div>
     </div>
   <%end%>
 <%end%>
