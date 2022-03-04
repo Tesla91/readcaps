@@ -1,8 +1,8 @@
 <!-- Banner with title, author, rating -->
 <div class="banner" style="background-image: url(<%= image_url "banner.png" %>);">
   <div class="container">
-      <h6><strong>Author: <%=@recap.book.author%></strong></h6>
-    <h1><strong><%=@recap.book.title%></strong></h1>
+    <h6><strong>Author: <%= @recap.book.author %></strong></h6>
+    <h1><strong><%= @recap.book.title %></strong></h1>
     <% if @recap.ratings.average("star") == nil %>
       <a href="#rating-cards" class="rating-link"><p>Be the first to leave a review!</p></a>
     <% else %>
@@ -30,22 +30,22 @@
 
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-          <%=@description = @recap.book.description%>
+          <%= @description = @recap.book.description %>
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
           <%= simple_format(@recap.summary) %>
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-          <%@recaps = Recap.where(book_id: @recap.book.id)%>
-          <%@recaps.each do |recap|%>
+          <% @recaps = Recap.where(book_id: @recap.book.id) %>
+          <% @recaps.each do |recap| %>
             <%= simple_format(recap.keypoint) %>
-          <%end%>
+          <% end %>
         </div>
       </div>
     </div>
 
     <div class="photo-card col-lg-3 p-3">
-        <%= image_tag @recap.book.photo_url %>
+      <%= image_tag @recap.book.photo_url %>
       <div class="mt-5">
         <h3>More recaps like this</h3>
         <% @recaps_current = Recap.where(book_id: @recap.book) %>
@@ -57,17 +57,17 @@
                 <div style="display: flex; margin-top: 5px;">
                   <p style="margin-right: 5px;"><%= recap.user.username %></p>
                   <% if recap.user.avatar.attached? %>
-                      <%= image_tag recap.user.avatar, class: "recap-avatar" %>
-                    <% else %>
-                      <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
+                    <%= image_tag recap.user.avatar, class: "recap-avatar" %>
+                  <% else %>
+                    <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
                   <% end %>
-                 </div>
+                </div>
               </div>
               <div class="card-rating" style="margin-right: 20px;">
                 <% if recap.ratings.average("star") == nil %>
                   <p>0 Ratings</p>
                 <% else %>
-                   <i class="fas fa-star m-2" style="color: #F6AE2D;"></i><%= recap.ratings.average("star").round(1) %>
+                  <i class="fas fa-star m-2" style="color: #F6AE2D;"></i><%= recap.ratings.average("star").round(1) %>
                 <% end %>
               </div>
             </div>
@@ -75,7 +75,7 @@
         <%end%>
       </div>
     </div>
-    
+
     <div class="col-lg-2 align-items-left">
       <!--Delete recap-->
       <div>
@@ -93,15 +93,14 @@
         <% end %>
       </div>
     </div>
-    
-  </div>
 
-  <!-- Action Icons -->
-  <div class="icon-item">
-    <div style="text-decoration: none;">
-      <p><i class="fas fa-bookmark"></i></p>
-      <p><i class="fas fa-share-alt"></i></p>
-      <p><i class="fas fa-plus"></i></i></p>
+    <!-- Action Icons -->
+    <div class="icon-item">
+      <div style="text-decoration: none;">
+        <p><i class="fas fa-bookmark"></i></p>
+        <p><i class="fas fa-share-alt"></i></p>
+        <p><i class="fas fa-plus"></i></i></p>
+      </div>
     </div>
   </div>
 
