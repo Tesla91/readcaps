@@ -1,8 +1,8 @@
 <!-- Banner with title, author, rating -->
 <div class="banner" style="background-image: url(<%= image_url "banner.png" %>);">
   <div class="container">
-    <h6><strong>Author:</strong> J.K. Rowling</h6>
-    <h1><strong>Your chosen book recap.</strong></h1>
+      <h6><strong>Author: <%=@recap.book.author%></strong></h6>
+    <h1><strong><%=@recap.book.title%></strong></h1>
     <% if @recap.ratings.average("star") == nil %>
       <a href="#rating-cards" class="rating-link"><p>Be the first to leave a review!</p></a>
     <% else %>
