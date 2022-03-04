@@ -33,12 +33,12 @@
           <%=@description = @recap.book.description%>
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-          <%=@recap.summary%>
+          <%= simple_format(@recap.summary) %>
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
           <%@recaps = Recap.where(book_id: @recap.book.id)%>
           <%@recaps.each do |recap|%>
-            <%= recap.keypoint%>
+            <%= simple_format(recap.keypoint) %>
           <%end%>
         </div>
       </div>
