@@ -6,20 +6,20 @@
         <h2><%= recap.title %></h2>
         <div style="display: flex; margin-top: 5px;">
           <p style="margin-right: 5px;"><%= recap.user.username %></p>
-            <% if recap.user.avatar.attached? %>
-                <%= image_tag recap.user.avatar, class: "recap-avatar" %>
-              <% else %>
-                <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
-            <% end %>
-          </div>
-      </div>
-          <div class="my-1">
-            <% if recap.ratings.average("star") == nil %>
-              0 Ratings
+          <% if recap.user.avatar.attached? %>
+              <%= image_tag recap.user.avatar, class: "recap-avatar" %>
             <% else %>
-              <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i><%= recap.ratings.average("star").round(1) %>
-            <% end %>
-          </div>
+              <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
+          <% end %>
+        </div>
+        <div class="my-1">
+          <% if recap.ratings.average("star") == nil %>
+            0 Ratings
+          <% else %>
+            <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i><%= recap.ratings.average("star").round(1) %>
+          <% end %>
+        </div>
+      </div>
     </div>
   <%end%>
 <%end%>
