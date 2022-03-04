@@ -1,10 +1,15 @@
 <div class="container my-3">
   <h3>Recaps for: <em><%= @book.title %></em></h3>
-  <h5><%= @recaps = Recap.where(book_id: params[:book_id]).count %> Result(s)</h5>
+  <div style="display: flex;">
+    <p style="margin-right: 10px; line-height: 2; font-size: 19px; font-weight: 600;">
+      <%= @recaps = Recap.where(book_id: params[:book_id]).count %> Result(s)</p>
+        <%= link_to new_book_recap_path do %>
+          <button class="btn-action" type="submit">Add new Recap</button>
+        <% end %>
+  </div>
 
   <div class="recap-cards my-4">
     <% @recaps = Recap.where(book_id: params[:book_id]) %>
     <%= render "shared/recapcards" %>
   </div>
-  <%= link_to "Add recap", new_book_recap_path, class: "btn-action"  %>
 </div>

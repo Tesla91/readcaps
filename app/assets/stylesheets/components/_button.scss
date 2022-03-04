@@ -9,11 +9,14 @@
   padding: 6px 8px;
 }
 
+.btn-action a:link {
+  color: $bg-color;
+}
+
 .btn-action:hover {
   transition: opacity 0.5s;
   opacity: 0.8;
 }
-
 
 .button-action {
   display: inline-block;
