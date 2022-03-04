@@ -44,12 +44,22 @@
       </div>
     </div>
 
-    <!-- Recap cards -->
+  <!-- Recap cards -->
     <div class="recap-cards col-lg-3">
       <% @recaps = Recap.where(book_id: @recap.book.id) %>
       <%= render "shared/recapcards" %>
     </div>
   </div>
+
+  <!-- Action Icons -->
+  <div class="icon-item">
+    <div style="text-decoration: none;">
+      <p><i class="fas fa-bookmark"></i></p>
+      <p><i class="fas fa-share-alt"></i></p>
+      <p><i class="fas fa-plus"></i></i></p>
+    </div>
+  </div>
+
 
   <!-- Review cards -->
   <div class="review-container" id="rating-cards">
