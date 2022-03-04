@@ -1,8 +1,22 @@
-<div class="container">
-  <h1>All of your book recaps:</h1>
+<div class="container my-3">
+  <h3>Recaps for: <em><%= @book.title %></em></h3>
+  <div style="display: flex;">
+    <p style="margin-right: 10px; line-height: 2; font-size: 19px; font-weight: 600;">
+      <%= @recaps = Recap.where(book_id: params[:book_id]).count %> Result(s)</p>
+        <%= link_to new_book_recap_path do %>
+          <button class="btn-action" type="submit">Add new Recap</button>
+        <% end %>
+  </div>
 
-  <div class="recap-cards">
+  <div class="recap-cards my-4">
     <% @recaps = Recap.where(book_id: params[:book_id]) %>
     <%= render "shared/recapcards" %>
+  </div>
+</div>
+
+<div class="icon-item">
+  <div style="text-decoration: none;"><%= link_to :back do %>
+    <i class="icon-link"><i class="fas fa-chevron-left" ></i></i>
+    <% end %>
   </div>
 </div>

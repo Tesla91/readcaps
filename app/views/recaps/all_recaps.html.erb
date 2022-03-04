@@ -1,11 +1,18 @@
-<div class= "container p-6">
+<div class= "container p-6 mb-4">
   <% if params[:top] == "yes" %>
-    <h1 class="text-center">Higest Rated Recaps:</h1>
+    <h1 class="text-center">Highest Rated Recaps:</h1>
   <% else %>
     <h1 class="text-center">All Recaps:</h1>
   <% end %>
   <br>
   <div class="recap-cards">
     <%= render "shared/recapcards" %>
+  </div>
+</div>
+
+<div class="icon-item">
+  <div style="text-decoration: none;"><%= link_to :back do %>
+    <i class="icon-link"><i class="fas fa-chevron-left" ></i></i>
+    <% end %>
   </div>
 </div>

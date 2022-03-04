@@ -3,6 +3,7 @@ class RecapsController < ApplicationController
 
   def index
     @recaps = Recap.all
+    @book = Book.find(params[:book_id])
   end
 
   def show
