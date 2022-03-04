@@ -9,8 +9,8 @@
 
         <div class="form-inputs">
         <!-- <%= f.association :book %>-->
-          <p><%= f.label "Choose your book*"%></p>
-          <%= f.collection_select :book_id, Book.all, :id, :title, include_blank: true %>
+          <%# <p><%= f.label "Choose your book*"</p> %>
+          <%# <%= f.collection_select :book_id, Book.all, :id, :title, include_blank: true %> 
           <%= f.input :title %>
           <%= f.input :summary %>
         </div>
