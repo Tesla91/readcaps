@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :ratings
   has_one_attached :avatar
 
-  validates :first_name, presence: true, length: { in: 3..20 }
-  validates :last_name, presence: true, length: { in: 3..20 }
+  validates :first_name, presence: true, length: { in: 2..20 }
+  validates :last_name, presence: true, length: { in: 2..20 }
   validates :username, presence: true, length: { in: 3..10 }
 end
