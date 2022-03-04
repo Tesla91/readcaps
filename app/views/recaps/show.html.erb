@@ -46,7 +46,6 @@
 
     <div class="photo-card col-lg-3 p-3">
         <%= image_tag @recap.book.photo_url %>
-
       <div class="mt-5">
         <h3>More recaps like this</h3>
         <% @recaps_current = Recap.where(book_id: @recap.book) %>
@@ -57,12 +56,12 @@
                 <h2><%= recap.title %></h2>
                 <div style="display: flex; margin-top: 5px;">
                   <p style="margin-right: 5px;"><%= recap.user.username %></p>
-                    <% if recap.user.avatar.attached? %>
-                        <%= image_tag recap.user.avatar, class: "recap-avatar" %>
-                      <% else %>
-                        <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
-                    <% end %>
-                  </div>
+                  <% if recap.user.avatar.attached? %>
+                      <%= image_tag recap.user.avatar, class: "recap-avatar" %>
+                    <% else %>
+                      <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
+                  <% end %>
+                 </div>
               </div>
               <div class="card-rating" style="margin-right: 20px;">
                 <% if recap.ratings.average("star") == nil %>
@@ -75,15 +74,16 @@
           <%end%>
         <%end%>
       </div>
+    </div>
     
     <div class="col-lg-2 align-items-left">
       <!--Delete recap-->
       <div>
-      <% if @recap.user == current_user %>
-        <%= link_to "Delete recap", recap_path(@recap), class: "btn btn-action", method: :delete, data: { confirm: "Are you sure you want to delete this recap?"} %>
-      <% else %>
-        <p class="btn btn-action">Add recap to my library</p>
-      <% end %>
+        <% if @recap.user == current_user %>
+          <%= link_to "Delete recap", recap_path(@recap), class: "btn btn-action", method: :delete, data: { confirm: "Are you sure you want to delete this recap?"} %>
+        <% else %>
+          <p class="btn btn-action">Add recap to my library</p>
+        <% end %>
       </div>
       <br>
       <!--Edit recap-->
@@ -93,6 +93,7 @@
         <% end %>
       </div>
     </div>
+    
   </div>
 
   <!-- Action Icons -->
@@ -103,7 +104,6 @@
       <p><i class="fas fa-plus"></i></i></p>
     </div>
   </div>
-
 
   <!-- Review cards -->
   <div class="review-container" id="rating-cards">
