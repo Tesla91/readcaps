@@ -1,6 +1,21 @@
 .alert {
+  animation: hideMe 10s 1;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
   position: fixed;
-  top: 75px;
-  left: 8px;
-  z-index: 1000;
+  left: 10px;
+}
+@keyframes hideMe {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
