@@ -1,0 +1,12 @@
+<div class="container">
+  <h3>My recaps</h3>
+  <% @recaps.each do |r| %>
+  <li><%= r.title %></li>
+  <% end %>
+
+
+  <h3>My faves</h3>
+  <% @favorites.each do |f| %>
+  <li><%= f.recap.title %></li>
+  <% end %>
+</div>
