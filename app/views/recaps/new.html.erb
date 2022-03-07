@@ -10,7 +10,11 @@
         <div class="form-inputs">
         <!-- <%= f.association :book %>-->
           <p><%= f.label "Choose your book*"%></p>
-          <%= f.collection_select :book_id, Book.all, :id, :title, :selected => :book_id, prompt: "Choose a book" %>
+          <% if @book_id.present?  %>
+            <%= f.collection_select :book_id, Book.all, :id, :title, :selected => @book_id, :include_blank => true %>
+          <% else %>
+            <%= f.collection_select :book_id, Book.all, :id, :title, :include_blank => true %>
+          <%end%>
           <%= f.input :title %>
           <%= f.input :summary %>
         </div>

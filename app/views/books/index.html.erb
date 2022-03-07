@@ -9,7 +9,7 @@
     <% books_sorted = @books.order('title ASC')%>
     <% books_sorted.each do |book| %>
       <% @recaps = Recap.where(book_id: book.id) %>
-        <%= link_to book_recaps_path(:book_id => book.id), class: "a", style: "color: $black;" do %>
+        <%= link_to book_recaps_path(book), class: "a", style: "color: $black;" do %>
         <div class="card-book">
           <div class="card-image">
             <%= image_tag book.photo_url, crop: :fit %>
