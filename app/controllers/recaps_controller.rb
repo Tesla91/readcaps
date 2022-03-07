@@ -1,5 +1,5 @@
 class RecapsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show new all_recaps]
+  skip_before_action :authenticate_user!, only: %i[index show all_recaps]
 
   def index
     @recaps = Recap.all
@@ -50,7 +50,7 @@ class RecapsController < ApplicationController
 
   def all_recaps
     if params[:top] == "yes"
-      recaps_all = Recap.all
+      recaps_all = Recap.joins(:ratings)
       @recaps = recaps_all.map { |recap| recap if recap.ratings.average("star") > 3 }.compact
     else
       @recaps = Recap.all.order('title ASC')
