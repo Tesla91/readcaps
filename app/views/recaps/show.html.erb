@@ -64,32 +64,33 @@
         </div>
       </div>
 
+      <!--Should display "either all recaps except for the recap we are on OR No further recaps available. " -->
       <div class="mt-5">
         <h3>More recaps like this</h3>
-        <% @recaps_current = Recap.where(book_id: @recap.book) %>
+        <% @recaps_current = Recap.where(book_id: @recap.book).filter { |recap| recap.id != @recap.id} %>
         <% @recaps_current.each do |recap| %>
-          <%= link_to recap, style:"text-decoration: none; color: black" do %>
-            <div class="card-all my-3" style="flex-direction: row-reverse; justify-content: center; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
-              <div class= "card-all-infos">
-                <h2><%= recap.title %></h2>
-                <div style="display: flex; margin-top: 5px;">
-                  <p style="margin-right: 5px;"><%= recap.user.username %></p>
-                  <% if recap.user.avatar.attached? %>
-                    <%= image_tag recap.user.avatar, class: "recap-avatar" %>
+            <%= link_to recap, style:"text-decoration: none; color: black" do %>
+              <div class="card-all my-3" style="flex-direction: row-reverse; justify-content: center; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+                <div class= "card-all-infos">
+                  <h2><%= recap.title %></h2>
+                  <div style="display: flex; margin-top: 5px;">
+                    <p style="margin-right: 5px;"><%= recap.user.username %></p>
+                    <% if recap.user.avatar.attached? %>
+                      <%= image_tag recap.user.avatar, class: "recap-avatar" %>
+                    <% else %>
+                      <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="card-rating" style="margin-right: 20px;">
+                  <% if recap.ratings.average("star") == nil %>
+                    <p>0 Ratings</p>
                   <% else %>
-                    <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
+                    <i class="fas fa-star m-2" style="color: #F6AE2D;"></i><%= recap.ratings.average("star").round(1) %>
                   <% end %>
                 </div>
               </div>
-              <div class="card-rating" style="margin-right: 20px;">
-                <% if recap.ratings.average("star") == nil %>
-                  <p>0 Ratings</p>
-                <% else %>
-                  <i class="fas fa-star m-2" style="color: #F6AE2D;"></i><%= recap.ratings.average("star").round(1) %>
-                <% end %>
-              </div>
-            </div>
-          <%end%>
+            <%end%>
         <%end%>
       </div>
     </div>
@@ -101,9 +102,11 @@
       <div class="col-12 col-md-6 col-lg-6">
         <div class="review-header">
           <h3>Reviews on <%= @recap.user.username %>'s recap</h3>
-            <% if current_user != @recap.user && !current_user.has_already_rated?(@recap) %>
+            <% if current_user != @recap.user && !current_user&.has_already_rated?(@recap) %>
             <button type="button" class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">Add review</button>
-            <%else %>
+            <%elsif current_user == @recap.user %>
+            <p><em style="color: #EB9C0A; font-size: 13px;"> </em></p>
+            <%else%>
               <p><em style="color: #EB9C0A; font-size: 13px;">You have already rated this recap.</em></p>
           <%end%>
         </div>
