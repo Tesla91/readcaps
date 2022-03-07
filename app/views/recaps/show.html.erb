@@ -47,16 +47,15 @@
       <div style="display: flex;">
         <%= image_tag @recap.book.photo_url, class: "book-image" %>
 
-
+  <!-- Icons - library, share, add -->
         <div class="icon-item">
           <ul class="social-links" style="list-style: none;">
-            <li><i class="social-icon fas fa-bookmark"></i> Add recap to my library</li>
+            <li><i class="social-icon fas fa-bookmark"></i> Add to Library</li>
             <li><i class="social-icon fas fa-share-alt"></i> Share recap</li>
-            <li><i class="social-icon fas fa-plus"></i></i> Add Review</li>
+            <li><i class="social-icon fas fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i> Add Review</li>
           </ul>
         </div>
       </div>
-
 
       <div class="mt-5">
         <h3>More recaps like this</h3>

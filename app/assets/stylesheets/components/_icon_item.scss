@@ -5,7 +5,6 @@
 .icon-action {
   transition: opacity 0.5s;
   opacity: 0.8;
-
 }
 
 .social-icon {
@@ -14,6 +13,14 @@
   padding: 0.9em 1em;
   border-radius: 50%;
   color: $bg-color;
+  transition: opacity 0.5s;
+  opacity: 0.8;
+}
+
+.social-icon:hover {
+  transition: opacity 1.5s;
+  opacity: 0.5;
+  background-color: #F6AE2D;
 }
 
 li {
