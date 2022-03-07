@@ -12,17 +12,20 @@ class RecapsController < ApplicationController
   end
 
   def new
-    @recap = Recap.new
-    @book = Book.find(params[:book_id])
+    if request.referer.include?("books/") # We can include regex to check if there is a number
+      @book_id = request.referer.split("/")[-2]
+    end
+    @recap = Recap.new(params[:recap])
   end
 
   def create
-    @book = Book.find(params[:book_id])
+    if Book.find(params[:recap][:book_id])
+      @book = Book.find(params[:recap][:book_id])
+    end
     @recap = Recap.new(recap_params)
-    @recap.book = @book
     @recap.user = current_user
     if @recap.save
-      redirect_to book_recaps_path(@book), notice: 'recap was successfully created'
+      redirect_to recap_path(@recap), notice: 'Recap was successfully created'
     else
       render :new
     end
