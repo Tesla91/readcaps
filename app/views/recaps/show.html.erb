@@ -64,14 +64,15 @@
         </div>
       </div>
 
-      <div class="mt-5">
+      <div class="mt-5 col-lg-12 col-sm-12">
         <h3>More recaps like this</h3>
         <% @recaps_current = Recap.where(book_id: @recap.book) %>
         <% @recaps_current.each do |recap| %>
           <%= link_to recap, style:"text-decoration: none; color: black" do %>
             <div class="card-all my-3" style="flex-direction: row-reverse; justify-content: center; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
-              <div class= "card-all-infos">
-                <h2><%= recap.title %></h2>
+              <p><strong>Preview: </strong><%= recap.summary.split.first(40).join(" ") %>...</p>
+              <div class= "card-all-infos" style="width: 100%;">
+                <h2 style="width: 150px;"><%= recap.title %></h2>
                 <div style="display: flex; margin-top: 5px;">
                   <p style="margin-right: 5px;"><%= recap.user.username %></p>
                   <% if recap.user.avatar.attached? %>
@@ -80,13 +81,13 @@
                     <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
                   <% end %>
                 </div>
-              </div>
-              <div class="card-rating" style="margin-right: 20px;">
+              <%# <div class="card-rating" style="width: 100%; margin-left: 15px; margin-right: 10px;"> %>
                 <% if recap.ratings.average("star") == nil %>
                   <p>0 Ratings</p>
                 <% else %>
                   <i class="fas fa-star m-2" style="color: #F6AE2D;"></i><%= recap.ratings.average("star").round(1) %>
                 <% end %>
+              <%# </div> %>
               </div>
             </div>
           <%end%>
