@@ -10,13 +10,13 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-    <link rel="icon" type="image/png" href="<%= image_path("favicon-32x32.png") %>" sizes="32x32" />
+    <%= favicon_link_tag %>
   </head>
 
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    
+
     <%= yield %>
   </body>
 </html>
