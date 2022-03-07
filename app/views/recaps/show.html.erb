@@ -1,8 +1,8 @@
 <!-- Banner with title, author, rating -->
 <div class="banner" style="background-image: url(<%= image_url "banner.png" %>);">
   <div class="container">
- <h3><strong>Recapped by: <%=@recap.user.username %></strong></h3>
-  <h6><strong>Recap Name: <%=@recap.title %></strong></h6>
+    <h3><strong>Recapped by: <%=@recap.user.username %></strong></h3>
+    <h6><strong>Recap Name: <%=@recap.title %></strong></h6>
     <% if @recap.ratings.average("star") == nil %>
       <a href="#rating-cards" class="rating-link"><p>Be the first to leave a review!</p></a>
     <% else %>
@@ -13,7 +13,7 @@
 
 <div class="container mt-4">
   <div class="row">
-    <div class="container col-lg-8 col-sm-12">
+    <div class="container col-lg-7 col-sm-12">
       <h6><strong>Author: <%= @recap.book.author %></strong></h6>
       <ul class="nav nav-pills mb-3" style="display: flex; justify-content: center;" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
@@ -47,17 +47,19 @@
       <div style="display: flex;">
         <%= image_tag @recap.book.photo_url, class: "book-image" %>
 
-
+  <!-- Icons - library, share, add -->
         <div class="icon-item">
           <ul class="social-links" style="list-style: none;">
-            <%# This form ist just for testing purposes -> see if the add recap action works %>
-            <%= simple_form_for([@recap, @favorite]) do |f| %>
-             <%= f.button :submit, "Add recap", class: "btn-action" %>
-            <% end %>
-
-            <li><i class="social-icon fas fa-bookmark"></i> Add recap to my library</li>
+            <li>
+              <%= simple_form_for([@recap, @favorite]) do |f| %>
+                <%= f.button :button do  %>
+                <i class="social-icon fas fa-bookmark"></i>
+                  Add to Library
+                <% end %>
+              <% end %>
+            </li>
             <li><i class="social-icon fas fa-share-alt"></i> Share recap</li>
-            <li><i class="social-icon fas fa-plus"></i></i> Add new Recap</li>
+            <li><i class="social-icon fas fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i> Add Review</li>
           </ul>
         </div>
       </div>
