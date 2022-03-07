@@ -9,7 +9,6 @@
 
 .social-icon {
   background: $blue;
-  padding: 10px;
   padding: 0.9em 1em;
   border-radius: 50%;
   color: $bg-color;
@@ -21,6 +20,7 @@
   transition: opacity 1.5s;
   opacity: 0.5;
   background-color: #F6AE2D;
+  cursor: pointer;
 }
 
 li {
