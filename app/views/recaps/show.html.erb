@@ -1,7 +1,13 @@
 <!-- Banner with title, author, rating -->
 <div class="banner" style="background-image: url(<%= image_url "banner.png" %>);">
   <div class="container">
-    <h3><strong>Recapped by: <%=@recap.user.username %></strong></h3>
+    <h3><strong>Recapped by: <%=@recap.user.username %></strong>
+      <% if @recap.user.avatar.attached? %>
+        <%= image_tag @recap.user.avatar, class: "avatar" %>
+      <% else %>
+        <%= image_tag "default-avatar.png", class: "avatar"  %>
+      <% end %>
+    </h3>
     <h6><strong>Recap Name: <%=@recap.title %></strong></h6>
     <% if @recap.ratings.average("star") == nil %>
       <a href="#rating-cards" class="rating-link"><p>Be the first to leave a review!</p></a>
