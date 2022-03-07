@@ -51,6 +51,11 @@
 
         <div class="icon-item">
           <ul class="social-links" style="list-style: none;">
+            <%# This form ist just for testing purposes -> see if the add recap action works %>
+            <%= simple_form_for([@recap, @favorite]) do |f| %>
+             <%= f.button :submit, "Add recap", class: "btn-action" %>
+            <% end %>
+              
             <li><i class="social-icon fas fa-bookmark"></i> Add recap to my library</li>
             <li><i class="social-icon fas fa-share-alt"></i> Share recap</li>
             <li><i class="social-icon fas fa-plus"></i></i> Add new Recap</li>

@@ -5,8 +5,11 @@ Rails.application.routes.draw do
     resources :recaps, only: [ :index, :new, :create ]
   end
   resources :recaps, only: [ :show, :destroy, :edit, :update ] do
-    resources :ratings, only: [:create]
+    resources :ratings, only: :create
+    resources :favorites, only: :create
   end
   resources :ratings, only: [:destroy, :update]
   get 'recaps', to: 'recaps#all_recaps', as: :recaps
+
+  resources :dashboard, only: :index
 end

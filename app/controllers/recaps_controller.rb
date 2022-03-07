@@ -9,6 +9,7 @@ class RecapsController < ApplicationController
   def show
     @recap = Recap.find(params[:id])
     @rating = Rating.new
+    @favorite = Favorite.new
   end
 
   def new
