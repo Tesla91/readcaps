@@ -1,5 +1,5 @@
 class RecapsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show new all_recaps]
+  skip_before_action :authenticate_user!, only: %i[index show all_recaps]
 
   def index
     @recaps = Recap.all
@@ -9,20 +9,24 @@ class RecapsController < ApplicationController
   def show
     @recap = Recap.find(params[:id])
     @rating = Rating.new
+    @favorite = Favorite.new
   end
 
   def new
-    @recap = Recap.new
-    @book = Book.find(params[:book_id])
+    if request.referer.include?("books/") # We can include regex to check if there is a number
+      @book_id = request.referer.split("/")[-2]
+    end
+    @recap = Recap.new(params[:recap])
   end
 
   def create
-    @book = Book.find(params[:book_id])
+    if Book.find(params[:recap][:book_id])
+      @book = Book.find(params[:recap][:book_id])
+    end
     @recap = Recap.new(recap_params)
-    @recap.book = @book
     @recap.user = current_user
     if @recap.save
-      redirect_to book_recaps_path(@book), notice: 'recap was successfully created'
+      redirect_to recap_path(@recap), notice: 'Recap was successfully created'
     else
       render :new
     end
@@ -47,7 +51,7 @@ class RecapsController < ApplicationController
 
   def all_recaps
     if params[:top] == "yes"
-      recaps_all = Recap.all
+      recaps_all = Recap.joins(:ratings)
       @recaps = recaps_all.map { |recap| recap if recap.ratings.average("star") > 3 }.compact
     else
       @recaps = Recap.all.order('title ASC')

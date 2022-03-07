@@ -50,6 +50,10 @@
   <!-- Icons - library, share, add -->
         <div class="icon-item">
           <ul class="social-links" style="list-style: none;">
+            <%# This form ist just for testing purposes -> see if the add recap action works %>
+            <%= simple_form_for([@recap, @favorite]) do |f| %>
+             <%= f.button :submit, "Add recap", class: "btn-action" %>
+            <% end %>
             <li><i class="social-icon fas fa-bookmark"></i> Add to Library</li>
             <li><i class="social-icon fas fa-share-alt"></i> Share recap</li>
             <li><i class="social-icon fas fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i> Add Review</li>
@@ -94,7 +98,11 @@
       <div class="col-12 col-md-6 col-lg-6">
         <div class="review-header">
           <h3>Reviews on <%= @recap.user.username %>'s recap</h3>
-          <button type="button" class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">Add review</button>
+            <% if current_user != @recap.user && !current_user.has_already_rated?(@recap) %>
+            <button type="button" class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">Add review</button>
+            <%else %>
+              <p><em style="color: #EB9C0A; font-size: 13px;">You have already rated this recap.</em></p>
+          <%end%>
         </div>
 
         <div id="anchor-review">
@@ -144,12 +152,5 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="icon-item">
-  <div style="text-decoration: none;"><%= link_to :back do %>
-    <i class="icon-link"><i class="fas fa-chevron-left" ></i></i>
-    <% end %>
   </div>
 </div>

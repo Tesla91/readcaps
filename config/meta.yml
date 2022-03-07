@@ -1,0 +1,5 @@
+meta_product_name: "ReadCaps"
+meta_title: "ReadCaps - The place to go to find recaps on all your favorite books."
+meta_description: "When you need to know what happened in a book bout don't have the time to reread the entire book just read a recap"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
