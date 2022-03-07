@@ -17,5 +17,7 @@ class User < ApplicationRecord
     ratings.pluck(:recap_id).include?(recap.id)
   end
 
-
+  def has_already_recaped?(book)
+    recaps.pluck(:book_id).include(book.id)
+  end
 end

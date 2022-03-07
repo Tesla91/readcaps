@@ -100,9 +100,11 @@
       <div class="col-12 col-md-6 col-lg-6">
         <div class="review-header">
           <h3>Reviews on <%= @recap.user.username %>'s recap</h3>
-            <% if current_user != @recap.user && !current_user.has_already_rated?(@recap) %>
+            <% if current_user != @recap.user && !current_user&.has_already_rated?(@recap) %>
             <button type="button" class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">Add review</button>
-            <%else %>
+            <%elsif current_user == @recap.user %>
+            <p><em style="color: #EB9C0A; font-size: 13px;"> </em></p>
+            <%else%>
               <p><em style="color: #EB9C0A; font-size: 13px;">You have already rated this recap.</em></p>
           <%end%>
         </div>
