@@ -50,32 +50,45 @@
     </div>
 
     <div class="photo-card col-lg-5 col-sm-12 p-3">
-      <div style="display: flex;">
+      <div style="display: flex; align-items:center;">
         <%= image_tag @recap.book.photo_url, class: "book-image" %>
-
-  <!-- Icons - library, share, add -->
         <div class="icon-item">
           <ul class="social-links" style="list-style: none;">
-            <li>
+            <li class="recap-favorite">
               <%= simple_form_for([@recap, @favorite]) do |f| %>
-                <%= f.button :button do  %>
+                <%= f.button :button  do  %>
                 <i class="social-icon fas fa-bookmark"></i>
                   Add to Library
                 <% end %>
               <% end %>
             </li>
-            <li><i class="social-icon fas fa-share-alt"></i> Share recap</li>
-            <li><i class="social-icon fas fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i> Add Review</li>
-          </ul>
-          <!--Delete recap-->
-          <% if @recap.user == current_user %>
-            <%= link_to "Delete", recap_path(@recap), class: "btn btn-action", method: :delete, data: { confirm: "Are you sure you want to delete this recap?"} %>
-          <% end %>
+            <li><a href="https://web.whatsapp.com/"target="_blank">
+              <i class="social-icon fas fa-share-alt"></i> Share recap</a>
+            </li>
+            <li>
+            <% if current_user != @recap.user && !current_user&.has_already_rated?(@recap) %>
+              <i class="social-icon fas fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i> Add Review
+              <%elsif current_user == @recap.user %>
+              <p><em style="color: #EB9C0A; font-size: 13px;"> </em></p>
+              <%end%>
+            </li>
 
-          <!--Edit recap-->
-          <% if @recap.user == current_user %>
-            <%= link_to "Edit recap", edit_recap_path(@recap), class: "btn btn-action" %>
-          <% end %>
+            <li>
+              <% if @recap.user == current_user %>
+                <%= link_to edit_recap_path(@recap) do %>
+                  <i class="social-icon fas fa-pencil-alt"></i> Edit my recap
+                <% end %>
+              <% end %>
+            </li>
+
+            <li>
+             <% if @recap.user == current_user %>
+                <%= link_to recap_path(@recap), method: :delete, data: { confirm: "Are you sure you want to delete this recap?"} do %>
+                  <i class="social-icon fas fa-trash" ></i> Delete recap
+                <% end %>
+              <% end %>
+            </li>
+          </ul>
         </div>
       </div>
 
