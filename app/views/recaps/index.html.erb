@@ -8,7 +8,7 @@
         <% end %>
   </div>
 
-  <div class="recap-cards my-4">
+  <div class="recapcards my-4">
     <% @recaps = Recap.where(book_id: params[:book_id]) %>
     <%= render "shared/recapcards" %>
   </div>

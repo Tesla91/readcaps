@@ -1,51 +1,111 @@
-.recap-cards {
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.recapcards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
+  margin: 4rem 5vw;
+  padding: 0;
+  list-style-type: none;
 }
 
-.card-all {
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  flex-direction: column;
+.recapcard {
+  position: relative;
+  display: block;
+  height: 100%;
+  border-radius: calc(var(--curve) * 0.5px);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card__image {
   width: 100%;
-  border-radius: 10px;
-  padding: 10px;
+  height: 95%;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-radius: calc(var(--curve) * 0.5px);
+  background-color: var(--surface-color);
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+.recapcard:hover .card__overlay {
+  transform: translateY(0);
+}
+
+.card__header {
+  position: relative;
+  display: flex;
   align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
 }
 
-.recap-img {
-  height: 200px;
-  object-fit: contain;
-  border: 1px solid rgba(156, 153, 153, 0.479);
-  background-color: $light-beige;
-  opacity: 0.6;
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 1;
 }
 
-.card-all h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  font-family: $headers-font;
+.card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
 }
 
-.card-all p {
-  font-size: 15px;
-  opacity: .7;
-  margin: 0;
-  font-family: $body-font;
+.recapcard:hover .card__header {
+  transform: translateY(0);
 }
 
-.card-all .card-all-infos {
-  padding: 16px;
-}
-
-.recap-img:hover {
-  opacity: 1;
-}
-
-.recap-avatar {
-  width: 25px;
+.card__thumb {
+  flex-shrink: 0;
+  width: 35px;
+  height: 35px;
+  margin-left: -20px;
+  margin-right: -20px;
   border-radius: 50%;
+}
+
+.card__title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: $black;
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-size: .8em;
+  color: $grey;
+}
+
+.card__status {
+  font-size: .8em;
+  color: $grey;
+}
+
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: $grey;
+  font-size: .8em;
 }
