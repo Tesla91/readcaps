@@ -9,7 +9,7 @@
       <% end %>
     </h3>
     <h6><strong>Recap Name: <%=@recap.title %></strong></h6>
-    <% if @recap.ratings.average("star") == nil %>
+    <% if @recap.avg_rating == 0 %>
       <a href="#rating-cards" class="rating-link"><p>Be the first to leave a review!</p></a>
     <% else %>
       <%= render "shared/rating" %>
@@ -114,10 +114,10 @@
                   <% end %>
                 </div>
               <%# <div class="card-rating" style="width: 100%; margin-left: 15px; margin-right: 10px;"> %>
-                <% if recap.ratings.average("star") == nil %>
+                <% if recap.avg_rating == 0 %>
                   <p>0 Ratings</p>
                 <% else %>
-                  <i class="fas fa-star m-2" style="color: #F6AE2D;"></i><%= recap.ratings.average("star").round(1) %>
+                  <i class="fas fa-star m-2" style="color: #F6AE2D;"></i><%= recap.avg_rating %>
                 <% end %>
               <%# </div> %>
               </div>
