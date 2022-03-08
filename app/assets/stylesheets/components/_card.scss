@@ -9,7 +9,7 @@
 
 .card-book {
   background: $bg-color;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -76,11 +76,6 @@ a:hover {
 a:active {
   text-decoration: none;
   color: $black;
-}
-
-.book-image {
-  border-radius: 10px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 // Smallest device
