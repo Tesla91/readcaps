@@ -51,3 +51,23 @@
     </div>
   </div>
 </div>
+
+  <!--Gold Silver bronze  -->
+
+<div class = "container">
+  <h2 class="text-center mb-2">Ready, Set, Gold! <br> Our best ranked readCappers:</h2>
+  <!--Ratings - User through ratings  -->
+  <%  @ratings = Rating.where(rating.star )%>
+  <% @ratings.each do |rating| %>
+    <%= rating.user.username%>
+    <%= image_tag rating.user.avatar, class: "avatar" %>
+  <% end%>
+</div>
+
+<div class = "container">
+  <h2 class="text-center mb-2">Authors you might be interested in:</h2>
+</div>
+
+<div class = "container">
+  <h2 class="text-center mb-2">Recap this book request:</h2>
+</div>
