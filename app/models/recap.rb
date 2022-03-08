@@ -6,7 +6,7 @@ class Recap < ApplicationRecord
 
   validates :summary, presence: true, length: { minimum: 50 }
   # validates :user, uniqueness: { scope: :book }
-  validates :title, presence: true , length: { maximum: 20 }
+  validates :title, presence: true, length: { maximum: 20 }
   def avg_rating
     ratings.average(:star).to_f
   end

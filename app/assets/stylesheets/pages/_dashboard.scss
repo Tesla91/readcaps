@@ -8,6 +8,13 @@
   margin-right: 20px;
 }
 
+.dash-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 70px;
+}
+
 button:focus,
 input:focus,
 textarea:focus,
@@ -79,7 +86,6 @@ select:focus {
     .tabs .tab-2:last-child [type="radio"]:checked + div {
       margin-left: -100%; }
 
-
 .dash-cards {
   width: 150px;
   height: 150px;
@@ -96,4 +102,29 @@ select:focus {
 
 .dash-cards:hover {
   box-shadow: $orange 0px 0px 0px 3px, $yellow 0px 0px 0px 6px, $blue 0px 0px 0px 9px, $light-blue 0px 0px 0px 12px
+}
+
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .dash-container {
+    grid-template-columns: 1fr;
+    padding: 60px;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .dash-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .dash-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
