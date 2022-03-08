@@ -5,14 +5,21 @@
     <h1 class="text-center title-card">All available books with recaps:</h1>
   <% end %>
   <br>
+
   <div class="cards">
     <% books_sorted = @books.order('title ASC')%>
     <% books_sorted.each do |book| %>
       <% @recaps = Recap.where(book_id: book.id) %>
         <%= link_to book_recaps_path(book), class: "a", style: "color: $black;" do %>
         <div class="card-book">
-          <div class="card-image">
-            <%= image_tag book.photo_url, crop: :fit %>
+          <div class="book-card__cover">
+            <div class="book-card__book">
+              <div class="book-card__book-front">
+                <%= image_tag book.photo_url, class: "book-card__img" %>
+              </div>
+              <div class="book-card__book-back"></div>
+              <div class="book-card__book-side"></div>
+            </div>
           </div>
           <div class="card-info">
             <h2><%= book.title %></h2>

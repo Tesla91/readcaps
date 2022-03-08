@@ -1,25 +1,26 @@
 <% @recaps.each do |recap| %>
-  <%= link_to recap, style:"text-decoration: none; color: black" do %>
-    <div class="card-all">
-      <img src="<%= recap.book.photo_url %>" class="recap-img">
-      <div class= "card-all-infos">
-        <h2><%= recap.title %></h2>
-        <div style="display: flex; margin-top: 5px;">
-          <p style="margin-right: 5px;"><%= recap.user.username %></p>
-          <% if recap.user.avatar.attached? %>
-              <%= image_tag recap.user.avatar, class: "recap-avatar" %>
-            <% else %>
-              <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
-          <% end %>
-        </div>
-        <div class="my-1">
-          <% if recap.ratings.average("star") == nil %>
-            0 Ratings
+  <%= link_to recap, style:"text-decoration: none; color: black", class: "recapcard" do %>
+    <img src="<%= recap.book.photo_url %>" class="card__image">
+    <div class="card__overlay">
+      <div class= "card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+        <% if recap.user.avatar.attached? %>
+            <%= image_tag recap.user.avatar, class: "card__thumb" %>
           <% else %>
-            <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i><%= recap.ratings.average("star").round(1) %>
-          <% end %>
+            <%= image_tag "default-avatar.png", class: "card__thumb"  %>
+        <% end %>
+        <div class="card__header-text">
+          <h2 class="card__title"><%= recap.title %></h2>
+          <span class="card__status"><%= recap.user.username %>
+            <% if recap.ratings.average("star") == nil %>
+              <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i>0
+            <% else %>
+              <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i><%= recap.ratings.average("star").round(1) %>
+            <% end %>
+          </span>
         </div>
       </div>
+      <p class="card__description"><%= recap.summary.split.first(30).join(" ") %>...</p>
     </div>
   <%end%>
 <%end%>

@@ -32,7 +32,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class= "container p-6 my-4">
-          <div class="recap-cards">
+          <div class="recapcards">
             <!-- Show 5 random book recaps-->
             <% @recaps = Recap.order("created_at DESC").limit(5) %>
             <%= render "shared/recapcards" %>
@@ -41,7 +41,7 @@
       </div>
       <div class="carousel-item">
         <div class= "container p-6 my-4">
-          <div class="recap-cards">
+          <div class="recapcards">
             <!-- Show 5 random book recaps-->
             <% @recaps = Recap.order("created_at DESC").offset(5).limit(5) %>
             <%= render "shared/recapcards" %>
