@@ -11,10 +11,9 @@
         <%= f.input :password,
                     required: false,
                     input_html: { autocomplete: "current-password" } %>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <div class="form-check d-flex">
+        <%= f.input  :remember_me, :as => :boolean, input_html: { style: "width: 15% !important" } %>
       </div>
-      <div class="form-actions">
-        <%= f.button :submit, "Log in", class:"btn-action" %>
       </div>
       <% end %>
       <p class="mt-3">Don't have an account yet? Forgot your password?</p>
