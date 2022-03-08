@@ -56,8 +56,16 @@
                 <% end %>
               <% end %>
             </li>
-            <li><i class="social-icon fas fa-share-alt"></i> Share recap</li>
-            <li><i class="social-icon fas fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i> Add Review</li>
+            <li><a href="https://web.whatsapp.com/"target="_blank">
+              <i class="social-icon fas fa-share-alt"></i> Share recap</a>
+            </li>
+            <li>
+            <% if current_user != @recap.user && !current_user&.has_already_rated?(@recap) %>
+              <i class="social-icon fas fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i> Add Review
+              <%elsif current_user == @recap.user %>
+              <p><em style="color: #EB9C0A; font-size: 13px;"> </em></p>
+              <%end%>
+            </li>
 
             <li>
               <% if @recap.user == current_user %>
