@@ -65,6 +65,6 @@ class RecapsController < ApplicationController
   private
 
   def recap_params
-    params.require(:recap).permit(:summary, :title, :user_id, :book_id)
+    params.require(:recap).permit(:summary, :title, :user_id, :book_id, :keypoint)
   end
 end
