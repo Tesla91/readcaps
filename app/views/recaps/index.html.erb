@@ -2,10 +2,13 @@
   <h3>Recaps for: <em><%= @book.title %></em></h3>
   <div style="display: flex;">
     <p style="margin-right: 10px; line-height: 2; font-size: 19px; font-weight: 600;">
+    <!--Only show button when user did not recap the book yet -->
       <%= @recaps = Recap.where(book_id: params[:book_id]).count %> Result(s)</p>
+      <% unless current_user&.has_already_recaped?(@book)%>
         <%= link_to new_recap_path do %>
           <button class="btn-action" type="submit">Add new Recap</button>
         <% end %>
+      <% end %>
   </div>
 
   <div class="recapcards my-4">

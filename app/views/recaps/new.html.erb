@@ -8,15 +8,15 @@
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
         <div class="form-inputs">
-        <!-- <%= f.association :book %>-->
           <p><%= f.label "Choose your book*"%></p>
-          <% if @book_id.present?  %>
+          <% if @book_id.present? %>
             <%= f.collection_select :book_id, Book.all, :id, :title, :selected => @book_id, :include_blank => true %>
           <% else %>
             <%= f.collection_select :book_id, Book.all, :id, :title, :include_blank => true %>
           <%end%>
           <%= f.input :title %>
           <%= f.input :summary %>
+          <%= f.input :keypoint %>
         </div>
 
         <div class="form-actions">

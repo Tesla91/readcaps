@@ -1,0 +1,112 @@
+<div class="container m-5">
+
+
+  <div class="profile mt-4 justify-content-center">
+    <% if current_user.avatar.attached? %>
+      <%= image_tag current_user.avatar, class: "avatar" %>
+    <% else %>
+      <%= image_tag "default-avatar.png", class: "avatar"  %>
+    <% end %>
+    <h2>Hi <%= current_user.first_name %>!</h2>
+  </div>
+
+  <h2 style="color: #EB9C0A; text-align: center; margin-bottom: 40px; margin-top: 20px;">Your Dashboard</h2></div>
+
+  <ul class="nav nav-pills my-4 justify-content-center" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">My favorites</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">My recaps</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Ratings</button>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+      <div class="d-flex justify-content-center"> <% @favorites.each do |f| %>
+        <%= link_to f.recap, style:"text-decoration: none; color: black" do %>
+          <div class="card-all">
+            <img src="<%= f.recap.book.photo_url %>" class="recap-img">
+              <div class= "card-all-infos">
+                <h2><%= f.recap.title %></h2>
+                <div style="display: flex; margin-top: 5px;">
+                  <p style="margin-right: 5px;"><%= f.recap.user.username %></p>
+                  <% if f.recap.user.avatar.attached? %>
+                      <%= image_tag f.recap.user.avatar, class: "recap-avatar" %>
+                    <% else %>
+                      <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
+                  <% end %>
+                </div>
+              <div class="my-1">
+                <% if f.recap.avg_rating == 0 %>
+                  0 Ratings
+                <% else %>
+                  <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i><%= f.recap.avg_rating %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+    <div class="d-flex justify-content-center"> <% @recaps.each do |r| %>
+      <%= link_to r, style:"text-decoration: none; color: black" do %>
+        <div class="card-all">
+          <img src="<%= r.book.photo_url %>" class="recap-img">
+          <div class= "card-all-infos">
+            <h2><%= r.title %></h2>
+            <div style="display: flex; margin-top: 5px;">
+              <p style="margin-right: 5px;"><%= r.user.username %></p>
+              <% if r.user.avatar.attached? %>
+                  <%= image_tag r.user.avatar, class: "recap-avatar" %>
+                <% else %>
+                  <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
+              <% end %>
+            </div>
+            <div class="my-1">
+              <% if r.avg_rating == 0 %>
+                0 Ratings
+              <% else %>
+                <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i><%= r.avg_rating %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+    <div class="d-flex flex-column"> <% @ratings = Rating.where(recap_id: @recaps) %>
+      <% @ratings.each do |r| %>
+        <div class="review-card">
+          <p id="rating-<%= r.id %>"></p>
+          <div style="display: flex;">
+            <div style="margin-right: 10px;">
+              <% if r.user.avatar.attached? %>
+                <%= image_tag r.user.avatar, class: "avatar" %>
+              <% else %>
+                <%= image_tag "default-avatar.png", class: "avatar" %>
+              <% end %>
+            </div>
+            <div>
+              <h4><%= r.user.username %></h4>
+              <p> <i class="fas fa-star" style="color: #F6AE2D;"></i> <%= r.star.to_f %></p>
+            </div>
+          </div>
+          <p><%= r.comment %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
