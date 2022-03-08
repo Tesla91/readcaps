@@ -8,6 +8,10 @@
   height: 50vh;
   position: relative;
 }
+.banner-info {
+  margin-left: 30px;
+  margin-top: -55px;
+}
 
 .banner-container {
   position: absolute;
@@ -21,6 +25,22 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 40px;
   font-weight: bold;
+  font-family: $headers-font;
+}
+
+.banner h2 {
+  margin: 0;
+  color: $black;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 24px;
+  font-family: $headers-font;
+}
+
+.banner h3 {
+  margin: 0;
+  color: $yellow;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
   font-family: $headers-font;
 }
 

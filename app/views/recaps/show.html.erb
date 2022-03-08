@@ -1,16 +1,19 @@
 <!-- Banner with title, author, rating -->
+<div class="container my-3">
+  <h2 class="text-center"><%= @recap.book.title %></h2>
+</div>
 <div class="banner" style="background-image: url(<%= image_url "banner.png" %>);">
-  <div class="container">
-    <h3><strong>Recapped by: <%=@recap.user.username %></strong>
+  <div class="banner-info">
+    <h2 class="mb-0">Recapped by: <%=@recap.user.username %>
       <% if @recap.user.avatar.attached? %>
         <%= image_tag @recap.user.avatar, class: "avatar" %>
       <% else %>
         <%= image_tag "default-avatar.png", class: "avatar"  %>
       <% end %>
-    </h3>
-    <h6><strong>Recap Name: <%=@recap.title %></strong></h6>
+    </h2>
+    <h3><%=@recap.title %></h3>
     <% if @recap.avg_rating == 0 %>
-      <a href="#rating-cards" class="rating-link"><p>Be the first to leave a review!</p></a>
+      <a href="#rating-cards" class="rating-link"><p class="mt-2">Be the first to leave a review!</p></a>
     <% else %>
       <%= render "shared/rating" %>
     <% end %>
