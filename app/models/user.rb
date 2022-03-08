@@ -18,6 +18,6 @@ class User < ApplicationRecord
   end
 
   def has_already_recaped?(book)
-    recaps.pluck(:book_id).include(book.id)
+    recaps.pluck(:book_id).include?(book.id)
   end
 end

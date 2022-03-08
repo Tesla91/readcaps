@@ -13,7 +13,7 @@ class RecapsController < ApplicationController
   end
 
   def new
-    if request.referer.include?("books/") # We can include regex to check if there is a number
+    if request.referer.include?("books/")
       @book_id = request.referer.split("/")[-2]
     end
     @recap = Recap.new(params[:recap])
@@ -24,11 +24,15 @@ class RecapsController < ApplicationController
       @book = Book.find(params[:recap][:book_id])
     end
     @recap = Recap.new(recap_params)
-    @recap.user = current_user
+    if current_user&.has_already_recaped?(@book)
+      flash.now[:alert] = "You have already recaped this book."
+      render :new
+    else
+      @recap.user = current_user
+    end
+
     if @recap.save
       redirect_to recap_path(@recap), notice: 'Recap was successfully created'
-    else
-      render :new
     end
   end
 
