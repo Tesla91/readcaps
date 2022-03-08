@@ -1,4 +1,4 @@
 <%= simple_form_for @recap, html: { class: "d-none", data: { edit_recap_target: "form", action: "submit->edit-recap#update" } } do |f| %>
-        <%= f.input :summary %>
-        <%= f.submit "Update" %>
+        <%= f.input :summary, as: :text %>
+        <%= f.submit "Update", class: "btn-action" %>
       <% end %>

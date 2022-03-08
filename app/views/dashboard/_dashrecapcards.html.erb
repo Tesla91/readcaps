@@ -1,0 +1,26 @@
+<% @recaps.each do |r| %>
+  <%= link_to r, style:"text-decoration: none; color: black", class: "recapcard" do %>
+    <img src="<%= r.book.photo_url %>" class="card__image">
+    <div class="card__overlay">
+      <div class= "card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+        <% if r.user.avatar.attached? %>
+            <%= image_tag r.user.avatar, class: "card__thumb" %>
+          <% else %>
+            <%= image_tag "default-avatar.png", class: "card__thumb"  %>
+        <% end %>
+        <div class="card__header-text">
+          <h2 class="card__title"><%= r.title %></h2>
+          <span class="card__status"><%= r.user.username %>
+            <% if r.ratings.average("star") == nil %>
+              <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i>0
+            <% else %>
+              <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i><%= r.ratings.average("star").round(1) %>
+            <% end %>
+          </span>
+        </div>
+      </div>
+      <p class="card__description"><%= r.summary.split.first(30).join(" ") %>...</p>
+    </div>
+  <%end%>
+<%end%>
