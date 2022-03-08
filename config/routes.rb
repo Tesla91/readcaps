@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :ratings, only: [:destroy, :update]
   get 'all_recaps', to: 'recaps#all_recaps', as: :recaps_all
   resources :dashboard, only: :index
+  resources :favorites, only: :destroy
 end

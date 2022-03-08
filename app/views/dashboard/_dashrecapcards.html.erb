@@ -12,10 +12,10 @@
         <div class="card__header-text">
           <h2 class="card__title"><%= r.title %></h2>
           <span class="card__status"><%= r.user.username %>
-            <% if r.ratings.average("star") == nil %>
-              <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i>0
+            <% if r.avg_rating == nil %>
+              <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i>0.0
             <% else %>
-              <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i><%= r.ratings.average("star").round(1) %>
+              <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i><%= r.avg_rating.round(1) %>
             <% end %>
           </span>
         </div>

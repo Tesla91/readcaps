@@ -12,4 +12,11 @@ class FavoritesController < ApplicationController
     @favorite.save
     redirect_to dashboard_index_path, notice: 'Recap was successfully added to your library'
   end
+
+  def destroy
+    @favorite = Favorite.find(params[:id])
+    @favorite.destroy
+
+    redirect_to dashboard_index_path
+  end
 end
