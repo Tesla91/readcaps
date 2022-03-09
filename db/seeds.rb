@@ -27,8 +27,8 @@ user2.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upl
 user3 = User.create!(email: "lisa@lisa.com", password: "lisa123", first_name: "Lisa", last_name: "Moon", username: "lovelisa")
 user3.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upload/v1645790349/development/female2_esrwlh.jpg'),
                     filename: 'avatar3.jpg', content_type: 'image/png')
-user4 = User.create!(email: "nick@nick.com", password: "nick123", first_name: "Nick", last_name: "Sun", username: "nickita")
-user4.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upload/v1645790517/development/86_cyfljg.jpg'),
+user4 = User.create!(email: "nicolapilcher@msn.com", password: "nick123", first_name: "Nicola", last_name: "Pilcher", username: "tesla91")
+user4.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upload/v1645815982/development/tiwep2th1l0vm3j0mie7z6b1e0h7.jpg'),
                     filename: 'avatar4.jpg', content_type: 'image/png')
 user5 = User.create!(email: "kurt@kurt.com", password: "kurt123", first_name: "Kurt", last_name: "Cloud", username: "kurtbert")
 user5.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upload/v1645790517/development/AW-rdWlG_ag3u6f.jpg'),
@@ -102,7 +102,7 @@ recap1 = Recap.create!(summary: "Harry never knew he was a wizard, and a famous 
                       HOW DID IT END?
 
                       Harry, Ron and Hermione went after professor Snape through the trap door. As they came over all the obstacles set there by different teachers - a trapping plant, enchanted keys and chess set, and a potion riddle - Harry was left alone with the man who was after the stone. Only it turned out it was Professor Quirrel rather than Snape. Quirrel had Lord Voldemort on the back of his own head under the funny-smelling turban. The last obstacle was the Mirror of Erised and Harry managed to get the stone from it before Quirrel. After Quirrel, by command of Voldemort, demanded it and attacked Harry, Harry managed to save himself with his touch - Quirrel's skin burned and blistered where it came in contact with Harry. Quirrel died, Voldemort escaped and Harry fainted. He woke up in the hospital wing 3 days later. Dumbledore explained that Harry's touch was due to love his mother imprinted on him and it was so good it hurt the evil in Quirrel. He also told Harry the stone was destroyed and that Voldemort will come back and find new ways to get what he wants. At the feast at the end of the year, Harry, Ron and Hermione won Gryffindor 160 points for their saving of the stone, and even Neville got ten points to bump the house into victory over Slytherin. Hagrid presented Harry with an album of his parents and when they left for home, Harry was a little cheerful; his family didn't know he wasn't allowed to do magic.",
-                       user_id: user4.id, book_id: book1.id, title: "My recap HP book 1!",
+                       user_id: user3.id, book_id: book1.id, title: "My recap HP book 1!",
                        keypoint: "Lord Voldemort - a dark wizard in search of great power, who killed many wizards, even Harry's parents.
                       Hogwarts - magical school in Britain for young witches and wizards
                       Muggles - non-magical people
@@ -146,7 +146,7 @@ recap2 = Recap.create!(summary: "IN SHORT
                       Harry soon found a door with two snakes and opened it using Parseltongue. Inside the chamber, Harry found Ginny unconscious and barely alive, as well as the almost-physical form of Tom Riddle. He learned it was Riddle who Ginny has been communicating with through the diary - by revealing all her deepest secrets, she poured her soul into it. Soon Riddle was able to pour some of his own back into her to possess her. She was the one killing all Hagrid's roosters, she wrote the messages on the walls and she let the Basilisk loose in school. Ginny realised that the diary wasn't what it seemed to be and tried to dispose of it in Myrtle's bathroom, but stole it back when she saw Harry with it, afraid that her crimes would be revealed. Riddle then forced Ginny to enter the Chamber in order to lure Harry down after her, and by possessing Ginny's soul, Tom began to take physical form, feeding on her receding energy. Riddle also revealed that Tom Marvolo Riddle is an anagram for I am Lord Voldemort.
                       Riddle then summoned the Basilisk and had it attack Harry. Just when it seemed Harry will die, Fawkes, Dumbledore's phoenix, appeared and blinded the Basilisk. Fawkes also brought Harry the Sorting Hat, which Harry used to ask for help, hanging on Dumbledore's words. The hat gave Harry a sword with which Harry killed the Basilisk, but one of its fangs pierces Harry's arm nevertheless, dooming him to die. Harry almost gave up under the triumphant stare of Riddle, when Fawkes saved him - phoenix tears have healing powers. Fawkes then brought Harry the diary that lay discarded by Ginny, and Harry stabbed it with a Basilisk fang, defeating Riddle and saving Ginny. The two returned to Ron and Lockhart with Fawkes, who carried them all back up to school.
                       They burst into McGonagall's office where Ginny was reunited with her parents and sent to the hospital, and Ron and Harry got congratulated by Dumbledore and won 400 points total for their house. Ron was sent to send an owl to bring Hagrid back while Harry was assured he was a true Gryffindor by Dumbledore. Their talk was interrupted by Lucius Malfoy who was mad Dumbledore was back. Headmaster told him all the other school governors were suddenly okay with Dumbledore returning. He also informed Malfoy about Harry saving the day. In the aftermath, Harry accused Lucius Malfoy of putting the diary in Ginny's cauldron and was set on returning it. He tricked Malfoy to drop the sock the diary was wrapped in which saved Malfoy's house-elf Dobby.",
-                       user_id: user4.id, book_id: book2.id, title: "Potter 2 in short",
+                       user_id: user3.id, book_id: book2.id, title: "Potter 2 in short",
                        keypoint: "Lord Voldemort - a dark wizard in search of great power, who killed many wizards, even Harry's parents
                        Hogwarts - magical school in Britain for young witches and wizards
                        Muggles - non-magical people
@@ -176,7 +176,7 @@ recap3 = Recap.create!(summary: "Feyre is a human and she goes back to Tamlin's 
                       Feyre can't read so completing the second task - a riddle - is an issue. Rhysand helps her and admits he wants to be free of the queen.
                       For the third task, Feyre has to kill three Fae. She kills two, but the third is Tamlin so she's kind of stuck. Then she remembers that Tamlin (literally) has a heart of stone so she stabs him there.
                       Amarantha refuses to free the Fae. She starts hurting Feyre. Feyre solves the riddle and the Fae are released.",
-                       user_id: user3.id, book_id: book3.id,
+                       user_id: user4.id, book_id: book3.id,
                        title: "ACOTAR", keypoint: "Amarantha kills Feyre. Tamlin kills Amarantha.
                        The Fae brnig Feyre back to life. Feyre becomes a High Fae.
                        Feyre is still bonded to Rhysand so will have to spend a lot of time with him. Ugh.
@@ -198,7 +198,7 @@ recap5 = Recap.create!(summary: "Matt is El Patrón's clone, and is seen as noth
 recap6 = Recap.create!(summary: "A Wrinkle in Time is a young adult novel written by American author Madeleine L'Engle. First published in 1962, the book won the Newbery Medal, the Sequoyah Book Award, the Lewis Carroll Shelf Award, and was runner-up for the Hans Christian Andersen Award. The main characters—Meg Murry, Charles Wallace Murry, and Calvin O'Keefe—embark on a journey through space and time, from galaxy to galaxy, as they endeavor to save the Murrys' father and the world. The novel offers a glimpse into the war between light and darkness, and good and evil, as the young characters mature into adolescents on their journey.
                        The novel wrestles with questions of spirituality and purpose, as the characters are often thrown into conflicts of love, divinity, and goodness. It is the first book in L'Engle's Time Quintet, which follows the Murrys and Calvin O'Keefe.
                        L'Engle modeled the Murry family on her own. Scholar Bernice E. Cullinan noted that L'Engle created characters who \"share common joy with a mixed fantasy and science fiction setting.\" The novel's scientific and religious undertones are therefore highly reflective of the life of L'Engle.",
-                       user_id: user6.id, book_id: book6.id, title: "What happened",
+                       user_id: user4 .id, book_id: book6.id, title: "What happened",
                        keypoint: "Margaret \"Meg\" Murry - Meg is the oldest child of scientists Alex and Kate Murry, about thirteen years old. Introduced on the first page of the book, she is the story's main protagonist One of Kate Murry's \"abnormal\" children, she seems to have a temper and a difficult time focusing in school.
                        Charles Wallace Murry - Charles Wallace is the youngest Murry child, at six years old. Charles Wallace speaks only to his family, but can empathically or telepathically read certain people's thoughts and feelings.
                        Calvin O'Keefe - Calvin is the third oldest of Paddy and Branwen O'Keefe's eleven children: a tall, thin, red-haired 14-year-old high school junior.")
@@ -250,7 +250,7 @@ Rating.create!(comment: "Great recap. Thanks!",
 Rating.create!(comment: "Not sufficient. I missed the part where Harry Potters and Ron did have this huge fight.",
                star: "2", user_id: user1.id, recap_id: recap2.id)
 Rating.create!(comment: "Really helped me to catch up on everything and prepare for the next part.",
-               star: "5", user_id: user4.id, recap_id: recap3.id)
+               star: "5", user_id: user6.id, recap_id: recap3.id)
 Rating.create!(comment: "Loved this!!!",
                star: "5", user_id: user3.id, recap_id: recap4.id)
 Rating.create!(comment: "This a very a very bad summary. There was missing a really important part.",
@@ -267,23 +267,30 @@ Rating.create!(comment: "I really enjoyed this one (as did millions of others, o
                star: "4", user_id: user8.id, recap_id: recap14.id)
 Rating.create!(comment: "The Foundation series is a science fiction book series written by Russian American author Isaac Asimov.",
                star: "3", user_id: user6.id, recap_id: recap13.id)
-Rating.create!(comment: "Comparing this to the prequels, indeed, any of the prequels, only makes THIS book shine like a diamond.",
-               star: "5", user_id: user4.id, recap_id: recap12.id)
 Rating.create!(comment: "Honestly, I don't get why this book/series is so popular.",
-               star: "2", user_id: user8.id, recap_id: recap10.id)
+               star: "5", user_id: user4.id, recap_id: recap12.id)
+Rating.create!(comment: "Comparing this to the prequels, indeed, any of the prequels, only makes THIS book shine like a diamond.",
+               star: "4", user_id: user8.id, recap_id: recap10.id)
 Rating.create!(comment: "I tend to love the concepts but the writing is usually dry and the sexism/racism/homophobia tends to ruin it for me. ",
                star: "4", user_id: user8.id, recap_id: recap9.id)
 Rating.create!(comment: "Second reading: I really like that Isaac Asimov's The Foundation holds up! I'd been looking forward to reading the first three books in the series in one go and I'm excited to continue.",
                star: "4", user_id: user1.id, recap_id: recap8.id)
 Rating.create!(comment: "Absolutely Loved it! Hail Asimov! He is brilliant! His writing is enchanting and filled with awe inspiring genius. Work of sheer Ingenuity! Height of Inventiveness!",
                star: "5", user_id: user2.id, recap_id: recap7.id)
+Rating.create!(comment: "Great recap thanks a ton!",
+               star: "4", user_id: user8.id, recap_id: recap6.id)
 
 # Favorites seeds
 puts "Creating favorites"
 Favorite.create!(user_id: user5.id, recap_id: recap1.id)
 Favorite.create!(user_id: user1.id, recap_id: recap2.id)
-Favorite.create!(user_id: user4.id, recap_id: recap3.id)
+Favorite.create!(user_id: user4.id, recap_id: recap10.id)
 Favorite.create!(user_id: user3.id, recap_id: recap4.id)
 Favorite.create!(user_id: user2.id, recap_id: recap5.id)
+Favorite.create!(user_id: user6.id, recap_id: recap6.id)
+Favorite.create!(user_id: user4.id, recap_id: recap8.id)
+Favorite.create!(user_id: user5.id, recap_id: recap11.id)
+Favorite.create!(user_id: user4.id, recap_id: recap13.id)
+Favorite.create!(user_id: user8.id, recap_id: recap12.id)
 
 puts 'All done seeding'
