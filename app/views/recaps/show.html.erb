@@ -3,8 +3,8 @@
   <h2 class="text-center"><%= @recap.book.title %></h2>
 </div>
 <div class="banner" style="background-image: url(<%= image_url "banner.png" %>);">
-  <div class="banner-info">
-    <h2 class="mb-0">Recapped by: <%=@recap.user.username %>
+<div class="banner-info">
+    <h2> Recapped by: <%= @recap.user.username %>
       <% if @recap.user.avatar.attached? %>
         <%= image_tag @recap.user.avatar, class: "avatar" %>
       <% else %>
@@ -17,8 +17,8 @@
     <% else %>
       <%= render "shared/rating" %>
     <% end %>
-  </div>
 </div>
+ </div>
 
 <div class="container mt-4">
   <div class="row">
