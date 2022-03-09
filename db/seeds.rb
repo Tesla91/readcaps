@@ -41,6 +41,17 @@ user5.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upl
                username: Faker::Internet.username(specifier: 6..10))
 end
 
+user6 = User.last
+user6.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upload/v1646759045/development/lorem-face-1717_ao2qzw.jpg'),
+                    filename: 'avatar6.jpg', content_type: 'image/png')
+user7 = User.second_to_last
+user7.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upload/v1646759045/development/lorem-face-3606_oj3xjp.jpg'),
+                    filename: 'avatar7.jpg', content_type: 'image/png')
+user8 = User.third_to_last
+user8.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upload/v1646759045/development/lorem-face-3352_mvye7h.jpg'),
+                    filename: 'avatar8.jpg', content_type: 'image/png')
+
+
 # Book seeds
 puts "Creating books"
 books.each do |book|
@@ -54,6 +65,12 @@ book2 = Book.find_by(title: "Harry Potter and the Chamber of Secrets")
 book3 = Book.find_by(title: "A Court of Thorns and Roses")
 book4 = Book.find_by(title: "Pawn")
 book5 = Book.find_by(title: "The House of the Scorpion")
+book6 = Book.find_by(title: "A Wrinkle in Time")
+book7 = Book.find_by(title: "Book of Night")
+book8 = Book.find_by(title: "Gone Girl")
+book9 = Book.find_by(title: "From Lukov with Love")
+book10 = Book.find_by(title: "The Complete Grimm's Fairy Tales")
+
 
 # Recap seeds
 puts "Creating recaps"
@@ -168,16 +185,59 @@ recap4 = Recap.create!(summary: "America is now a meritocracy, where citizens ar
                       But she's found by Daxton Hart, the Prime Minister, who offers her a rank VII. She agrees, and is turned into Lila Hart's (Daxton's niece) clone. She is expected to retract all of Lila's anti-governmental messages. But Celia, Lila's mother and Knox, her fiance, want her to support Lila's cause, and Kitty agrees after she sees first hand the lies the government has been telling the people.
                       Celia spearheads a plan to kill Daxton, with Kitty's help, but Kitty fails at the last moment, and Daxton goes into coma. After Kitty's first speech as Lila, Knox and Kitty come home to find that Celia has kidnapped Grayson with the intention of killing him. Knox reveals that Lila is really alive. They decide to trade Lila for Grayson. But when the time comes, Augusta plays a mean trick, forcing Celia to choose which girl is her real daughter. Celia chooses wrong, and Augusta shoots Lila (with a tranquilizer dart, which Celia doesn't know). The attempt to rescue Grayson, Lila and Benjy (Kitty's boyfriend) is foiled when Augusta discovers them and stabs Lila with a poker. When she's about to kill Benjy too, Kitty kills Augusta. Lila survives, but doesn't want to risk her life for the rebellion, so Kitty takes her place as the face of the rebellion.",
                        user_id: user1.id, book_id: book4.id,
-                       title: "Cool recap", keypoint: "Daxton wakes up, but seems to have forgotten everything that happened in the last six weeks. He thinks that Lila is still alive.
+                       title: "My cool recap", keypoint: "Daxton wakes up, but seems to have forgotten everything that happened in the last six weeks. He thinks that Lila is still alive.
                        Lila survives. During Augusta's funeral, Kitty finds out that Daxton actually remember everything that happened. When he threatens her, she blackmails him with the fact that she knows his secret, and so does Knox, and Grayson, who was never fooled.
                        Since Lila is not interested in putting her life at risk  for the rebellion, Kitty accepts her position.")
 recap5 = Recap.create!(summary: "Matt is El Patrón's clone, and is seen as nothing but an organ donor by everyone around him, minus Celia, Tam Lin, and María. He grows up being told that he's less than human. El Patrón becomes sick, and tries to take Matt's heart, but Celia had been poisoning Matt with arsenic, so his heart is useless and would kill El Patrón anyway. Matt escapes into Aztlán, and is found by the Keepers. There, he makes some friends, is almost killed, but once again he escapes. He reunites with María at the convent, and then flies back to Opium to take the country back. Celia, Daft Donald, and Mr Ortega are all there. Tam Lin and the rest all died with El Patrón. Matt is now in control of Opium.",
                        user_id: user2.id, book_id: book5.id,
-                       title: "Summary", keypoint: "Opium - The country between Aztlán and the United States, which El Patrón rules. It's basically a giant drug empire.
+                       title: "My Summary", keypoint: "Opium - The country between Aztlán and the United States, which El Patrón rules. It's basically a giant drug empire.
                        Aztlán - Where El Patrón grew up. Used to be called Mexico.
                        Eejit - A slave who has a computer chip in their brain to make them docile. They don't have a mind of their own, and always follow orders to the death.
                        Keepers - People in Aztlán who recruit young teenagers to do their work while they smuggle drugs into Aztlán.
                        Farm Patrol - The police force of Opium, who make sure no immigrants get through, and nobody escapes.")
+recap6 = Recap.create!(summary: "A Wrinkle in Time is a young adult novel written by American author Madeleine L'Engle. First published in 1962, the book won the Newbery Medal, the Sequoyah Book Award, the Lewis Carroll Shelf Award, and was runner-up for the Hans Christian Andersen Award. The main characters—Meg Murry, Charles Wallace Murry, and Calvin O'Keefe—embark on a journey through space and time, from galaxy to galaxy, as they endeavor to save the Murrys' father and the world. The novel offers a glimpse into the war between light and darkness, and good and evil, as the young characters mature into adolescents on their journey.
+                       The novel wrestles with questions of spirituality and purpose, as the characters are often thrown into conflicts of love, divinity, and goodness. It is the first book in L'Engle's Time Quintet, which follows the Murrys and Calvin O'Keefe.
+                       L'Engle modeled the Murry family on her own. Scholar Bernice E. Cullinan noted that L'Engle created characters who \"share common joy with a mixed fantasy and science fiction setting.\" The novel's scientific and religious undertones are therefore highly reflective of the life of L'Engle.",
+                       user_id: user6.id, book_id: book6.id, title: "What happened",
+                       keypoint: "Margaret \"Meg\" Murry - Meg is the oldest child of scientists Alex and Kate Murry, about thirteen years old. Introduced on the first page of the book, she is the story's main protagonist One of Kate Murry's \"abnormal\" children, she seems to have a temper and a difficult time focusing in school.
+                       Charles Wallace Murry - Charles Wallace is the youngest Murry child, at six years old. Charles Wallace speaks only to his family, but can empathically or telepathically read certain people's thoughts and feelings.
+                       Calvin O'Keefe - Calvin is the third oldest of Paddy and Branwen O'Keefe's eleven children: a tall, thin, red-haired 14-year-old high school junior.")
+recap7 = Recap.create!(summary: "In Charlie Hall's world, shadows can be altered, for entertainment and cosmetic preferences—but also to increase power and influence. You can alter someone's feelings—and memories—but manipulating shadows has a cost, with the potential to take hours or days from your life. Your shadow holds all the parts of you that you want to keep hidden—a second self, standing just to your left, walking behind you into lit rooms. And sometimes, it has a life of its own.
+                       Charlie is a low-level con artist, working as a bartender while trying to distance herself from the powerful and dangerous underground world of shadow trading. She gets by doing odd jobs for her patrons and the naive new money in her town at the edge of the Berkshires. But when a terrible figure from her past returns, Charlie's present life is thrown into chaos, and her future seems at best, unclear—and at worst, non-existent. Determined to survive, Charlie throws herself into a maelstrom of secrets and murder, setting her against a cast of doppelgangers, mercurial billionaires, shadow thieves, and her own sister—all desperate to control the magic of the shadows.
+                       With sharp angles and prose, and a sinister bent, Holly Black is a master of shadow and story stitching. Remember while you read, light isn't playing tricks in Book of Night, the people are.",
+                       user_id: user7.id, book_id: book7.id, title: "The recap",
+                       keypoint: "#1 New York Times bestselling author Holly Black makes her stunning adult debut with Book of Night, a modern dark fantasy of shadowy thieves and secret societies in the vein of Ninth House and The Night Circus")
+recap8 = Recap.create!(summary: "On their fifth wedding anniversary, writing teacher Nick Dunne returns home to find his wife Amy missing. Her disappearance receives press coverage, as Amy was the inspiration for her parents' popular Amazing Amy children's books. Detective Rhonda Boney finds poorly concealed evidence of a struggle in the house. Suspicion mounts around Nick, whose apathy is interpreted by the media as characteristic of a sociopath and even sows doubt in his twin sister Margot.
+                       In the past Amy revealed to Nick that Amazing Amy was a perfected version made up of the real Amy's failures. Their marriage disintegrated over time; both lost their jobs in the recession and moved from New York City to Nick's hometown of North Carthage, Missouri, to care for his dying mother. Nick became lazy and distant, and began cheating on Amy with Andie, one of his students, while Amy became increasingly resentful towards Nick for making her move with him to Missouri.",
+                       user_id: user8.id, book_id: book8.id, title: "Gone Girl recap",
+                       keypoint: "Nick intends to leave Amy, but she reveals she is pregnant, having inseminated herself with Nick's sperm stored at a fertility clinic. Nick reacts violently to Amy's insistence that they remain married, but feels responsible for the child. Despite Margot's objections, he reluctantly decides to stay with Amy. The \"happy\" couple announce on a television interview that they are expecting a child.")
+recap9 = Recap.create!(summary: "If someone were to ask Jasmine Santos to describe the last few years of her life with a single word, it would definitely be a four-letter one.After seventeen years—and countless broken bones and broken promises—she knows her window to compete in figure skating is coming to a close.But when the offer of a lifetime comes in from an arrogant idiot she's spent the last decade dreaming about pushing in the way of a moving bus, Jasmine might have to reconsider everything.Including Ivan Lukov.",
+                       user_id: user1.id, book_id: book9.id, title: "My Love for Lukov",
+                       keypoint: "From Lukov with love is my favorite book by Mariana Zapata
+                       I loved Kulti - so I just had to add from Lukov with love to my ''to be read list'' - guys I wasn't disappointed. I enjoyed the banter too much and the slow build up was everything I didn't know I wanted. This book was humorous and Jasmine's family oh boy I wish my family was like that! I laughed so much, I didn't care if people saw me laughing randomly in public.
+                       I highly recommend this book if you just love a good slow burn!")
+recap10 = Recap.create!(summary: "Grimms' Fairy Tales, originally known as the Children's and Household Tales (German: Kinder- und Hausmärchen, is a German collection of fairy tales by the Grimm brothers or \"Brothers Grimm\", Jacob and Wilhelm, first published on 20 December 1812. This first edition contained 86 stories, and by the seventh edition in 1857, it had 210 unique fairy tales.",
+                        user_id: user3.id, book_id: book10.id, title: "Fairytails in short",
+                        keypoint: "Achim von Arnim and Clemens Brentano were good friends of the brothers and wanted to publish folk tales, so they asked the brothers to collect oral tales for publication. The Grimms collected many old books and asked friends and acquaintances in Kassel to tell tales and to gather stories from others. Jacob and Wilhelm sought to collect these stories in order to write a history of old German Poesie and to preserve history.")
+recap11 = Recap.create!(summary: "The narrative alternates between the point of view of Nick and Amy Dunne (née Amy Elliott). Nick's narration begins shortly after arriving home on his fifth wedding anniversary to find Amy is missing from their home; there are signs of a struggle. Amy's narration comes in the form of her diaries and follows the earlier stages of their relationship.
+                        The diary entries describe how Amy met Nick in New York City, where they both worked as writers. Nick was a journalist who wrote movie and TV reviews, while Amy wrote personality quizzes for women's magazines. After two years of dating, they married. The couple lived in a beautiful brownstone home in Brooklyn where they were happy.
+                        In 2009, both Nick and Amy lost their jobs following the Great Recession; Amy's parents Rand and Marybeth, meanwhile, had written a successful childhood book series called \"Amazing Amy,\" based on Amy's life experiences. However, when sales from the books started declining and Rand and Marybeth didn't curb their spending, they also started facing financial issues. Their solution was to ask Amy for money from the trust fund they started for her.",
+                        user_id: user2.id, book_id: book8.id, title: "Gone recap girl",
+                        keypoint: "Jim Gilpin: A detective who participated in Nick's investigation. He is described by Nick as having \"fleshy bags under his eyes\" and \"scraggly white whiskers in his mustache.\"")
+recap12 = Recap.create!(summary: "A Court of Thorns and Roses is a new adult high fantasy novel series by American author Sarah J. Maas, beginning with the novel of the same name, released in May 2015. The story follows the journey of mortal Feyre Archeron after she is brought into the faerie lands of Prythian for murdering a faerie, and the epic love story and fierce struggle that happens after she enters the fae lands.",
+                        user_id: user8.id, book_id: book3.id, title: "Roses recapped",
+                        keypoint: "In March 2021, it was announced that A Court of Thorns and Roses series had been opted for a television adaptation by Hulu. The series is set to be developed by Ronald D. Moore, alongside Maas")
+recap13 = Recap.create!(summary: "In March 2021, it was announced that A Court of Thorns and Roses series had been opted for a television adaptation by Hulu. The series is set to be developed by Ronald D. Moore, alongside Maas",
+                        user_id: user7.id, book_id: book4.id, title: "Pawned or Recapped",
+                        keypoint: "Previously titled Masked.")
+recap14 = Recap.create!(summary: "Ever since Harry Potter had come home for the summer, the Dursleys had been so mean and hideous that all Harry wanted was to get back to the Hogwarts School for Witchcraft and Wizardry. But just as he's packing his bags, Harry receives a warning from a strange impish creature who says that if Harry returns to Hogwarts, disaster will strike.
+                        And strike it does. For in Harry's second year at Hogwarts, fresh torments and horrors arise, including an outrageously stuck-up new professor and a spirit who haunts the girls' bathroom. But then the real trouble begins - someone is turning Hogwarts students to stone. Could it be Draco Malfoy, a more poisonous rival than ever? Could it possible be Hagrid, whose mysterious past is finally told? Or could it be the one everyone at Hogwarts most suspects… Harry Potter himself! ",
+                        user_id: user6.id, book_id: book2.id, title: "Secret of HPCOS",
+                        keypoint: "Book two in the Harry Potter Series")
+recap15 = Recap.create!(summary: "Ever since Harry Potter had come home for the summer, the Dursleys had been so mean and hideous that all Harry wanted was to get back to the Hogwarts School for Witchcraft and Wizardry. But just as he's packing his bags, Harry receives a warning from a strange impish creature who says that if Harry returns to Hogwarts, disaster will strike.
+                        And strike it does. For in Harry's second year at Hogwarts, fresh torments and horrors arise, including an outrageously stuck-up new professor and a spirit who haunts the girls' bathroom. But then the real trouble begins - someone is turning Hogwarts students to stone. Could it be Draco Malfoy, a more poisonous rival than ever? Could it possible be Hagrid, whose mysterious past is finally told? Or could it be the one everyone at Hogwarts most suspects… Harry Potter himself!",
+                        user_id: user8.id, book_id: book1.id, title: "My sorcers recap",
+                        keypoint: "First book in this awesome series")
 
 # Rating seeds
 puts "Creating ratings"
@@ -197,6 +257,26 @@ Rating.create!(comment: "This a very a very bad summary. There was missing a rea
                star: "2", user_id: user3.id, recap_id: recap5.id)
 Rating.create!(comment: "This sucked I loved this book but this is not what happened",
                star: "1", user_id: user4.id, recap_id: recap5.id)
+Rating.create!(comment: "Boo",
+               star: "1", user_id: user5.id, recap_id: recap15.id)
+Rating.create!(comment: "So poor Harry is stuck back with the Dursley's on Privet Drive.",
+               star: "2", user_id: user7.id, recap_id: recap15.id)
+Rating.create!(comment: "This was a cute middle grade book. Even though it was slow, I liked it a little more than the first book since at this point the world has already been established and now we get to see more of the characters and the setting.",
+               star: "3", user_id: user6.id, recap_id: recap15.id)
+Rating.create!(comment: "I really enjoyed this one (as did millions of others, obviously) and, with this installment, I am definitely seeing why this is such a beloved series. The magical wizarding world of Harry, his friends, and the folks at Hogwart's is just FUN to read about.",
+               star: "4", user_id: user8.id, recap_id: recap14.id)
+Rating.create!(comment: "The Foundation series is a science fiction book series written by Russian American author Isaac Asimov.",
+               star: "3", user_id: user6.id, recap_id: recap13.id)
+Rating.create!(comment: "Comparing this to the prequels, indeed, any of the prequels, only makes THIS book shine like a diamond.",
+               star: "5", user_id: user4.id, recap_id: recap12.id)
+Rating.create!(comment: "Honestly, I don't get why this book/series is so popular.",
+               star: "2", user_id: user8.id, recap_id: recap10.id)
+Rating.create!(comment: "I tend to love the concepts but the writing is usually dry and the sexism/racism/homophobia tends to ruin it for me. ",
+               star: "4", user_id: user8.id, recap_id: recap9.id)
+Rating.create!(comment: "Second reading: I really like that Isaac Asimov's The Foundation holds up! I'd been looking forward to reading the first three books in the series in one go and I'm excited to continue.",
+               star: "4", user_id: user1.id, recap_id: recap8.id)
+Rating.create!(comment: "Absolutely Loved it! Hail Asimov! He is brilliant! His writing is enchanting and filled with awe inspiring genius. Work of sheer Ingenuity! Height of Inventiveness!",
+               star: "5", user_id: user2.id, recap_id: recap7.id)
 
 # Favorites seeds
 puts "Creating favorites"
