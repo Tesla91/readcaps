@@ -53,25 +53,51 @@
 </div>
 
   <!--Gold Silver bronze  -->
-
-
   <h2 class="text-center mb-2">Ready, Set, Gold!</h2>
-   <h3 class="text-center mb-2">Our best ranked readCappers:</h3>
+   <h5 class="text-center mb-2">Our best rated readCappers</h5>
   <!--Best rated User through recaps  -->
-  <div class = "best-ranked">
-  <% @top_users.first(3).each do |t| %>
-    <div class="container">
-      <i class="fas fa-regular fa-trophy" style="color: #F6AE2D; font-size: 30px;"></i>
-      <%= t.username %>
-      <%= image_tag t.avatar, class: "recap-avatar" %>
-      <i class="fas fa-star" style="color: #F6AE2D; font-size: 30px;"></i>
+  <div class="ranking-cards">
+    <div class = "best-ranked justify-content-center">
+      <div class="first">
+        <i class="fas fa-solid fa-award" style="color: #F6AE2D; font-size: 50px;"></i>
+        <%= @top_users[0].username %>
+        <%= image_tag @top_users[0].avatar, class: "recap-avatar" %>
+        <i class="fas fa-star" style="color: #F6AE2D; font-size: 20px; padding: 5px;"></i>
+        <p style="font-size: 20px; font-weight: bold; display: flex; flex-direction: column;"><%= @top_users[0].avg_received_ratings%></p>
+      </div>
+      <div class="second">
+        <i class="fas fa-solid fa-award" style="color: silver; font-size: 40px;"></i>
+        <%= @top_users[1].username %>
+        <%= image_tag @top_users[1].avatar, class: "recap-avatar" %>
+      <i class="fas fa-star" style="color: #F6AE2D; font-size: 20px; padding: 5px;"></i>
+      <p style="font-size: 20px; font-weight: bold; display: flex; flex-direction: column;"><%= @top_users[1].avg_received_ratings%></p>
+      </div>
+
+      <div class="third">
+      <i class="fas fa-solid fa-award" style="color: #d6b4a4; font-size: 30px;"></i>
+        <%= @top_users[2].username %>
+        <%= image_tag @top_users[2].avatar, class: "recap-avatar" %>
+        <i class="fas fa-star" style="color: #F6AE2D; font-size: 20px; padding: 5px;"></i>
+        <p style="font-size: 20px; font-weight: bold; display: flex; flex-direction: column;"><%= @top_users[2].avg_received_ratings%></p>
+      </div>
     </div>
-  <% end %>
   </div>
 
+<br>
+<br>
 
 <div class = "container">
   <h2 class="text-center mb-2">Authors you might be interested in:</h2>
+  <div class="cards">
+  <%= image_tag "rowling.jpg", class: "card" %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+    J.K. Rowling
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),>
+    B. Sanderson
+  </div>
+</div>
 </div>
 
 <div class = "container">
