@@ -1,5 +1,5 @@
 <% @favorites.each do |f| %>
-  <%= link_to f.recap, style:"text-decoration: none; color: black", class: "recapcard" do %>
+  <%= link_to f.recap, style:"text-decoration: none; color: black;", class: "recapcard" do %>
     <img src="<%= f.recap.book.photo_url %>" class="card__image">
     <div class="card__overlay">
       <div class= "card__header">
