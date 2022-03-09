@@ -1,7 +1,7 @@
 <div class="home-links mb-3">
   <ul class="nav justify-content-center">
     <li class="nav-item">
-      <%= link_to "All Books", books_path, class: "nav-link" %>
+      <%= link_to "All Recaps", recaps_all_path, class: "nav-link" %>
     </li>
     <li class="nav-item">
       <%= link_to "Top Recaps", recaps_all_path(top: 'yes'), class: "nav-link" %>
@@ -20,8 +20,7 @@
     <h2>Welcome to</h2>
     <h1>read<em>Caps</em></h1>
     <p>Find recaps of your favorite books</p>
-    <%= link_to recaps_all_path do %>
-      <button class="button-action" type="submit">See all recaps</button>
+    <%= link_to books_path do %> <button class="button-action" type="submit">All Books</button>
     <% end %>
   </div>
 </div>
