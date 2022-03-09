@@ -72,13 +72,13 @@ h5 {
   padding: 10px;
 }
 
-.cards {
+.cards-author {
   display: flex;
   grid-gap: 16px;
   justify-content: center;
 }
 
-.card-category {
+.author {
   width: 20rem;
   height: 10rem;
   background-position: center;
@@ -88,6 +88,7 @@ h5 {
   border-radius: 16px;
 }
 
-.card-category:hover {
+.author:hover {
   opacity: 1;
+
 }
