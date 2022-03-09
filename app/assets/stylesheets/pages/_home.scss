@@ -71,3 +71,23 @@ h1, h2, h3, h4, h5, h6 {
 h5 {
   padding: 10px;
 }
+
+.cards {
+  display: flex;
+  grid-gap: 16px;
+  justify-content: center;
+}
+
+.card-category {
+  width: 20rem;
+  height: 10rem;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  opacity: 0.8;
+  border-radius: 16px;
+}
+
+.card-category:hover {
+  opacity: 1;
+}
