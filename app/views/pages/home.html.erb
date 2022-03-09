@@ -32,7 +32,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class= "container p-6 my-4">
-          <div class= "row">
+          <div class= "row fixed-height">
             <div class="recapcards">
               <% @recaps = Recap.order("created_at DESC").limit(5) %>
               <%= render "shared/recapcards" %>
@@ -41,8 +41,8 @@
         </div>
       </div>
       <div class="carousel-item">
-        <div class= "row">
-          <div class= "container p-6 my-4">
+        <div class= "container p-6 my-4">
+          <div class= "row fixed-height">
             <div class="recapcards">
               <% @recaps = Recap.order("created_at DESC").offset(5).limit(5) %>
               <%= render "shared/recapcards" %>
