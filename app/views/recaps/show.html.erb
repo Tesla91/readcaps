@@ -40,11 +40,11 @@
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <div data-controller="edit-recap">
               <div data-edit-recap-target="infos"><%= simple_format(@recap.summary) %>
-              <% if @recap.user == current_user %>
-                <i class="fas fa-pen" style="cursor: pointer;" data-action="click->edit-recap#displayForm"></i>
-              <% end %>
-                </div>
-                <%= render "sumedit" %>
+                <% if @recap.user == current_user %>
+                  <i class="fas fa-pen" style="cursor: pointer;" data-action="click->edit-recap#displayForm"></i>
+                <% end %>
+              </div>
+              <%= render "/recaps/sumedit" %>
             </div>
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -190,7 +190,7 @@
         <div class="modal-body">
           <%= simple_form_for([ @recap, @rating ], remote: true) do |f| %>
             <%= f.input :comment, label: "Comment"  %>
-            <%= f.input :star, label: "Rating", collection: 0..5 %>
+            <%= f.input :star, label: "Rating", collection: 0..5, include_blank: false, include_hidden: false %>
             <%= f.submit "Submit review", class: "btn-action" %>
           <% end %>
         </div>
