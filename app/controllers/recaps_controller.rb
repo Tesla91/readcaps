@@ -25,7 +25,7 @@ class RecapsController < ApplicationController
     end
     @recap = Recap.new(recap_params)
     if current_user&.has_already_recaped?(@book)
-      flash.now[:alert] = "You have already recaped this book."
+      flash.now[:alert] = "You have already recaped this book"
       render :new
     else
       @recap.user = current_user
