@@ -34,7 +34,7 @@
       <div class="carousel-item active">
         <div class= "container p-6 my-4">
           <div class= "row">
-            <div class="recapcards col-12">
+            <div class="recapcards">
               <% @recaps = Recap.order("created_at DESC").limit(5) %>
               <%= render "shared/recapcards" %>
             </div>
@@ -42,10 +42,12 @@
         </div>
       </div>
       <div class="carousel-item">
-        <div class= "container p-6 my-4">
-          <div class="recapcards">
-            <% @recaps = Recap.order("created_at DESC").offset(5).limit(5) %>
-            <%= render "shared/recapcards" %>
+        <div class= "row">
+          <div class= "container p-6 my-4">
+            <div class="recapcards">
+              <% @recaps = Recap.order("created_at DESC").offset(5).limit(5) %>
+              <%= render "shared/recapcards" %>
+            </div>
           </div>
         </div>
       </div>
@@ -90,15 +92,15 @@
 <div class = "container">
   <h2 class="text-center mb-2">Authors you might be interested in:</h2>
   <div class="cards">
-  <%= image_tag "rowling.jpg", class: "card" %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
-    J.K. Rowling
-  </div>
+    <%= image_tag "rowling.jpg", class: "card" %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+      J.K. Rowling
+    </div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),>
-    B. Sanderson
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),">
+      B. Sanderson
+    </div>
   </div>
-</div>
 </div>
 
 <div class = "container">
