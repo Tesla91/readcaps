@@ -20,3 +20,54 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: $headers-font;
 }
+
+.ranking-cards {
+  background-color: $light-grey;
+}
+
+.best-ranked {
+  display: flex;
+  grid-gap: 30px;
+  margin: 5px 5px;
+  padding: 20px;
+}
+
+.first {
+  padding-top: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  height: 170px;
+  align-items: center;
+  width: 170px;
+  box-shadow: #f6ae2d 0px 0px 0px 3px, #eb9c0a 0px 0px 0px 6px,  rgba(0, 0, 0, 0.2) 10px 10px 2px 1px;
+}
+
+.second {
+  padding-top: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  height: 170px;
+  align-items: center;
+  width: 150px;
+  box-shadow: #10bcc2 0px 0px 0px 6px, rgba(0, 0, 0, 0.2) 10px 10px 2px 1px;
+}
+
+.third {
+  padding-top: 10px;
+  background-color: white;;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  height: 170px;
+  align-items: center;
+  width: 150px;
+  box-shadow:  #a1f4f7 0px 0px 0px 6px,rgba(0, 0, 0, 0.2) 10px 10px 2px 1px; ;
+}
+
+h5 {
+  padding: 10px;
+}

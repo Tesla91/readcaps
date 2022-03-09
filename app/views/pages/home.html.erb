@@ -33,17 +33,17 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class= "container p-6 my-4">
-          <div class="recapcards">
-            <!-- Show 5 random book recaps-->
-            <% @recaps = Recap.order("created_at DESC").limit(5) %>
-            <%= render "shared/recapcards" %>
+          <div class= "row">
+            <div class="recapcards col-12">
+              <% @recaps = Recap.order("created_at DESC").limit(5) %>
+              <%= render "shared/recapcards" %>
+            </div>
           </div>
         </div>
       </div>
       <div class="carousel-item">
         <div class= "container p-6 my-4">
           <div class="recapcards">
-            <!-- Show 5 random book recaps-->
             <% @recaps = Recap.order("created_at DESC").offset(5).limit(5) %>
             <%= render "shared/recapcards" %>
           </div>
@@ -51,4 +51,56 @@
       </div>
     </div>
   </div>
+</div>
+
+  <!--Gold Silver bronze  -->
+  <h2 class="text-center mb-2">Ready, Set, Gold!</h2>
+   <h5 class="text-center mb-2">Our best rated readCappers</h5>
+  <!--Best rated User through recaps  -->
+  <div class="ranking-cards">
+    <div class = "best-ranked justify-content-center">
+      <div class="first">
+        <i class="fas fa-solid fa-award" style="color: #F6AE2D; font-size: 50px;"></i>
+        <%= @top_users[0].username %>
+        <%= image_tag @top_users[0].avatar, class: "recap-avatar" %>
+        <i class="fas fa-star" style="color: #F6AE2D; font-size: 20px; padding: 5px;"></i>
+        <p style="font-size: 20px; font-weight: bold; display: flex; flex-direction: column;"><%= @top_users[0].avg_received_ratings%></p>
+      </div>
+      <div class="second">
+        <i class="fas fa-solid fa-award" style="color: silver; font-size: 40px;"></i>
+        <%= @top_users[1].username %>
+        <%= image_tag @top_users[1].avatar, class: "recap-avatar" %>
+      <i class="fas fa-star" style="color: #F6AE2D; font-size: 20px; padding: 5px;"></i>
+      <p style="font-size: 20px; font-weight: bold; display: flex; flex-direction: column;"><%= @top_users[1].avg_received_ratings%></p>
+      </div>
+
+      <div class="third">
+      <i class="fas fa-solid fa-award" style="color: #d6b4a4; font-size: 30px;"></i>
+        <%= @top_users[2].username %>
+        <%= image_tag @top_users[2].avatar, class: "recap-avatar" %>
+        <i class="fas fa-star" style="color: #F6AE2D; font-size: 20px; padding: 5px;"></i>
+        <p style="font-size: 20px; font-weight: bold; display: flex; flex-direction: column;"><%= @top_users[2].avg_received_ratings%></p>
+      </div>
+    </div>
+  </div>
+
+<br>
+<br>
+
+<div class = "container">
+  <h2 class="text-center mb-2">Authors you might be interested in:</h2>
+  <div class="cards">
+  <%= image_tag "rowling.jpg", class: "card" %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+    J.K. Rowling
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),>
+    B. Sanderson
+  </div>
+</div>
+</div>
+
+<div class = "container">
+  <h2 class="text-center mb-2">Recap this book request:</h2>
 </div>
