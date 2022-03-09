@@ -32,17 +32,17 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class= "container p-6 my-4">
-          <div class="recapcards">
-            <!-- Show 5 random book recaps-->
-            <% @recaps = Recap.order("created_at DESC").limit(5) %>
-            <%= render "shared/recapcards" %>
+          <div class= "row">
+            <div class="recapcards col-12">
+              <% @recaps = Recap.order("created_at DESC").limit(5) %>
+              <%= render "shared/recapcards" %>
+            </div>
           </div>
         </div>
       </div>
       <div class="carousel-item">
         <div class= "container p-6 my-4">
           <div class="recapcards">
-            <!-- Show 5 random book recaps-->
             <% @recaps = Recap.order("created_at DESC").offset(5).limit(5) %>
             <%= render "shared/recapcards" %>
           </div>
@@ -54,15 +54,21 @@
 
   <!--Gold Silver bronze  -->
 
-<div class = "container">
-  <h2 class="text-center mb-2">Ready, Set, Gold! <br> Our best ranked readCappers:</h2>
-  <!--Ratings - User through ratings  -->
-  <%  @ratings = Rating.where(rating.star )%>
-  <% @ratings.each do |rating| %>
-    <%= rating.user.username%>
-    <%= image_tag rating.user.avatar, class: "avatar" %>
-  <% end%>
-</div>
+
+  <h2 class="text-center mb-2">Ready, Set, Gold!</h2>
+   <h3 class="text-center mb-2">Our best ranked readCappers:</h3>
+  <!--Best rated User through recaps  -->
+  <div class = "best-ranked">
+  <% @top_users.first(3).each do |t| %>
+    <div class="container">
+      <i class="fas fa-regular fa-trophy" style="color: #F6AE2D; font-size: 30px;"></i>
+      <%= t.username %>
+      <%= image_tag t.avatar, class: "recap-avatar" %>
+      <i class="fas fa-star" style="color: #F6AE2D; font-size: 30px;"></i>
+    </div>
+  <% end %>
+  </div>
+
 
 <div class = "container">
   <h2 class="text-center mb-2">Authors you might be interested in:</h2>
