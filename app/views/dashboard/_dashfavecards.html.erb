@@ -9,9 +9,9 @@
         <div class= "card__header">
           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
           <% if f.recap.user.avatar.attached? %>
-              <%= image_tag f.recap.user.avatar, class: "card__thumb" %>
-            <% else %>
-              <%= image_tag "default-avatar.png", class: "card__thumb"  %>
+            <%= image_tag f.recap.user.avatar, class: "card__thumb" %>
+          <% else %>
+            <%= image_tag "default-avatar.png", class: "card__thumb"  %>
           <% end %>
           <div class="card__header-text">
             <h2 class="card__title"><%= f.recap.title %></h2>
