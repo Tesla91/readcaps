@@ -8,6 +8,7 @@ class RatingsController < ApplicationController
     if @rating.save
       redirect_to recap_path(@recap, anchor: "rating-#{@rating.id}")
     else
+      @favorite = Favorite.new
       render 'recaps/show'
     end
   end

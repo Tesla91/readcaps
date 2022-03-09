@@ -9,8 +9,9 @@
   position: relative;
 }
 .banner-info {
-  margin-left: 30px;
-  margin-top: -55px;
+  margin-left: inherit;
+  margin-top: inherit;
+
 }
 
 .banner h1 {
@@ -26,7 +27,7 @@
   margin: 0;
   color: $black;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 24px;
+  font-size: 38px;
   font-family: $headers-font;
 }
 
@@ -57,4 +58,10 @@
   position: absolute;
   bottom: 60px;
   left: 50px
+}
+
+.container-home {
+  margin-left: inherit;
+  margin-top: inherit;
+
 }

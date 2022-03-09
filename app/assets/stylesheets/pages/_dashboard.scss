@@ -108,6 +108,13 @@ select:focus {
   box-shadow: $orange 0px 0px 0px 3px, $yellow 0px 0px 0px 6px, $blue 0px 0px 0px 9px, $light-blue 0px 0px 0px 12px
 }
 
+.delete-icon {
+  opacity: 0;
+}
+
+.fave-card-wrap:hover .delete-icon {
+  opacity: 1;
+}
 
 /*Media Queries*/
 
