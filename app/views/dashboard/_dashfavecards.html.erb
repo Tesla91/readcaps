@@ -1,7 +1,7 @@
 <% @favorites.each do |f| %>
   <div class="fave-card-wrap">
-    <%= link_to favorite_path(f), method: :delete, data: { confirm: "Are you sure you want to delete this recap?"} do %>
-      <i class="delete-icon fas fa-trash" style="color: #8080806b; font-size: 15px;"></i>
+    <%= link_to favorite_path(f), method: :delete, data: { confirm: "Are you sure you want to remove this recap from your library?"} do %>
+      <i class="delete-icon fas fa-trash" style="color: #10BCC2; font-size: 15px;"></i>
     <% end %>
     <%= link_to f.recap, style:"text-decoration: none; color: black", class: "recapcard" do %>
       <img src="<%= f.recap.book.photo_url %>" class="card__image">

@@ -33,6 +33,8 @@ class RecapsController < ApplicationController
 
     if @recap.save
       redirect_to recap_path(@recap), notice: 'Recap was successfully created'
+    else
+      render :new
     end
   end
 

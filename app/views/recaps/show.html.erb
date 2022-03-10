@@ -62,13 +62,15 @@
         <div class="icon-item">
           <ul class="social-links" style="list-style: none;">
             <li class="recap-favorite">
-            <% if @recap.user != current_user %>
+            <% if @recap.user != current_user && !current_user&.already_faved?(@recap) %>
               <%= simple_form_for([@recap, @favorite]) do |f| %>
                 <%= f.button :button  do  %>
                 <i class="social-icon fas fa-bookmark"></i>
                   Add to Library
                 <% end %>
               <% end %>
+                <% else %>
+                  <i class="social-delete-icon fas fa-ban"></i><em> You've already added this to your library.</em>
             <% end %>
             </li>
             <li><a href="https://web.whatsapp.com/" target="_blank">

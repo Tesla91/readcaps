@@ -7,6 +7,20 @@
   opacity: 0.8;
 }
 
+.social-delete-icon {
+  background: $blue;
+  padding: 0.9em 1em;
+  border-radius: 50%;
+  color: $bg-color;
+  transition: opacity 0.5s;
+  opacity: 0.6;
+}
+
+.social-delete-icon .p {
+  color: $black;
+  font-size: 16px;
+}
+
 .social-icon {
   background: $blue;
   padding: 0.9em 1em;

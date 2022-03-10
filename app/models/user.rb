@@ -20,4 +20,8 @@ class User < ApplicationRecord
   def has_already_recaped?(book)
     recaps.pluck(:book_id).include?(book.id)
   end
+
+  def already_faved?(recap)
+    favorites.pluck(:recap_id).include?(recap.id)
+  end
 end
