@@ -2,7 +2,7 @@ require "open-uri"
 require "json"
 require 'faker'
 
-url = "https://www.googleapis.com/books/v1/users/102817767719508217692/bookshelves/0/volumes?maxResults=40&key=#{ENV['GOOGLE_API_KEY']}"
+url = "https://www.googleapis.com/books/v1/users/102817767719508217692/bookshelves/0/volumes?maxResults=65&key=#{ENV['GOOGLE_API_KEY']}"
 user_serialized = URI.open(url).read
 user = JSON.parse(user_serialized)
 books = user["items"]
@@ -70,6 +70,8 @@ book7 = Book.find_by(title: "Book of Night")
 book8 = Book.find_by(title: "Gone Girl")
 book9 = Book.find_by(title: "From Lukov with Love")
 book10 = Book.find_by(title: "The Complete Grimm's Fairy Tales")
+book11 = Book.find_by(title: "The Fault in Our Stars")
+book12 = Book.find_by(title: "The Wife Between Us")
 
 
 # Recap seeds
@@ -192,6 +194,10 @@ recap15 = Recap.create!(summary: "Ever since Harry Potter had come home for the 
                         And strike it does. For in Harry's second year at Hogwarts, fresh torments and horrors arise, including an outrageously stuck-up new professor and a spirit who haunts the girls' bathroom. But then the real trouble begins - someone is turning Hogwarts students to stone. Could it be Draco Malfoy, a more poisonous rival than ever? Could it possible be Hagrid, whose mysterious past is finally told? Or could it be the one everyone at Hogwarts most suspects… Harry Potter himself!",
                         user_id: user8.id, book_id: book1.id, title: "My sorcers recap",
                         keypoint: "First book in this awesome series")
+recap14 = Recap.create!(summary: "Ever since Harry Potter had come home for the summer, the Dursleys had been so mean and hideous that all Harry wanted was to get back to the Hogwarts School for Witchcraft and Wizardry. But just as he's packing his bags, Harry receives a warning from a strange impish creature who says that if Harry returns to Hogwarts, disaster will strike.
+                        And strike it does. For in Harry's second year at Hogwarts, fresh torments and horrors arise, including an outrageously stuck-up new professor and a spirit who haunts the girls' bathroom. But then the real trouble begins - someone is turning Hogwarts students to stone. Could it be Draco Malfoy, a more poisonous rival than ever? Could it possible be Hagrid, whose mysterious past is finally told? Or could it be the one everyone at Hogwarts most suspects… Harry Potter himself! ",
+                        user_id: user6.id, book_id: book2.id, title: "Secret of HPCOS",
+                        keypoint: "Book two in the Harry Potter Series")
 recap5 = Recap.create!(summary: "Matt is El Patrón's clone, and is seen as nothing but an organ donor by everyone around him, minus Celia, Tam Lin, and María. He grows up being told that he's less than human. El Patrón becomes sick, and tries to take Matt's heart, but Celia had been poisoning Matt with arsenic, so his heart is useless and would kill El Patrón anyway. Matt escapes into Aztlán, and is found by the Keepers. There, he makes some friends, is almost killed, but once again he escapes. He reunites with María at the convent, and then flies back to Opium to take the country back. Celia, Daft Donald, and Mr Ortega are all there. Tam Lin and the rest all died with El Patrón. Matt is now in control of Opium.",
                        user_id: user2.id, book_id: book5.id,
                        title: "My Summary", keypoint: "Opium - The country between Aztlán and the United States, which El Patrón rules. It's basically a giant drug empire.
@@ -234,10 +240,21 @@ recap12 = Recap.create!(summary: "A Court of Thorns and Roses is a new adult hig
 recap13 = Recap.create!(summary: "In March 2021, it was announced that A Court of Thorns and Roses series had been opted for a television adaptation by Hulu. The series is set to be developed by Ronald D. Moore, alongside Maas",
                         user_id: user7.id, book_id: book4.id, title: "Pawned or Recapped",
                         keypoint: "Previously titled Masked.")
-recap14 = Recap.create!(summary: "Ever since Harry Potter had come home for the summer, the Dursleys had been so mean and hideous that all Harry wanted was to get back to the Hogwarts School for Witchcraft and Wizardry. But just as he's packing his bags, Harry receives a warning from a strange impish creature who says that if Harry returns to Hogwarts, disaster will strike.
-                        And strike it does. For in Harry's second year at Hogwarts, fresh torments and horrors arise, including an outrageously stuck-up new professor and a spirit who haunts the girls' bathroom. But then the real trouble begins - someone is turning Hogwarts students to stone. Could it be Draco Malfoy, a more poisonous rival than ever? Could it possible be Hagrid, whose mysterious past is finally told? Or could it be the one everyone at Hogwarts most suspects… Harry Potter himself! ",
-                        user_id: user6.id, book_id: book2.id, title: "Secret of HPCOS",
-                        keypoint: "Book two in the Harry Potter Series")
+recap16 = Recap.create!(summary: "The Fault In Our Stars is a fabulous book about a young teenage girl who has been diagnosed with lung cancer and attends a cancer support group.
+                        Hazel is 16 and is reluctant to go to the support group, but she soon realises that it was a good idea. Hazel meets a young boy named Augustus Waters. He is charming and witty. Augustus has had osteosarcoma, a rare form of bone cancer, but has recently had the all clear.
+                        Hazel and Augustus embark on a roller coaster ride of emotions, including love, sadness and romance, while searching for the author of their favourite book. They travel to Amsterdam in search of Peter Van Houten the author of An Imperial Affliction. While on their trip Augustus breaks some heartbreaking news to Hazel and both of their worlds fall apart around them.
+                        If you enjoy young adult books, full of witty humour and heartbreaking events, this book is perfect for you. Expect to laugh, cry and smile throughout this masterpiece by the amazing John Green. I highly recommend this book.",
+                        user_id: user6.id, book_id: book11.id, title: "Such a sad story")
+recap17 = Recap.create!(summary: "The novel is divided into three parts; Part 1 switches between Vanessa's first-person narration and Nellie's third-person account. In the Prologue, Vanessa stalks the young, pretty woman her ex-husband, Richard, left her for and ominously alludes to the harm the other woman may suffer if she stays with Richard.
+                        Nellie, a compulsively nervous pre-school teacher, prepares for her upcoming wedding to Richard, a successful businessman. When Nellie was in college, her life was altered by a traumatic event, and this experience intensified her lifelong insomnia. Her anxiety has recently grown as she has begun to receive mysterious, anonymous calls. These calls unsettle her, but she finds comfort in Richard's ability to soothe and protect her.
+                        Chapter 2 switches back to Vanessa's first person-account. After the breakdown of her marriage, she moved in with her Aunt Charlotte. Now, she spends her time obsessing over Richard and her “replacement.” Vanessa learns of her ex-husband's engagement while at work. The news sends her into hysterics.
+                        The rest of Part 1 tells Vanessa's and Nellie's tales alternately. Nellie's upcoming wedding is tainted by her apprehensions towards her life with Richard, which she rationalizes despite the growing evidence that Richard is controlling. He interferes with her time with her friends, pressures her to leave her job, and leaves her out of crucial life decisions. Vanessa spends her time attempting to contact Richard's fiancée, her obsession escalating as she struggles to reach her. Part 1 concludes with a twist: Nellie is Vanessa's younger self. Vanessa had been trying to reach Richard's new fiancée, Emma, to warn her about Richard's abusive tendencies.
+                        Part 2 unpacks Vanessa's trauma and the abuse she suffered with Richard. During her senior year of college, Vanessa planned a sorority event in which a pledge, Maggie, accidently drowned. Vanessa, who was supposed to be looking after Maggie, blames herself—and so did Maggie's brother, Jason. At her funeral, Jason threatened Vanessa with revenge. Vanessa's guilt and terror motivated her to move from Florida to New York.
+                        Richard's abuse is psychological, emotional, and physical. When Vanessa confronts him, he calls her irrational, suggesting she has inherited her mother's mental illness. Whenever Richard feels he is losing control of his wife, he punishes her. After his first attack, Vanessa convinces herself it will not happen again. Eventually, she begins to keep track of his deceits in a notebook. When Richard finds this notebook, thinking she's planning to leave him, he nearly strangles her. Vanessa realizes that in order to leave her marriage unharmed, it must be Richard's idea to end it.
+                        Part 2 ends with another twist: Vanessa orchestrated Richard's affair with Emma, hoping he would replace Vanessa with Emma. However, once Vanessa realizes that she is condemning Emma to the abuse she suffered, she resolves to save her. Vanessa finally gets through to Emma, but she fears Emma has been pulled back in by Richard's charm, so she takes desperate measures. Vanessa plans a confrontation with Richard in the hallway of Emma's apartment, hoping Emma will catch him in his violence. Though Vanessa knows she may not survive, the risk is worth it to her to ensure that Richard never harms another woman again.
+                        Vanessa incites Richard, and he nearly chokes her to death, but Emma interferes. Once his violence is exposed, Emma leaves Richard, and he must undergo inpatient therapy.
+                        A final twist comes in the Epilogue: Emma is the daughter of a professor Vanessa had an affair with in college. Emma started her affair with Richard to hurt Vanessa for her role in the breakup of her parents’ marriage, but once she learns that Vanessa was ignorant of the professor’s family, she is racked with guilt. Emma tells Vanessa the truth, and the women part ways.",
+                        user_id: user3.id, book_id: book12.id, title: "Who is the wife?")
 
 # Rating seeds
 puts "Creating ratings"
@@ -262,13 +279,13 @@ Rating.create!(comment: "Boo",
 Rating.create!(comment: "So poor Harry is stuck back with the Dursley's on Privet Drive.",
                star: "2", user_id: user7.id, recap_id: recap15.id)
 Rating.create!(comment: "This was a cute middle grade book. Even though it was slow, I liked it a little more than the first book since at this point the world has already been established and now we get to see more of the characters and the setting.",
-               star: "3", user_id: user6.id, recap_id: recap15.id)
+               star: "3", user_id: user6.id, recap_id: recap17.id)
 Rating.create!(comment: "I really enjoyed this one (as did millions of others, obviously) and, with this installment, I am definitely seeing why this is such a beloved series. The magical wizarding world of Harry, his friends, and the folks at Hogwart's is just FUN to read about.",
                star: "4", user_id: user8.id, recap_id: recap14.id)
 Rating.create!(comment: "The Foundation series is a science fiction book series written by Russian American author Isaac Asimov.",
                star: "3", user_id: user6.id, recap_id: recap13.id)
 Rating.create!(comment: "Honestly, I don't get why this book/series is so popular.",
-               star: "5", user_id: user4.id, recap_id: recap12.id)
+               star: "1", user_id: user4.id, recap_id: recap12.id)
 Rating.create!(comment: "Comparing this to the prequels, indeed, any of the prequels, only makes THIS book shine like a diamond.",
                star: "4", user_id: user8.id, recap_id: recap10.id)
 Rating.create!(comment: "I tend to love the concepts but the writing is usually dry and the sexism/racism/homophobia tends to ruin it for me. ",
@@ -279,6 +296,10 @@ Rating.create!(comment: "Absolutely Loved it! Hail Asimov! He is brilliant! His 
                star: "5", user_id: user2.id, recap_id: recap7.id)
 Rating.create!(comment: "Great recap thanks a ton!",
                star: "4", user_id: user8.id, recap_id: recap6.id)
+Rating.create!(comment: "The recap was a bit short, but still quite informative!",
+               star: "4", user_id: user1.id, recap_id: recap16.id)
+Rating.create!(comment: "Well done bro!",
+               star: "5", user_id: user8.id, recap_id: recap17.id)
 
 # Favorites seeds
 puts "Creating favorites"
@@ -292,5 +313,6 @@ Favorite.create!(user_id: user4.id, recap_id: recap8.id)
 Favorite.create!(user_id: user5.id, recap_id: recap11.id)
 Favorite.create!(user_id: user4.id, recap_id: recap13.id)
 Favorite.create!(user_id: user8.id, recap_id: recap12.id)
+Favorite.create!(user_id: user2.id, recap_id: recap17.id)
 
 puts 'All done seeding'

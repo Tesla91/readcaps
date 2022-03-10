@@ -21,6 +21,10 @@ class User < ApplicationRecord
     recaps.pluck(:book_id).include?(book.id)
   end
 
+  def already_faved?(recap)
+    favorites.pluck(:recap_id).include?(recap.id)
+  end
+
   def avg_received_ratings
     all_ratings = []
     recaps.each do |recap|
