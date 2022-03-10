@@ -24,4 +24,16 @@ class User < ApplicationRecord
   def already_faved?(recap)
     favorites.pluck(:recap_id).include?(recap.id)
   end
+
+  def avg_received_ratings
+    all_ratings = []
+    recaps.each do |recap|
+      all_ratings << recap.ratings.pluck(:star) unless recap.ratings.pluck(:star).empty?
+    end
+    if all_ratings.empty?
+      return 0
+    else
+      all_ratings.flatten!.sum / all_ratings.size.to_f
+    end
+  end
 end

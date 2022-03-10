@@ -36,7 +36,7 @@
         </li>
       </ul>
 
-      <div class="tab-content mb-5" id="pills-tabContent">
+      <div class="tab-content mb-5" id="pills-tabContent" style="padding: 10px 30px 0 0;">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <div data-controller="edit-recap">
               <div data-edit-recap-target="infos"><%= simple_format(@recap.summary) %>
@@ -73,7 +73,7 @@
                   <i class="social-delete-icon fas fa-ban"></i><em> You've already added this to your library.</em>
             <% end %>
             </li>
-            <li><a href="https://web.whatsapp.com/" target="_blank">
+            <li><a href="whatsapp://send?text=I%20found%20this%20recap%20for%20you%20on%20readCaps!%20<%= request.original_url %>" target="_blank">
               <i class="social-icon fas fa-share-alt"></i> Share recap</a>
             </li>
             <li>
