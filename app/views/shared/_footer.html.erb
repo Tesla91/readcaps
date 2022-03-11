@@ -4,11 +4,13 @@
     <a href="https://de-de.facebook.com/" target=”_blank”><i class="fab fa-facebook"></i></a>
     <a href="https://de.linkedin.com/" target=”_blank”><i class="fab fa-linkedin"></i></a>
   </div>
-  <div class="footer-copyright">
-    Created With <i class="fas fa-heart"> </i>
-    <%= image_tag "nicola.png", class: "avatar-xs" %>
-    <%= image_tag "anna.png", class: "avatar-xs" %>
-    <%= image_tag "shell.png", class: "avatar-xs" %>
-    <%= image_tag "mel.png", class: "avatar-xs"  %>
-  </div>
+  <%= link_to about_path, style:"text-decoration: none;" do %>
+    <div class="footer-copyright">
+      Created With <i class="fas fa-heart"> </i>
+      <%= image_tag "nicola.png", class: "avatar-xs" %>
+      <%= image_tag "anna.png", class: "avatar-xs" %>
+      <%= image_tag "shell.png", class: "avatar-xs" %>
+      <%= image_tag "mel.png", class: "avatar-xs"  %>
+    </div>
+  <% end %>
 </div>
