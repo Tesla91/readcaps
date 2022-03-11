@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get 'all_recaps', to: 'recaps#all_recaps', as: :recaps_all
   resources :dashboard, only: :index
   resources :favorites, only: :destroy
+  get 'about', to: 'pages#about', as: :about
 end

@@ -69,8 +69,8 @@
                   Add to Library
                 <% end %>
               <% end %>
-                <% else %>
-                  <i class="social-delete-icon fas fa-ban"></i><em> You've already added this to your library.</em>
+            <% elsif @recap.user != current_user && current_user&.already_faved?(@recap) %>
+              <i class="social-delete-icon fas fa-ban"></i><em> You've already added this to your library.</em>
             <% end %>
             </li>
             <li><a href="whatsapp://send?text=I%20found%20this%20recap%20for%20you%20on%20readCaps!%20<%= request.original_url %>" target="_blank">
