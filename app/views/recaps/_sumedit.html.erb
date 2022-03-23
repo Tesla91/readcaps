@@ -1,5 +1,5 @@
 <%= simple_form_for @recap, remote: true, html: { class: "d-none", data: { edit_recap_target: "form", action: "submit->edit-recap#update" } } do |f| %>
-        <%= f.input :summary, as: :text %>
-        <%= f.input :keypoint, label: "Key Points" %>
-        <%= f.submit "Update", class: "btn-action" %>
-      <% end %>
+  <%= f.input :summary, as: :text %>
+  <%= f.input :keypoint, label: "Key Points" %>
+  <%= f.submit "Update", class: "btn-action" %>
+<% end %>

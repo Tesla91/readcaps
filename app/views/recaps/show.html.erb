@@ -3,7 +3,7 @@
   <h2 class="text-center"><%= @recap.book.title %></h2>
 </div>
 <div class="banner" style="background-image: url(<%= image_url "banner.png" %>);">
-<div class="banner-info">
+  <div class="banner-info">
     <h2> Recapped by: <%= @recap.user.username %>
       <% if @recap.user.avatar.attached? %>
         <%= image_tag @recap.user.avatar, class: "avatar" %>
@@ -17,8 +17,8 @@
     <% else %>
       <%= render "shared/rating" %>
     <% end %>
+  </div>
 </div>
- </div>
 
 <div class="container mt-4">
   <div class="row">
@@ -38,14 +38,14 @@
 
       <div class="tab-content mb-5" id="pills-tabContent" style="padding: 10px 30px 0 0;">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-            <div data-controller="edit-recap">
-              <div data-edit-recap-target="infos"><%= simple_format(@recap.summary) %>
-                <% if @recap.user == current_user %>
-                  <i class="fas fa-pen" style="cursor: pointer;" data-action="click->edit-recap#displayForm"></i>
-                <% end %>
-              </div>
-              <%= render "/recaps/sumedit" %>
+          <div data-controller="edit-recap">
+            <div data-edit-recap-target="infos"><%= simple_format(@recap.summary) %>
+              <% if @recap.user == current_user %>
+                <i class="fas fa-pen" style="cursor: pointer;" data-action="click->edit-recap#displayForm"></i>
+              <% end %>
             </div>
+            <%= render "/recaps/sumedit" %>
+          </div>
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
           <%= @description = @recap.book.description %>
@@ -62,26 +62,25 @@
         <div class="icon-item">
           <ul class="social-links" style="list-style: none;">
             <li class="recap-favorite">
-            <% if @recap.user != current_user && !current_user&.already_faved?(@recap) %>
-              <%= simple_form_for([@recap, @favorite]) do |f| %>
-                <%= f.button :button  do  %>
-                <i class="social-icon fas fa-bookmark"></i>
-                  Add to Library
+              <% if @recap.user != current_user && !current_user&.already_faved?(@recap) %>
+                <%= simple_form_for([@recap, @favorite]) do |f| %>
+                  <%= f.button :button  do  %>
+                    <i class="social-icon fas fa-bookmark"></i>
+                    Add to Library
+                  <% end %>
                 <% end %>
+              <% elsif @recap.user != current_user && current_user&.already_faved?(@recap) %>
+                <i class="social-delete-icon fas fa-ban"></i><em> You've already added this to your library.</em>
               <% end %>
-            <% elsif @recap.user != current_user && current_user&.already_faved?(@recap) %>
-              <i class="social-delete-icon fas fa-ban"></i><em> You've already added this to your library.</em>
-            <% end %>
             </li>
             <li><a href="whatsapp://send?text=I%20found%20this%20recap%20for%20you%20on%20readCaps!%20<%= request.original_url %>" target="_blank">
               <i class="social-icon fas fa-share-alt"></i> Share recap</a>
             </li>
             <li>
-            <% if current_user != @recap.user && !current_user&.has_already_rated?(@recap) %>
-              <i class="social-icon fas fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i> Add Review
+              <% if current_user != @recap.user && !current_user&.has_already_rated?(@recap) %>
+                <i class="social-icon fas fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i> Add Review
               <%end%>
             </li>
-
             <li>
               <% if @recap.user == current_user %>
                 <%= link_to edit_recap_path(@recap) do %>
@@ -89,9 +88,8 @@
                 <% end %>
               <% end %>
             </li>
-
             <li>
-            <% if @recap.user == current_user %>
+              <% if @recap.user == current_user %>
                 <%= link_to recap_path(@recap), method: :delete, data: { confirm: "Are you sure you want to delete this recap?"} do %>
                   <i class="social-icon fas fa-trash" ></i> Delete recap
                 <% end %>
@@ -115,24 +113,22 @@
                   <p style="margin-right: 5px;"><%= recap.user.username %></p>
                   <% if recap.user.avatar.attached? %>
                     <%= image_tag recap.user.avatar, class: "recap-avatar" %>
-                   <% else %>
+                  <% else %>
                     <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
                   <% end %>
                 </div>
-              <%# <div class="card-rating" style="width: 100%; margin-left: 15px; margin-right: 10px;"> %>
                 <% if recap.avg_rating == 0 %>
                   <p>0 Ratings</p>
                 <% else %>
                   <i class="fas fa-star m-2" style="color: #F6AE2D;"></i><%= recap.avg_rating %>
                 <% end %>
-              <%# </div> %>
               </div>
             </div>
-            <%end%>
+          <%end%>
         <%end%>
       </div>
     </div>
-    </div>
+  </div>
 
 
   <!-- Review cards -->
@@ -141,15 +137,14 @@
       <div class="col-12 col-md-6 col-lg-6">
         <div class="review-header">
           <h3>Reviews on <%= @recap.user.username %>'s recap</h3>
-
-            <% if !user_signed_in? %>
-              <p><em style="color: #EB9C0A; font-size: 13px;">Please login to leave a review.</em></p>
-            <% elsif current_user != @recap.user && !current_user&.has_already_rated?(@recap) %>
+          <% if !user_signed_in? %>
+            <p><em style="color: #EB9C0A; font-size: 13px;">Please login to leave a review.</em></p>
+          <% elsif current_user != @recap.user && !current_user&.has_already_rated?(@recap) %>
             <button type="button" class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">Add review</button>
-            <%elsif current_user == @recap.user %>
+          <%elsif current_user == @recap.user %>
             <p><em style="color: #EB9C0A; font-size: 13px;"> </em></p>
-            <%else%>
-              <p><em style="color: #EB9C0A; font-size: 13px;">You have already rated this recap.</em></p>
+          <%else%>
+            <p><em style="color: #EB9C0A; font-size: 13px;">You have already rated this recap.</em></p>
           <%end%>
         </div>
 

@@ -24,7 +24,6 @@
     <% end %>
   </div>
 </div>
-</div>
 
 <div class= "container p-6 my-4">
   <h1 class="text-center mb-2">Latest recaps</h1>
@@ -54,48 +53,47 @@
   </div>
 </div>
 
-  <!--Gold Silver bronze  -->
-  <h1 class="text-center mb-2">Ready, Set, Gold!</h1>
-   <h5 class="text-center mb-2">Our best rated read<em>Cappers</em></h5>
-  <!--Best rated User through recaps  -->
-  <div class="ranking-cards">
-    <div class = "best-ranked justify-content-center">
-      <div class="first">
-        <i class="fas fa-solid fa-award" style="color: #F6AE2D; font-size: 50px;"></i>
-        <%= @top_users[0].username %>
-        <% if @top_users[0].avatar.attached? %>
-          <%= image_tag @top_users[0].avatar, class: "recap-avatar" %>
-        <% else %>
-          <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
-        <% end %>
-        <i class="fas fa-star" style="color: #F6AE2D; font-size: 20px; padding: 5px;"></i>
-        <p style="font-size: 20px; font-weight: bold; display: flex; flex-direction: column;"><%= @top_users[0].avg_received_ratings%></p>
-      </div>
-      <div class="second">
-        <i class="fas fa-solid fa-award" style="color: silver; font-size: 50px;"></i>
-        <%= @top_users[1].username %>
-        <% if @top_users[1].avatar.attached? %>
-          <%= image_tag @top_users[1].avatar, class: "recap-avatar" %>
-        <% else %>
-          <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
-        <% end %>
+<!--Gold Silver bronze  -->
+<h1 class="text-center mb-2">Ready, Set, Gold!</h1>
+<h5 class="text-center mb-2">Our best rated read<em>Cappers</em></h5>
+<!--Best rated User through recaps  -->
+<div class="ranking-cards">
+  <div class = "best-ranked justify-content-center">
+    <div class="first">
+      <i class="fas fa-solid fa-award" style="color: #F6AE2D; font-size: 50px;"></i>
+      <%= @top_users[0].username %>
+      <% if @top_users[0].avatar.attached? %>
+        <%= image_tag @top_users[0].avatar, class: "recap-avatar" %>
+      <% else %>
+        <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
+      <% end %>
+      <i class="fas fa-star" style="color: #F6AE2D; font-size: 20px; padding: 5px;"></i>
+      <p style="font-size: 20px; font-weight: bold; display: flex; flex-direction: column;"><%= @top_users[0].avg_received_ratings%></p>
+    </div>
+    <div class="second">
+      <i class="fas fa-solid fa-award" style="color: silver; font-size: 50px;"></i>
+      <%= @top_users[1].username %>
+      <% if @top_users[1].avatar.attached? %>
+        <%= image_tag @top_users[1].avatar, class: "recap-avatar" %>
+      <% else %>
+        <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
+      <% end %>
       <i class="fas fa-star" style="color: #F6AE2D; font-size: 20px; padding: 5px;"></i>
       <p style="font-size: 20px; font-weight: bold; display: flex; flex-direction: column;"><%= @top_users[1].avg_received_ratings%></p>
-      </div>
-
-      <div class="third">
+    </div>
+    <div class="third">
       <i class="fas fa-solid fa-award" style="color: #d6b4a4; font-size: 50px;"></i>
-        <%= @top_users[2].username %>
-        <% if @top_users[2].avatar.attached? %>
-          <%= image_tag @top_users[2].avatar, class: "recap-avatar" %>
-        <% else %>
-          <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
-        <% end %>
-        <i class="fas fa-star" style="color: #F6AE2D; font-size: 20px; padding: 5px;"></i>
-        <p style="font-size: 20px; font-weight: bold; display: flex; flex-direction: column;"><%= @top_users[2].avg_received_ratings%></p>
-      </div>
+      <%= @top_users[2].username %>
+      <% if @top_users[2].avatar.attached? %>
+        <%= image_tag @top_users[2].avatar, class: "recap-avatar" %>
+      <% else %>
+        <%= image_tag "default-avatar.png", class: "recap-avatar"  %>
+      <% end %>
+      <i class="fas fa-star" style="color: #F6AE2D; font-size: 20px; padding: 5px;"></i>
+      <p style="font-size: 20px; font-weight: bold; display: flex; flex-direction: column;"><%= @top_users[2].avg_received_ratings%></p>
     </div>
   </div>
+</div>
 
 <br>
 <br>
@@ -104,9 +102,11 @@
   <div class = "container">
     <div class="cards-author">
       <div class="author" style="background-image: url('<%= image_path("rowling.jpg") %>')">
-      <h4>J.K. Rowling</h4></div>
+        <h4>J.K. Rowling</h4>
+      </div>
       <div class="author" style="background-image: url('<%= image_path("stieg_larsson.jpg") %>')">
-      <h4>S. Larsson</h4></div>
+        <h4>S. Larsson</h4>
+      </div>
     </div>
   </div>
 </div>
