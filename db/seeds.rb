@@ -62,7 +62,7 @@ end
 book1 = createBook("Harry+Potter+and+the+Sorcerers+Stone")
 book2 = createBook("Harry+Potter+and+the+Chamber+of+Secrets")
 book3 = createBook("A+Court+of+Thorns+and+Roses")
-book4 = createBook("Pawn")
+book4 = createBook("Pawn+Aimée+Carter")
 book5 = createBook("The+House+of+the+Scorpion")
 book6 = createBook("A+Wrinkle+in+Time")
 book7 = createBook("Book+of+Night")
