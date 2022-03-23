@@ -2,11 +2,6 @@ require "open-uri"
 require "json"
 require 'faker'
 
-url = "https://www.googleapis.com/books/v1/users/102817767719508217692/bookshelves/0/volumes?maxResults=65&key=#{ENV['GOOGLE_API_KEY']}"
-user_serialized = URI.open(url).read
-user = JSON.parse(user_serialized)
-books = user["items"]
-
 puts "Deleting old records"
 Favorite.destroy_all
 Rating.destroy_all
@@ -34,7 +29,7 @@ user5 = User.create!(email: "kurt@kurt.com", password: "kurt123", first_name: "K
 user5.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upload/v1645790517/development/AW-rdWlG_ag3u6f.jpg'),
                     filename: 'avatar5.jpg', content_type: 'image/png')
 
-20.times do
+3.times do
   User.create!(email: Faker::Internet.email, password: Faker::Internet.password,
                first_name: Faker::Name.first_name,
                last_name: Faker::Name.last_name,
@@ -51,28 +46,31 @@ user8 = User.third_to_last
 user8.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upload/v1646759045/development/lorem-face-3352_mvye7h.jpg'),
                     filename: 'avatar8.jpg', content_type: 'image/png')
 
-
 # Book seeds
 puts "Creating books"
-books.each do |book|
+
+def createBook(search)
+  url = "https://www.googleapis.com/books/v1/volumes?q=#{search}&projection=lite&orderBy=relevance&langRestrict=en&key=#{ENV['GOOGLE_API_KEY']}"
+  user_serialized = URI.open(url).read
+  user = JSON.parse(user_serialized)
+  book = user["items"][0]
   Book.create!(title: book["volumeInfo"]["title"], author: book["volumeInfo"]["authors"][0],
                description: book["volumeInfo"]["description"],
-               photo_url: book["volumeInfo"]["imageLinks"]["thumbnail"])
+               photo_url: "https://books.google.com/books/content?id=#{book["id"]}&printsec=frontcover&img=1&zoom=1&source=gbs_api")
 end
 
-book1 = Book.find_by(title: "Harry Potter and the Sorcerers Stone")
-book2 = Book.find_by(title: "Harry Potter and the Chamber of Secrets")
-book3 = Book.find_by(title: "A Court of Thorns and Roses")
-book4 = Book.find_by(title: "Pawn")
-book5 = Book.find_by(title: "The House of the Scorpion")
-book6 = Book.find_by(title: "A Wrinkle in Time")
-book7 = Book.find_by(title: "Book of Night")
-book8 = Book.find_by(title: "Gone Girl")
-book9 = Book.find_by(title: "From Lukov with Love")
-book10 = Book.find_by(title: "The Complete Grimm's Fairy Tales")
-book11 = Book.find_by(title: "The Fault in Our Stars")
-book12 = Book.find_by(title: "The Wife Between Us")
-
+book1 = createBook("Harry+Potter+and+the+Sorcerers+Stone")
+book2 = createBook("Harry+Potter+and+the+Chamber+of+Secrets")
+book3 = createBook("A+Court+of+Thorns+and+Roses")
+book4 = createBook("Pawn")
+book5 = createBook("The+House+of+the+Scorpion")
+book6 = createBook("A+Wrinkle+in+Time")
+book7 = createBook("Book+of+Night")
+book8 = createBook("Gone+Girl")
+book9 = createBook("From+Lukov+with+Love")
+book10 = createBook("The+Complete+Grimm's+Fairy+Tales")
+book11 = createBook("The+Fault+in+Our+Stars")
+book12 = createBook("The+Wife+Between+Us")
 
 # Recap seeds
 puts "Creating recaps"
