@@ -49,28 +49,28 @@ user8.avatar.attach(io: URI.open('https://res.cloudinary.com/dbzj7fllo/image/upl
 # Book seeds
 puts "Creating books"
 
-def createBook(search)
+def create_book(search)
   url = "https://www.googleapis.com/books/v1/volumes?q=#{search}&projection=lite&orderBy=relevance&langRestrict=en&key=#{ENV['GOOGLE_API_KEY']}"
   user_serialized = URI.open(url).read
   user = JSON.parse(user_serialized)
   book = user["items"][0]
   Book.create!(title: book["volumeInfo"]["title"], author: book["volumeInfo"]["authors"][0],
                description: book["volumeInfo"]["description"],
-               photo_url: "https://books.google.com/books/content?id=#{book["id"]}&printsec=frontcover&img=1&zoom=1&source=gbs_api")
+               photo_url: "https://books.google.com/books/content?id=#{book['id']}&printsec=frontcover&img=1&zoom=1&source=gbs_api")
 end
 
-book1 = createBook("Harry+Potter+and+the+Sorcerers+Stone")
-book2 = createBook("Harry+Potter+and+the+Chamber+of+Secrets")
-book3 = createBook("A+Court+of+Thorns+and+Roses")
-book4 = createBook("Pawn+Aimée+Carter")
-book5 = createBook("The+House+of+the+Scorpion")
-book6 = createBook("A+Wrinkle+in+Time")
-book7 = createBook("Book+of+Night")
-book8 = createBook("Gone+Girl")
-book9 = createBook("From+Lukov+with+Love")
-book10 = createBook("The+Complete+Grimm's+Fairy+Tales")
-book11 = createBook("The+Fault+in+Our+Stars")
-book12 = createBook("The+Wife+Between+Us")
+book1 = create_book("Harry+Potter+and+the+Sorcerers+Stone")
+book2 = create_book("Harry+Potter+and+the+Chamber+of+Secrets")
+book3 = create_book("A+Court+of+Thorns+and+Roses")
+book4 = create_book("Pawn+Aimee+Carter")
+book5 = create_book("The+House+of+the+Scorpion")
+book6 = create_book("A+Wrinkle+in+Time")
+book7 = create_book("Book+of+Night")
+book8 = create_book("Gone+Girl")
+book9 = create_book("From+Lukov+with+Love")
+book10 = create_book("The+Complete+Grimm's+Fairy+Tales")
+book11 = create_book("The+Fault+in+Our+Stars")
+book12 = create_book("The+Wife+Between+Us")
 
 # Recap seeds
 puts "Creating recaps"

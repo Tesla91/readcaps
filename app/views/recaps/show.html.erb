@@ -77,7 +77,7 @@
               <i class="social-icon fas fa-share-alt"></i> Share recap</a>
             </li>
             <li>
-              <% if current_user != @recap.user && !current_user&.has_already_rated?(@recap) %>
+              <% if current_user != @recap.user && !current_user&.already_rated?(@recap) %>
                 <i class="social-icon fas fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i> Add Review
               <%end%>
             </li>
@@ -139,7 +139,7 @@
           <h3>Reviews on <%= @recap.user.username %>'s recap</h3>
           <% if !user_signed_in? %>
             <p><em style="color: #EB9C0A; font-size: 13px;">Please login to leave a review.</em></p>
-          <% elsif current_user != @recap.user && !current_user&.has_already_rated?(@recap) %>
+          <% elsif current_user != @recap.user && !current_user&.already_rated?(@recap) %>
             <button type="button" class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">Add review</button>
           <%elsif current_user == @recap.user %>
             <p><em style="color: #EB9C0A; font-size: 13px;"> </em></p>

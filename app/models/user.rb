@@ -13,11 +13,11 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { in: 2..20 }
   validates :username, presence: true, length: { in: 3..10 }
 
-  def has_already_rated?(recap)
+  def already_rated?(recap)
     ratings.pluck(:recap_id).include?(recap.id)
   end
 
-  def has_already_recaped?(book)
+  def already_recapped?(book)
     recaps.pluck(:book_id).include?(book.id)
   end
 
