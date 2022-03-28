@@ -1,0 +1,36 @@
+<div class="container mb-5">
+  <h1 class="text-center title-card">What book whould you like to recap?</h1>
+  <br>
+  <%= simple_form_for :search, url: new_book_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search by title, author"
+    %>
+    <%= submit_tag "Search", class: "btn-action" %>
+  <% end %>
+
+  <% if params[:query].present? %>
+    <div class="cards">
+      <% @books.each do |book| %>
+        <div class="card-book">
+          <div class="book-card__cover">
+            <div class="book-card__book">
+              <div class="book-card__book-front">
+                <% photo_url =  %>
+                <%= image_tag "https://books.google.com/books/content?id=#{book['id']}&printsec=frontcover&img=1&zoom=1&source=gbs_api", class: "book-card__img" %>
+              </div>
+              <div class="book-card__book-back"></div>
+              <div class="book-card__book-side"></div>
+            </div>
+          </div>
+          <div class="card-info">
+            <h2><%= book["volumeInfo"]["title"] %></h2>
+            <p><%= book["volumeInfo"]["authors"][0] %></p>
+            <p><%= book["volumeInfo"]["description"] %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

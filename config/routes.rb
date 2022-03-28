@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :books, only: :index do
+  resources :books, only: %i[index create new] do
     resources :recaps, only: :index
   end
   resources :recaps, except: :index do
