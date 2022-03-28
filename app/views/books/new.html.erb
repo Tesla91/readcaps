@@ -9,7 +9,8 @@
     %>
     <%= submit_tag "Search", class: "btn-action" %>
   <% end %>
-
+  <br>
+  <br>
   <% if params[:query].present? %>
     <div class="cards">
       <% @books.each do |book| %>
@@ -17,7 +18,6 @@
           <div class="book-card__cover">
             <div class="book-card__book">
               <div class="book-card__book-front">
-                <% photo_url =  %>
                 <%= image_tag "https://books.google.com/books/content?id=#{book['id']}&printsec=frontcover&img=1&zoom=1&source=gbs_api", class: "book-card__img" %>
               </div>
               <div class="book-card__book-back"></div>
@@ -25,9 +25,18 @@
             </div>
           </div>
           <div class="card-info">
-            <h2><%= book["volumeInfo"]["title"] %></h2>
-            <p><%= book["volumeInfo"]["authors"][0] %></p>
-            <p><%= book["volumeInfo"]["description"] %></p>
+            <% title = book["volumeInfo"]["title"] %>
+            <% if !title.nil? %>
+              <h2><%= title %></h2>
+            <% else %>
+              <h2>No Title</h2>
+            <%end%>
+            <% authors = book["volumeInfo"]["authors"] %>
+            <% if !authors.nil? %>
+              <p><%= authors[0] %></p>
+            <% else %>
+              <p>No Author</p>
+            <%end%>
           </div>
         </div>
       <% end %>

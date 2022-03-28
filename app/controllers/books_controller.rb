@@ -19,7 +19,7 @@ class BooksController < ApplicationController
       url = "https://www.googleapis.com/books/v1/volumes?q=#{@search}&projection=lite&orderBy=relevance&langRestrict=en&key=#{ENV['GOOGLE_API_KEY']}"
       user_serialized = URI.open(url).read
       user = JSON.parse(user_serialized)
-      @books = user["items"][0..4]
+      @books = user["items"][0..7]
     end
   end
 
