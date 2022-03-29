@@ -13,9 +13,8 @@ class RecapsController < ApplicationController
   end
 
   def new
-    if params[:book_id].present?
-      @book_id = params[:book_id]
-    end
+    @book_id = params[:book_id]
+    @book = Book.find(@book_id)
     @recap = Recap.new(params[:recap])
   end
 
