@@ -13,8 +13,8 @@ class RecapsController < ApplicationController
   end
 
   def new
-    if request.referer.include?("books/")
-      @book_id = request.referer.split("/")[-2]
+    if params[:book_id].present?
+      @book_id = params[:book_id]
     end
     @recap = Recap.new(params[:recap])
   end

@@ -6,7 +6,7 @@
       <%= @recaps = Recap.where(book_id: params[:book_id]).count %> Result(s)
     </p>
     <% unless current_user&.already_recapped?(@book)%>
-      <%= link_to new_recap_path do %>
+      <%= link_to new_recap_path(book_id: @book.id) do %>
         <button class="btn-action" type="submit">Add new Recap</button>
       <% end %>
     <% end %>
