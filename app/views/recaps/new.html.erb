@@ -1,24 +1,19 @@
 <div class="container pt-2 pb-5 w-50">
   <div class="row justify-content-center">
     <div class="form">
-      <h2 style="padding: 12px;">Add a new Recap:</h2>
-
+      <div class="card_img text-center">
+        <%= image_tag @book.photo_url %>
+      </div>
+      <h2 style="padding: 12px;">Add a new Recap for <%= @book.title %> by <%= @book.author %>.</h2>
       <%= simple_form_for([@recap])  do |f| %>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
+        <%= f.hidden_field :book_id, value: @book_id %>
         <div class="form-inputs">
-          <p><%= f.label "Choose your book*"%></p>
-          <% if @book_id.present? %>
-            <%= f.collection_select :book_id, Book.all, :id, :title, :selected => @book_id, :include_blank => true %>
-          <% else %>
-            <%= f.collection_select :book_id, Book.all, :id, :title, :include_blank => true %>
-          <%end%>
-          <%= f.input :title %>
+          <%= f.input :title, lable: "What would you like to call your recap?" %>
           <%= f.input :summary %>
           <%= f.input :keypoint, label: "Key Points" %>
         </div>
-
         <div class="form-actions">
           <%= f.button :submit, class: "btn-action" %>
         </div>

@@ -1,0 +1,80 @@
+<div class="container mb-5">
+  <h1 class="text-center title-card">What book whould you like to recap?</h1>
+  <br>
+  <%= simple_form_for :search, url: new_book_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search by title, author"
+    %>
+    <%= submit_tag "Search", class: "btn-action" %>
+  <% end %>
+  <br>
+  <br>
+  <% if params[:query].present? %>
+    <h1 class="text-center title-card">Books with recaps</h1>
+    <br>
+    <div class="cards">
+      <% @db_books.each do |book| %>
+        <%= link_to new_recap_path(book_id: book.id) do %>
+          <div class="card-book">
+            <div class="book-card__cover">
+              <div class="book-card__book">
+                <div class="book-card__book-front">
+                  <%= image_tag book.photo_url, class: "book-card__img" %>
+                </div>
+                <div class="book-card__book-back"></div>
+                <div class="book-card__book-side"></div>
+              </div>
+            </div>
+            <div class="card-info">
+              <h2><%= book.title %></h2>
+              <p><%= book.author %></p>
+            </div>
+          </div>
+        <%end%>
+      <%end%>
+    </div>
+    <br>
+    <br>
+    <h1 class="text-center title-card">More books ...</h1>
+    <br>
+    <div class="cards">
+      <% @api_books.each do |book| %>
+        <% photo_url = "https://books.google.com/books/content?id=#{book['id']}&printsec=frontcover&img=1&zoom=1&source=gbs_api" %>
+        <% title = book["volumeInfo"]["title"] %>
+        <% authors = book["volumeInfo"]["authors"] %>
+        <% if !authors.nil? %>
+          <% author = authors[0] %>
+        <% else %>
+          <% author = "No Author" %>
+        <%end%>
+        <% description = book["volumeInfo"]["description"] %>
+        <%= simple_form_for @book do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <%= f.hidden_field :title, value: title %>
+          <%= f.hidden_field :author, value: author %>
+          <%= f.hidden_field :description, value: description %>
+          <%= f.hidden_field :photo_url, value: photo_url %>
+        <div class="card-book">
+          <%= f.button :submit, "Create Recap" %>
+        <% end %>
+          <div class="book-card__cover">
+            <div class="book-card__book">
+              <div class="book-card__book-front">
+                <%= image_tag photo_url, class: "book-card__img" %>
+              </div>
+              <div class="book-card__book-back"></div>
+              <div class="book-card__book-side"></div>
+            </div>
+          </div>
+          <div class="card-info">
+            <h2><%= title %></h2>
+            <p><%= author %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
