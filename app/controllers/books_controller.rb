@@ -16,10 +16,10 @@ class BooksController < ApplicationController
     @search = params[:query]
     if @search.present?
       @db_books = Book.search_by_title_and_author(params[:query])
-      url = "https://www.googleapis.com/books/v1/volumes?q=#{@search}&projection=lite&orderBy=relevance&langRestrict=en&key=#{ENV['GOOGLE_API_KEY']}"
+      url = "https://www.googleapis.com/books/v1/volumes?q=#{@search}&projection=lite&maxResults=8&orderBy=relevance&langRestrict=en&key=#{ENV['GOOGLE_API_KEY']}"
       user_serialized = URI.open(url).read
       user = JSON.parse(user_serialized)
-      @api_books = user["items"][0..7]
+      @api_books = user["items"]
     end
     @book = Book.new(params[:book])
   end
