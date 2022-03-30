@@ -101,9 +101,16 @@
 
       <!--Should display "either all recaps except for the recap we are on OR No further recaps available. " -->
       <div class="mt-5 col-lg-12 col-sm-12">
-        <h3>More recaps like this</h3>
-        <% @recaps_current = Recap.where(book_id: @recap.book).filter { |recap| recap.id != @recap.id} %>
-        <% @recaps_current.each do |recap| %>
+        <% @recaps_like_this = Recap.where(book_id: @recap.book).filter { |recap| recap.id != @recap.id} %>
+        <% if @recaps_like_this.present? %>
+          <h3>More recaps like this.</h3>
+        <% else %>
+          <h3>This is the only recap for this book.</h3>
+          <%= link_to new_recap_path(book_id: @book_id) do %>
+            <button class="btn-action" type="submit">Write your own</button>
+          <% end %>
+        <% end %>
+        <% @recaps_like_this.each do |recap| %>
           <%= link_to recap, style:"text-decoration: none; color: black" do %>
             <div class="card-all my-3" style="flex-direction: row-reverse; justify-content: center; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
               <p><strong>Preview: </strong><%= recap.summary.split.first(40).join(" ") %>...</p>
