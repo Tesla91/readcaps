@@ -103,12 +103,14 @@
       <div class="mt-5 col-lg-12 col-sm-12">
         <% @recaps_like_this = Recap.where(book_id: @recap.book).filter { |recap| recap.id != @recap.id} %>
         <% if @recaps_like_this.present? %>
-          <h3>More recaps like this.</h3>
-        <% else %>
-          <h3>This is the only recap for this book.</h3>
+          <h3>Other recaps for this book</h3>
+        <% elsif !current_user&.already_recapped?(@book_id) %>
+          <h3>This is the only recap for this book</h3>
           <%= link_to new_recap_path(book_id: @book_id) do %>
             <button class="btn-action" type="submit">Write your own</button>
           <% end %>
+        <% else %>
+          <h3>This is the only recap for this book</h3>
         <% end %>
         <% @recaps_like_this.each do |recap| %>
           <%= link_to recap, style:"text-decoration: none; color: black" do %>
