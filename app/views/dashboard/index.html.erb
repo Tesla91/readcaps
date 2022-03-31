@@ -1,13 +1,21 @@
 <div class="row mb-5" style="margin-right: 15px;">
+
+  <%# Left pannel %>
   <div class="col-md-4">
     <div class="profile mt-4 justify-content-center">
+
+      <%# User avatar %>
       <% if current_user.avatar.attached? %>
         <%= image_tag current_user.avatar, class: "avatar" %>
       <% else %>
         <%= image_tag "default-avatar.png", class: "avatar"  %>
       <% end %>
+
+      <%# Greeting with Username %>
       <h2>Hi <%= current_user.first_name %>!</h2>
       <h2 style="color: #EB9C0A;">Your Dashboard</h2>
+
+      <%# Users average rating for reviews they have written %>
       <div class="dash-cards">
         <% @ratings = Rating.where(recap_id: @recaps) %>
         <p style="font-size: 40px; font-weight: bold; display: flex; flex-direction: column;"><%= @ratings.average("star") %>
@@ -15,6 +23,8 @@
         </p>
         <p>Your average rating</p>
       </div>
+
+      <%# The number of recaps the user has written %>
       <div class="dash-cards">
         <% @ratings = Rating.where(recap_id: @recaps) %>
         <p style="font-size: 40px; font-weight: bold;"><%= @recaps.count %></p>
@@ -23,8 +33,11 @@
     </div>
   </div>
 
+  <%# Tabs for user favorites and recaps. Not perfetly responsive %>
   <div class="col-md-8">
     <div class="tabs">
+
+      <%# All recaps that the user had favorited %>
       <div class="tab-2">
         <label for="tab2-1">Your favorites</label>
         <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
@@ -34,6 +47,8 @@
           </div>
         </div>
       </div>
+
+      <%# All recaps the user has created %>
       <div class="tab-2">
         <label for="tab2-2">Your recaps</label>
         <input id="tab2-2" name="tabs-two" type="radio">

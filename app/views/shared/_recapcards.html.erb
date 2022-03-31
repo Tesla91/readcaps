@@ -1,14 +1,23 @@
+<%# Cards for the Recaps %>
 <% @recaps.each do |recap| %>
   <%= link_to recap, style:"text-decoration: none; color: black", class: "recapcard" do %>
+
+    <%# Image url for background%>
     <img src="<%= recap.book.photo_url %>" class="card__image">
+
+    <%# Info in the tab and pop-up %>
     <div class="card__overlay">
       <div class= "card__header">
         <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+
+        <%# Avatar %>
         <% if recap.user.avatar.attached? %>
           <%= image_tag recap.user.avatar, class: "card__thumb" %>
         <% else %>
           <%= image_tag "default-avatar.png", class: "card__thumb"  %>
         <% end %>
+
+        <%# Title, Username, Rating %>
         <div class="card__header-text">
           <h2 class="card__title"><%= recap.title %></h2>
           <span class="card__status"><%= recap.user.username %>
@@ -20,6 +29,8 @@
           </span>
         </div>
       </div>
+
+      <%# Description %>
       <p class="card__description"><%= recap.summary.split.first(30).join(" ") %>...</p>
     </div>
   <%end%>

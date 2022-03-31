@@ -1,36 +1,56 @@
+<%# Navbar %>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
+
+    <%# readCaps logo linked to the home page %>
     <%= link_to root_path, class: "navbar-brand" do %>
       <h2 class="logo">read<em>Caps</em></h2>
     <% end %>
 
+    <%# All books search form %>
     <%= render "shared/searchform" %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <%# I dont think this code is needed.
+    #<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    #  <span class="navbar-toggler-icon"></span>
+    #</button> %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+
+        <%# User avatar dropdown menu if user is signed in%>
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
-            <li class="nav-item active">
-              <a class="nav-link" href="<%= dashboard_index_path %>"><i class="dashboard-icon far fa-heart" style="color: #F6AE2D;"></i></a>
-            </li>
-            <div id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%# Do we want this heart that takes you to the dashboard??
+            #<li class="nav-item active">
+              <a class="nav-link" href="<%= dashboard_index_path "><i class="dashboard-icon far fa-heart" style="color: #F6AE2D;"></i></a>
+            </li> %>
+
+            <%# Avatar button if user has an avatar if not standard avatar %>
+            <div role='button' id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.avatar.attached? %>
                 <%= image_tag current_user.avatar, class: "avatar dropdown-toggle" %>
               <% else %>
                 <%= image_tag "default-avatar.png", class: "avatar dropdown-toggle" %>
               <% end %>
             </div>
+
+            <%# Dropdown menu %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+              <%# Link to the curent users dashboard %>
               <%= link_to "Dashboard", dashboard_index_path, class: "dropdown-item" %>
+
+              <%# Link to add a new recap %>
               <%= link_to "Add new recap", new_book_path, class: "dropdown-item" %>
+
+              <%# Link to logout  %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
+
+          <%# Log in button if not logged in %>
           <li class="nav-item">
             <%= link_to new_user_session_path do %>
               <button class="btn-action" type="submit">Log in</button>

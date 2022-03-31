@@ -1,30 +1,42 @@
-<% @favorites.each do |f| %>
+<% @favorites.each do |favorite| %>
   <div class="fave-card-wrap">
-    <%= link_to favorite_path(f), method: :delete, data: { confirm: "Are you sure you want to remove this recap from your library?"} do %>
+
+    <%# Link to remove recap from favorite list %>
+    <%= link_to favorite_path(favorite), method: :delete, data: { confirm: "Are you sure you want to remove this recap from your library?"} do %>
       <i class="delete-icon fas fa-trash" style="color: #10BCC2; font-size: 15px;"></i>
     <% end %>
-    <%= link_to f.recap, style:"text-decoration: none; color: black", class: "recapcard" do %>
-      <img src="<%= f.recap.book.photo_url %>" class="card__image">
+    <%= link_to favorite.recap, style:"text-decoration: none; color: black", class: "recapcard" do %>
+
+      <%# Image url for background %>
+      <img src="<%= favorite.recap.book.photo_url %>" class="card__image">
+
+      <%# Info in the tab and pop-up %>
       <div class="card__overlay">
         <div class= "card__header">
           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
-          <% if f.recap.user.avatar.attached? %>
-            <%= image_tag f.recap.user.avatar, class: "card__thumb" %>
+
+          <%# Avatar %>
+          <% if favorite.recap.user.avatar.attached? %>
+            <%= image_tag favorite.recap.user.avatar, class: "card__thumb" %>
           <% else %>
             <%= image_tag "default-avatar.png", class: "card__thumb"  %>
           <% end %>
+
+          <%# Title, Username, Rating %>
           <div class="card__header-text">
-            <h2 class="card__title"><%= f.recap.title %></h2>
-            <span class="card__status"><%= f.recap.user.username %>
-              <% if f.recap.avg_rating == 0 %>
+            <h2 class="card__title"><%= favorite.recap.title %></h2>
+            <span class="card__status"><%= favorite.recap.user.username %>
+              <% if favorite.recap.avg_rating == 0 %>
                 <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i>0.0
               <% else %>
-                <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i><%= f.recap.avg_rating.round(1) %>
+                <i class="fas fa-star" style="color: #F6AE2D; margin-right: 8px;"></i><%= favorite.recap.avg_rating.round(1) %>
               <% end %>
             </span>
           </div>
         </div>
-        <p class="card__description"><%= f.recap.summary.split.first(30).join(" ") %>...</p>
+
+        <%# Description %>
+        <p class="card__description"><%= favorite.recap.summary.split.first(30).join(" ") %>...</p>
       </div>
     <%end%>
   </div>
