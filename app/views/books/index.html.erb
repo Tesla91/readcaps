@@ -1,6 +1,6 @@
 <div class="container mb-5">
 
-  <!-- Showing either all books or only the books from the user search -->
+  <%# Showing either all books or only the books from the user search %>
   <% if params[:query].present? %>
     <h1 class="text-center title-card">Your results for your search</h1>
   <% else %>
@@ -9,13 +9,13 @@
 
   <br>
 
-  <!-- Book cards -->
+  <%# Book cards %>
   <div class="cards">
     <% books_sorted = @books.order('title ASC')%>
     <% books_sorted.each do |book| %>
       <%= link_to book_recaps_path(book), class: "a", style: "color: $black;" do %>
 
-        <!-- Interactive cover when hovered -->
+        <%# Interactive cover when hovered %>
         <div class="card-book">
           <div class="book-card__cover">
             <div class="book-card__book">
@@ -27,7 +27,7 @@
             </div>
           </div>
 
-          <!-- Title and Author -->
+          <%# Title and Author %>
           <div class="card-info">
             <h2><%= book.title %></h2>
             <p><%= book.author %></p>
