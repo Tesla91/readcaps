@@ -2,15 +2,15 @@
   <div class="row justify-content-center">
     <div class="form">
 
-      <!-- Photo of the book the user is recapping -->
+      <%# Photo of the book the user is recapping %>
       <div class="card_img text-center">
         <%= image_tag @book.photo_url %>
       </div>
 
-      <!-- Titlt with name of book and author -->
+      <%# Titlt with name of book and author %>
       <h2 style="padding: 12px;">Add a new Recap for <%= @book.title %> by <%= @book.author %>.</h2>
 
-      <!-- Form to create a new recap -->
+      <%# Form to create a new recap %>
       <%= simple_form_for([@recap])  do |f| %>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>

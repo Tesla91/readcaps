@@ -1,32 +1,32 @@
-<!-- Links above banner -->
+<%# Links above banner %>
 <div class="home-links mb-3">
   <ul class="nav justify-content-center">
 
-    <!-- Link to all recaps -->
+    <%# Link to all recaps %>
     <li class="nav-item">
       <%= link_to "All Recaps", recaps_all_path, class: "nav-link" %>
     </li>
 
-    <!-- Link to top rated recaps -->
+    <%# Link to top rated recaps %>
     <li class="nav-item">
       <%= link_to "Top Recaps", recaps_all_path(top: 'yes'), class: "nav-link" %>
     </li>
 
-    <!-- Link to user dashboard if logged in -->
+    <%# Link to user dashboard if logged in %>
     <% if user_signed_in? %>
       <li class="nav-item">
         <%= link_to "My Dashboard", dashboard_index_path, class: "nav-link" %>
       </li>
     <% end %>
 
-    <!-- Link to new recap page -->
+    <%# Link to new recap page %>
     <li class="nav-item">
       <%= link_to "New Recap", new_book_path, class: "nav-link" %>
     </li>
   </ul>
 </div>
 
-<!-- Banner -->
+<%# Banner %>
 <div class="banner" style="background-image: url(<%= image_url "banner.png" %>);">
   <div class="container-home">
     <h2>Welcome to</h2>
@@ -37,13 +37,13 @@
   </div>
 </div>
 
-<!-- Newest recaps carousel, not responsive also photo a tad too big and books look blurry -->
+<%# Newest recaps carousel, not responsive also photo a tad too big and books look blurry %>
 <div class= "container p-6 my-4">
   <h1 class="text-center mb-2">Latest recaps</h1>
   <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
     <div class="carousel-inner">
 
-      <!-- First row in carousel shows the last 5 recaps that were created -->
+      <%# First row in carousel shows the last 5 recaps that were created %>
       <div class="carousel-item active">
         <div class= "container p-6 my-4">
           <div class= "row fixed-height">
@@ -55,7 +55,7 @@
         </div>
       </div>
 
-      <!-- Second row in carpusel shows the previous 5 recaps that were created -->
+      <%# Second row in carpusel shows the previous 5 recaps that were created %>
       <div class="carousel-item">
         <div class= "container p-6 my-4">
           <div class= "row fixed-height">
@@ -70,15 +70,15 @@
   </div>
 </div>
 
-<!--Gold Silver Bronze medals for top rated recappers, should make these clickable to get redirected to a user summary like page -->
+<%#Gold Silver Bronze medals for top rated recappers, should make these clickable to get redirected to a user summary like page %>
 <h1 class="text-center mb-2">Ready, Set, Gold!</h1>
 <h5 class="text-center mb-2">Our best rated read<em>Cappers</em></h5>
 
-<!--Best rated User through recaps  -->
+<%#Best rated User through recaps  %>
 <div class="ranking-cards">
   <div class = "best-ranked justify-content-center">
 
-    <!-- User ranked in 1st place -->
+    <%# User ranked in 1st place %>
     <div class="first">
       <i class="fas fa-solid fa-award" style="color: #F6AE2D; font-size: 50px;"></i>
       <%= @top_users[0].username %>
@@ -91,7 +91,7 @@
       <p style="font-size: 20px; font-weight: bold; display: flex; flex-direction: column;"><%= @top_users[0].avg_received_ratings%></p>
     </div>
 
-    <!-- User ranked in 2nd place -->
+    <%# User ranked in 2nd place %>
     <div class="second">
       <i class="fas fa-solid fa-award" style="color: silver; font-size: 50px;"></i>
       <%= @top_users[1].username %>
@@ -104,7 +104,7 @@
       <p style="font-size: 20px; font-weight: bold; display: flex; flex-direction: column;"><%= @top_users[1].avg_received_ratings%></p>
     </div>
 
-    <!-- User ranked in 3rd place -->
+    <%# User ranked in 3rd place %>
     <div class="third">
       <i class="fas fa-solid fa-award" style="color: #d6b4a4; font-size: 50px;"></i>
       <%= @top_users[2].username %>
@@ -122,7 +122,7 @@
 <br>
 <br>
 
-<!-- Top author cards. Need to decide if we are keeping this and if we are we need to give it functionality -->
+<%# Top author cards. Need to decide if we are keeping this and if we are we need to give it functionality %>
 <div class= "container p-6 my-4">
   <h1 class="text-center mb-6">Top Authors</h1>
   <div class = "container">

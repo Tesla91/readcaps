@@ -1,16 +1,16 @@
-<!-- Edit page for recaps, might remove compleatly in place of inline editing -->
+<%# Edit page for recaps, might remove compleatly in place of inline editing %>
 <div class="container pt-2 pb-5 w-50">
   <div class="row justify-content-center">
     <div class="form">
       <h2 style="padding: 12px;">Change this Recap:</h2>
 
-      <!-- Edit form for recaps -->
+      <%# Edit form for recaps %>
       <%= simple_form_for([@book, @recap])  do |f| %>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
         <div class="form-inputs">
 
-          <!-- Option to choose different book but only from db list -->
+          <%# Option to choose different book but only from db list %>
           <p><%= f.label "Choose your book*"%></p>
           <% if @book_id.present?  %>
             <%= f.collection_select :book_id, Book.all, :id, :title, :selected => @book_id, :include_blank => true %>
@@ -18,7 +18,7 @@
             <%= f.collection_select :book_id, Book.all, :id, :title, :include_blank => true %>
           <%end%>
 
-          <!-- Other parts open for edit -->
+          <%# Other parts open for edit %>
           <%= f.input :title %>
           <%= f.input :summary %>
           <%= f.input :keypoint, label: "Key Points" %>

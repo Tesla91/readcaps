@@ -1,4 +1,4 @@
-<!-- Search for for all of the books in the database -->
+<%# Search for for all of the books in the database %>
 <%= simple_form_for :search, url: books_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],

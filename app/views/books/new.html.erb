@@ -2,7 +2,7 @@
   <h1 class="text-center title-card">What book whould you like to recap?</h1>
   <br>
 
-  <!-- Search form to find a book to recap -->
+  <%# Search form to find a book to recap %>
   <%= simple_form_for :search, url: new_book_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
@@ -17,7 +17,7 @@
 
   <% if params[:query].present? %>
 
-    <!-- Books from the db that match search -->
+    <%# Books from the db that match search %>
     <h1 class="text-center title-card">Books with recaps</h1>
 
     <br>
@@ -47,15 +47,15 @@
     <br>
     <br>
 
-    <!-- First 8 books from the google books api that meet the search -->
+    <%# First 8 books from the google books api that meet the search %>
     <h1 class="text-center title-card">More books ...</h1>
 
     <br>
-    
+
     <div class="cards">
       <% @api_books.each do |book| %>
 
-        <!-- Assigning all the necessary parameters from the api -->
+        <%# Assigning all the necessary parameters from the api %>
         <% photo_url = "https://books.google.com/books/content?id=#{book['id']}&printsec=frontcover&img=1&zoom=1&source=gbs_api" %>
         <% title = book["volumeInfo"]["title"] %>
         <% authors = book["volumeInfo"]["authors"] %>
@@ -66,7 +66,7 @@
         <%end%>
         <% description = book["volumeInfo"]["description"] %>
 
-        <!-- Hidden form to add the chosen book to the database -->
+        <%# Hidden form to add the chosen book to the database %>
         <%= simple_form_for @book do |f| %>
           <%= f.error_notification %>
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
