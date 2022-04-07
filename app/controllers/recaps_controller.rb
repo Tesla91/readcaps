@@ -10,6 +10,7 @@ class RecapsController < ApplicationController
     @recap = Recap.find(params[:id])
     @rating = Rating.new
     @favorite = Favorite.new
+    @book_id = Book.find(@recap.book_id)
   end
 
   def new
