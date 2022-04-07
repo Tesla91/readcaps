@@ -13,6 +13,7 @@ class BooksController < ApplicationController
   end
 
   def new
+    @random_books = Book.order('RANDOM()').limit(8)
     @search = params[:query]
     if @search.present?
       @db_books = Book.search_by_title_and_author(params[:query])

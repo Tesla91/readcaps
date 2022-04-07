@@ -1,24 +1,67 @@
 <div class="container mb-5">
-  <h1 class="text-center title-card">What book whould you like to recap?</h1>
-  <br>
 
-  <%# Search form to find a book to recap %>
-  <%= simple_form_for :search, url: new_book_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Search by title, author"
-    %>
-    <%= submit_tag "Search", class: "btn-action" %>
+  <% if !params[:query].present? %>
+
+  <%# Books from the db for them to choose from %>
+  <%# This will need to be changed to requested books once we have that functionality %>
+    <h1 class="text-center title-card">Recap a book that another user has recaped already</h1>
+    <h2 class="text-center title-card">or search for a different book</h2>
+
+    <%# Search form to find a book to recap %>
+    <div class="book__body">
+      <div class="booksearch__container">
+        <%= simple_form_for :search, url: new_book_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "booksearch__input",
+            placeholder: "What book whould you like to recap?"
+          %>
+        <% end %>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="cards">
+      <% @random_books.each do |book| %>
+        <%= link_to new_recap_path(book_id: book.id) do %>
+          <div class="card-book">
+            <div class="book-card__cover">
+              <div class="book-card__book">
+                <div class="book-card__book-front">
+                  <%= image_tag book.photo_url, class: "book-card__img" %>
+                </div>
+                <div class="book-card__book-back"></div>
+                <div class="book-card__book-side"></div>
+              </div>
+            </div>
+            <div class="card-info">
+              <h2><%= book.title %></h2>
+              <p><%= book.author %></p>
+            </div>
+          </div>
+        <%end%>
+      <%end%>
+    </div>
   <% end %>
-
-  <br>
-  <br>
 
   <% if params[:query].present? %>
 
     <%# Books from the db that match search %>
     <h1 class="text-center title-card">Books with recaps</h1>
+
+    <%# Search form to find a book to recap %>
+    <div class="book__body">
+      <div class="booksearch__container">
+        <%= simple_form_for :search, url: new_book_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "booksearch__input",
+            placeholder: "What book whould you like to recap?"
+          %>
+        <% end %>
+      </div>
+    </div>
 
     <br>
 

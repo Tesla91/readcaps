@@ -25,15 +25,23 @@
   font-size: 21px;
 }
 
-form.simple_form.search {
-  width: 600px;
-  display: flex;
+.book-search-form {
+  margin: -62px auto 22px auto;
+  position: relative;
 }
 
-input[type=text] {
-  width: 40vw;
-  margin-right: 5px;
-  background-color: $light-grey;
-  border-radius: 6px;
-  border-color: transparent;
+.book-search-form {
+  form.simple_form.search {
+    width: 600px;
+    display: flex;
+  }
+}
+.book-search-form {
+  input[type=text] {
+    width: 40vw;
+    margin-right: 5px;
+    background-color: $light-grey;
+    border-radius: 6px;
+    border-color: transparent;
+  }
 }
