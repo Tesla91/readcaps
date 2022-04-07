@@ -40,37 +40,13 @@
   </div>
 </div>
 
-<%# Newest recaps carousel, not responsive also photo a tad too big and books look blurry %>
+<%# Newest recaps carousel %>
 <div class= "container p-6 my-4">
-  <h1 class="text-center mb-2">Latest recaps</h1>
-  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-
-      <%# First row in carousel shows the last 5 recaps that were created %>
-      <div class="carousel-item active">
-        <div class= "container p-6 my-4">
-          <div class= "row fixed-height">
-            <div class="recapcards">
-              <% @recaps = Recap.order("created_at DESC").limit(5) %>
-              <%= render "shared/recapcards" %>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <%# Second row in carpusel shows the previous 5 recaps that were created %>
-      <div class="carousel-item">
-        <div class= "container p-6 my-4">
-          <div class= "row fixed-height">
-            <div class="recapcards">
-              <% @recaps = Recap.order("created_at DESC").offset(5).limit(5) %>
-              <%= render "shared/recapcards" %>
-            </div>
-          </div>
-        </div>
-      </div>
+  <h1 class="text-center mb-3">Latest recaps</h1>
+   <div class="recapcards">
+      <% @recaps = Recap.order("created_at DESC").limit(6) %>
+      <%= render "shared/recapcards" %>
     </div>
-  </div>
 </div>
 
 <%#Gold Silver Bronze medals for top rated recappers, should make these clickable to get redirected to a user summary like page %>
