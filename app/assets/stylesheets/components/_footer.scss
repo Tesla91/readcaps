@@ -13,6 +13,7 @@
 .footer-links {
   display: flex;
   align-items: center;
+  margin-right: 3px;
 }
 
 .footer-links a {
@@ -21,6 +22,7 @@
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
+  margin-right: 3px;
 }
 
 .footer-links a:hover {
@@ -29,4 +31,24 @@
 
 .footer .fa-heart {
   color: #D23333;
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+.footer-copyright {
+  display: flex;
+  align-items: center;
+}
+
+.footer .avatar-xs {
+  margin-right: 3px;
+}
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .footer {
+    padding: 0px 15px;
+  }
 }
