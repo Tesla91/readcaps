@@ -7,6 +7,8 @@
   margin-right: 80px;
   height: 50vh;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 .banner-info {
   margin-left: inherit;
@@ -62,4 +64,30 @@
 .container-home {
   margin-left: inherit;
   margin-top: inherit;
+}
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .banner {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .banner {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .banner {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
 }
