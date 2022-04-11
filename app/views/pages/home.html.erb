@@ -104,15 +104,19 @@
 <%# Top author cards. Need to decide if we are keeping this and if we are we need to give it functionality %>
 <div class= "container p-6 my-4">
   <h1 class="text-center mb-6">Top Authors</h1>
+  <% sorted_authors = @top_authors.sort_by { |author, count| -count } %>
   <div class = "container">
     <div class="cards-author">
-      <div class="author" style="background-image: url('<%= image_path("rowling.jpg") %>')">
-        <% sorted_authors = @top_authors.sort_by { |author, count| -count } %>
-        <h4><%= sorted_authors[0][0] %></h4>
-      </div>
+      <%= link_to books_path(query: sorted_authors[0][0]), style: "text-decoration: none;" do %>
+        <div class="author" style="background-image: url('<%= image_path("rowling.jpg") %>')">
+          <h4><%= sorted_authors[0][0] %></h4>
+        </div>
+      <% end %>
+      <%= link_to books_path(query: sorted_authors[1][0]), style: "text-decoration: none;" do %>
       <div class="author" style="background-image: url('<%= image_path("stieg_larsson.jpg") %>')">
         <h4><%= sorted_authors[1][0] %></h4>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
