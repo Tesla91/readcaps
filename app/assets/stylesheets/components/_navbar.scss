@@ -25,17 +25,7 @@
   font-size: 21px;
 }
 
-.book-search-form {
-  margin: -62px auto 22px auto;
-  position: relative;
-}
 
-.book-search-form {
-  form.simple_form.search {
-    width: 600px;
-    display: flex;
-  }
-}
 .book-search-form {
   input[type=text] {
     width: 40vw;
@@ -43,5 +33,67 @@
     background-color: $light-grey;
     border-radius: 6px;
     border-color: transparent;
+  }
+}
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .book-search-form {
+    margin: 0 auto 22px auto;
+    position: relative;
+  }
+
+  .book-search-form {
+    form.simple_form.search {
+      width: auto;
+      display: flex;
+    }
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .book-search-form {
+    margin: 0 auto 22px auto;
+    position: relative;
+  }
+
+  .book-search-form {
+    form.simple_form.search {
+      width: auto;
+      display: flex;
+    }
+  }
+}
+
+/*Medium devices (tablets, 768px to 1200px)*/
+@media (min-width: 768px) {
+  .book-search-form {
+    margin: -62px auto 22px auto;
+    position: relative;
+  }
+
+  .book-search-form {
+    form.simple_form.search {
+      width: auto;
+      display: flex;
+    }
+  }
+}
+
+/*Large devices (1200px and up)*/
+@media (min-width: 1200px) {
+  .book-search-form {
+    margin: -62px auto 22px auto;
+    position: relative;
+  }
+
+  .book-search-form {
+    form.simple_form.search {
+      width: 600px;
+      display: flex;
+    }
   }
 }
