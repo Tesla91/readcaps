@@ -112,25 +112,32 @@
   font-size: .8em;
 }
 
+@media ( min-width: 480px ) {  /** Größerer Viewport: Tablett **/
+	.recapcards {
+		display: grid;
+    grid-template-columns: 1fr 1fr;
+	}
+}
+
 /*Media Queries*/
 
 /*Smallest device*/
 @media (min-width: 100px) and (max-width: 575px) {
-  .allrecap-cards .recapcards {
+  .recapcards {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
-  .allrecap-cards .recapcards {
+  .recapcards {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 1200px) {
-  .allrecap-cards .recapcards {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  .recapcards {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 }
