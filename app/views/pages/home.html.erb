@@ -107,10 +107,11 @@
   <div class = "container">
     <div class="cards-author">
       <div class="author" style="background-image: url('<%= image_path("rowling.jpg") %>')">
-        <h4>J.K. Rowling</h4>
+        <% sorted_authors = @top_authors.sort_by { |author, count| -count } %>
+        <h4><%= sorted_authors[0][0] %></h4>
       </div>
       <div class="author" style="background-image: url('<%= image_path("stieg_larsson.jpg") %>')">
-        <h4>S. Larsson</h4>
+        <h4><%= sorted_authors[1][0] %></h4>
       </div>
     </div>
   </div>
