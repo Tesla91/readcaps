@@ -45,3 +45,71 @@
       }
   }
 }
+
+.book_search_form {
+  input[type=text] {
+    width: 40vw;
+  }
+}
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .book_search_form {
+    margin: 0 auto 22px auto;
+    position: relative;
+  }
+
+  .book_search_form {
+    form.simple_form.search {
+      width: auto;
+      display: flex;
+    }
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .book_search_form {
+    margin: 0 auto 22px auto;
+    position: relative;
+  }
+
+  .book_search_form {
+    form.simple_form.search {
+      width: auto;
+      display: flex;
+    }
+  }
+}
+
+/*Medium devices (tablets, 768px to 1200px)*/
+@media (min-width: 768px) {
+  .book_search_form {
+    margin: -76px auto 22px auto;
+    position: relative;
+  }
+
+  .book_search_form {
+    form.simple_form.search {
+      width: auto;
+      display: flex;
+    }
+  }
+}
+
+/*Large devices (1200px and up)*/
+@media (min-width: 1200px) {
+  .book_search_form {
+    margin: -76px auto 22px auto;
+    position: relative;
+  }
+
+  .book_search_form {
+    form.simple_form.search {
+      width: 600px;
+      display: flex;
+    }
+  }
+}

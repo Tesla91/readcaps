@@ -1,11 +1,12 @@
 <%# Search for for all of the books in the database %>
-<div class="book-search-form">
-  <%= simple_form_for :search, url: books_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Search by title, author"
-    %>
-    <%= submit_tag "Search", class: "btn-action" %>
-  <% end %>
+<div class="book_search_form">
+  <div class="booksearch__container">
+    <%= simple_form_for :search, url: books_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "booksearch__input",
+        placeholder: "Search by title, author"
+      %>
+    <% end %>
+  </div>
 </div>
