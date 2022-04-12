@@ -112,10 +112,10 @@
           <h4><%= sorted_authors[0][0] %></h4>
         </div>
       <% end %>
-      <%= link_to books_path(query: sorted_authors[1][0]), style: "text-decoration: none;" do %>
-      <div class="author" style="background-image: url('<%= image_path("stieg_larsson.jpg") %>')">
-        <h4><%= sorted_authors[1][0] %></h4>
-      </div>
+        <%= link_to books_path(query: sorted_authors[1][0]), style: "text-decoration: none;" do %>
+        <div class="author" style="background-image: url('<%= image_path("stieg_larsson.jpg") %>')">
+          <h4><%= sorted_authors[1][0] %></h4>
+        </div>
       <% end %>
     </div>
   </div>
