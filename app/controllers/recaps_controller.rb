@@ -59,6 +59,8 @@ class RecapsController < ApplicationController
     if params[:top] == "yes"
       recaps_all = Recap.all
       @recaps = recaps_all.select { |recap| recap.avg_rating > 3 }
+    elsif params[:query].present?
+      @books = Book.search_by_title_and_author(params[:query])
     else
       @recaps = Recap.all.order('title ASC')
     end

@@ -7,13 +7,13 @@ class Book < ApplicationRecord
 
   include PgSearch::Model
 
-  multisearchable against: [:title, :author]
+  multisearchable against: %i[title author]
 
   pg_search_scope :search_by_title_and_author,
-  against: [ :title, :author ],
-  using: {
-    tsearch: { prefix: true }
-  }
+                  against: %i[title author],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
   private
 
