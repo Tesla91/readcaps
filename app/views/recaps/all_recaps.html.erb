@@ -1,15 +1,39 @@
+<%# All recaps search form %>
+<%= render "shared/searchform" %>
+
 <div class= "container p-6 mb-4">
 
-  <%# Show highest rated recaps if user clicked the button from home page if not all recaps %>
+  <%# Show highest rated recaps if user clicked the button from home page %>
   <% if params[:top] == "yes" %>
     <h1 class="text-center">Highest Rated Recaps:</h1>
-  <% else %>
-    <h1 class="text-center">All Recaps:</h1>
-  <% end %>
-  <br>
-  <div class="allrecap-cards">
+    <br>
+    <div class="allrecap-cards">
     <div class="recapcards">
       <%= render "shared/recapcards" %>
     </div>
-  </div>
+
+  <%# Show all recaps that match the search %>
+  <% elsif params[:query].present? %>
+    <h1 class="text-center">All Recaps for your search:</h1>
+    <br>
+    <div class="allrecap-cards">
+      <div class="recapcards">
+        <% @books.each do |book| %>
+          <% @recaps = Recap.where(book: book.id) %>
+            <%= render "shared/recapcards" %>
+        <% end %>
+      </div>
+    </div>
+
+  <%# Show all recaps %>
+  <% else %>
+    <h1 class="text-center">All Recaps:</h1>
+    <br>
+    <div class="allrecap-cards">
+      <div class="recapcards">
+        <%= render "shared/recapcards" %>
+      </div>
+    </div>
+  <% end %>
+
 </div>

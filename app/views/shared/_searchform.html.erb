@@ -1,7 +1,7 @@
-<%# Search for for all of the books in the database %>
+<%# Search for for all of the recaps in the database %>
 <div class="book_search_form">
   <div class="booksearch__container">
-    <%= simple_form_for :search, url: books_path, method: :get do %>
+    <%= simple_form_for :search, url: recaps_all_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
         class: "booksearch__input",
