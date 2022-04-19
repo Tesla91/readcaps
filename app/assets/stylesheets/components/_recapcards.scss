@@ -134,10 +134,23 @@
   }
 }
 
+@media (min-width: 768px) {
+  .allrecap-cards .recapcards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 992px) {
+  .allrecap-cards .recapcards {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 1200px) {
   .allrecap-cards .recapcards {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   }
   .recapcards {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
